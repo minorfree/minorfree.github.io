@@ -10,7 +10,7 @@ categories: media
 
 ## MathJax
 
-How's about this $a$ and $$a+b$$. Add one moree stuff $a$
+How's about this $a$ and $$a+b$$. Add one moree stuff $$a$$. \(c+d+e\)
 
 
 You can enable MathJax by setting `mathjax: true` on a page or globally in the `_config.yml`. Some examples:
