@@ -15,4 +15,10 @@ How's about the number of edges of $$K_r$$-minor-free graphs? This is a very cha
 ---
 
  $$ x+3+4 $$ 
+ 
+ 
  $$ e^{i\theta}=\cos(\theta)+i\sin(\theta) $$
+ 
+ relates the  complex exponential function to the trigonometric functions.
+
+$$ e^{i\theta}=\cos(\theta)+i\sin(\theta) $$
