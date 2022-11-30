@@ -13,11 +13,11 @@ How's about the number of edges of $$K_r$$-minor-free graphs? This is a very cha
 **Theorem 1:** Any $$K_r$$-minor-free graphs with $$n$$ vertices has at most $$O(r\sqrt{\log r})\cdot n$$ edges. 
 
 ---
-This is strange, and I don't know why. $$ x+3+4 $$ 
- 
- 
- $$ e^{i\theta}=\cos(\theta)+i\sin(\theta) $$
- 
- relates the  complex exponential function to the trigonometric functions.
+This is strange, and I don't know why. 
 
-$$ e^{i\theta}=\cos(\theta)+i\sin(\theta) $$
+$$ x+3+4 $$ 
+
+I need to have a line in between:
+$$ x+3+4 $$ 
+
+
