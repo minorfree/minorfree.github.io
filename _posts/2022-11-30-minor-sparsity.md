@@ -5,6 +5,9 @@ layout: post
 categories: media
 ---
 
+\\(\mathrm{Pr}[C exists]\\) vs  \\(\mathrm{Pr}[C \mbox{ exists }]\\) 
+
+
 Planar graphs are sparse: any planar graph with \\(n\\) vertices has at most \\(3n-6\\) edges. A simple corollary of this sparsity is that planar graphs are \\(6\\)-colorable. There is simple and beautiful proof based on the Euler formula, which can easily be exteded to bounded genus graphs, a more general case: any graph embedddable in orientable surfaces of genus \\(g\\) with \\(n\\) vertices has at most \\(3n + 6g-6\\) edges.
 
 How's about the number of edges of \\(K_r\\)-minor-free graphs? This is a very challenging question. A reasonable speculation is \\(O(r)\cdot n\\): a disjoint union of \\(n/(r-1)\\) copies of \\(K_{r-1}\\) excludes a \\(K_r\\) minor and has \\(\Theta(r)\cdot n\\) edges. But this isn't the case. And surprisingly, the correct bound is \\(O(r\sqrt{\log r})n\\), which will be the topic of this post.
@@ -205,14 +208,14 @@ Fixed such a partition of  \\( \vert V(H) \vert \\), denoted by \\(\mathcal{P}\\
 
 where the product and sum is over all unordered pairs \\((i,j)\\). This implies that:
 
- $$ \mathrm{Pr}[\mathcal{C} \mbox{ exists}] \leq k^k \cdot e^{-\sum_{(i,j)}2^{-n_i\cdot n_j}} $$ 
+$$ \mathrm{Pr}[\mathcal{C} \mbox{ exists}] \leq k^k \cdot e^{-\sum_{(i,j)}2^{-n_i\cdot n_j}} $$ 
 
 We now estimate \\(\sum_{(i,j)}2^{-n_i\cdot n_j}\\). By arithmetic–geometric mean inequality,
  $$ \sum_{(i,j)}2^{-n_i\cdot n_j}\geq {s \choose 2}\left(\prod_{(i,j)}2^{-n_i\cdot n_j}\right)^{1/{s\choose 2}} \geq {s \choose 2} \left(2^{-\sum_{(i,j)}n_i\cdot n_j}\right)^{1/{s\choose 2}} $$ 
 
 Observe that \\(\sum_{(i,j)}n_i\cdot n_j\\) is the number of edges in a complete s-partite graph with \\(k\\) vertices. Thus,  \\(\sum_{(i,j)}n_i\cdot n_j\leq k^2/2\\) and hence:
 
- $$ \sum_{(i,j)}2^{-n_i\cdot n_j} \geq {s \choose 2} 2^{-k^2/s^2} $$ 
+$$ \sum_{(i,j)}2^{-n_i\cdot n_j} \geq {s \choose 2} 2^{-k^2/s^2} $$ 
 
 Thus, 
 
@@ -223,7 +226,7 @@ By chooosing \\(s = ck/(\sqrt{\log k})\\) for some big enough constant \\(c\\), 
 
 
 
-***-
+***
 
 
 
