@@ -1,18 +1,18 @@
----
+***
 title:  "Sparsity of minor-free graphs"
 mathjax: true
 layout: post
 categories: media
----
+***
 
 Planar graphs are sparse: any planar graph with \\(n\\) vertices has at most \\(3n-6\\) edges. A simple corollary of this sparsity is that planar graphs are \\(6\\)-colorable. There is simple and beautiful proof based on the Euler formula, which can easily be exteded to bounded genus graphs, a more general case: any graph embedddable in orientable surfaces of genus \\(g\\) with \\(n\\) vertices has at most \\(3n + 6g-6\\) edges.
 
 How's about the number of edges of \\(K_r\\)-minor-free graphs? This is a very challenging question. A reasonable speculation is \\(O(r)\cdot n\\): a disjoint union of \\(n/(r-1)\\) copies of \\(K_{r-1}\\) excludes a \\(K_r\\) minor and has \\(\Theta(r)\cdot n\\) edges. But this isn't the case. And surprisingly, the correct bound is \\(O(r\sqrt{\log r})n\\), which will be the topic of this post.
 
----
+***
 **Theorem 1:** Any \\(K_r\\)-minor-free graphs with \\(n\\) vertices has at most \\(O(r\sqrt{\log r})\cdot n\\) edges. 
 
----
+***
 
 The bound in Theorem 1 is tight; see a lower bound  in Section 4. The sparsity bound, which is the ratio of the number of edges to the number of vertices,  \\(O(r\sqrt{\log r})\\) was first discovered by Kostochka [4]; the proof is quite non-trivial, so as other follow-up proofs. A short proof was just found recently by Alon, Krivelevich, and Sudakov  (AKS) [1], which I will present here in Section 3. See the bibliographical notes section for a detailed discussion of other proofs.
 
@@ -22,10 +22,10 @@ The goal of this post isn't just to present the proof of Theorem 1. At various p
 
 I  learn a beatiful proof of the following theorem in the graph theory book of Reinhard Diestel (Proposition 7.2.1. [3]).
 
----
+***
 **Theorem 2:** Any \\(K_r\\)-minor-free graphs with \\(n\\) vertices has at most \\(2^{r-1}\cdot n\\) edges. 
 
----
+***
 Proof:  Let \\(G\\) be a \\(K_r\\)-minor-free graph with \\(n\\) vertices. The proof is by induction on \\(|V(G)| + r\\). If there is a vertex \\(v\\) of degree at most \\(2^{r-1}\\), then by removing \\(v\\) and applying the induction hypothesis, we are done. Now consider the case where every vertex has degree more than \\(2^{r-1}$; let \\(v\\) be such a vertex. The key idea is to find an edge \\((u,v)\\) such that \\(u\\) and \\(v\\) share only a few neighbors. We then contract \\((u,v)\\) and apply induction.
 
 >Claim 1: There is a neighbor \\(u\\) of \\(v\\) such that  \\(|N_G(v)\cap N_G(u)| \leq 2^{r-1}-1\\).
@@ -34,7 +34,7 @@ Suppose that the claim holds, then let \\(G'\\) be the graph obtained from \\(G\
 
 We now turn to Claim 1. Let \\(H = G[N_G(v)]\\) be the sugraph induced by \\(N_G(v)\\). Then \\(H\\) is \\(K_{r-1}\\)-minor-free. By induction, \\(|E(H)| \leq 2^{r-2}\cdot |V(H)|\\).  Thus, there exists a vertex \\(u\in H\\) such that \\(d_H(u) \leq 2|E(H)|/|V(H)| \leq 2^{r-1}\\). This gives \\(|N_G(v)\cap N_G(u)| \leq d_H(u)-1 =  2^{r-1}-1\\).  
 
----
+***
 
 The exponential term \\(2^{r-1}\\) in the above theorem is due to a loss of a factor of \\(2\\) in each step of the induction by using \\(d_H(v) \leq 2(|E(H)|/|V(H)|)\\).
 
@@ -43,10 +43,10 @@ The exponential term \\(2^{r-1}\\) in the above theorem is due to a loss of a fa
 
 The goal of this section is to improve the exponential bound in Theorem 2 to a polynomial bound.
 
----
+***
 **Theorem 3:** Any \\(K_r\\)-minor-free graphs with \\(n\\) vertices has at most \\(O(r^2)\cdot n\\) edges. 
 
----
+***
 
 
 
@@ -58,10 +58,10 @@ Proving Theorem 3 requires a deeper understanding of the structures of minor-fre
 
 Let \\(\varepsilon(G)  = |E(G)|/|V(G)|\\) and \\(\delta(G)\\) be the minimum degree of \\(G\\). Fist, we show that \\(G\\) contains a minor of size \\(\leq 2d\\) and minimum degree at least \\(d\\).  
 
----
+***
 **Lemma 1:** Let \\(G\\) be any graph of \\(n\\) vertices such that \\(|E(G)|\geq d\cdot n\\). Then \\(G\\) has a minor \\(H\\) such that \\(\delta(H)\geq d \geq |V(H)|/2\\).
 
----
+***
 Proof: Let \\(K\\) be a *minimal* minor of \\(G\\) such that \\(\varepsilon(K)\geq d\\). The minimality implies two properties:
 
 1. \\(|N_K(u)\cap N_K(v)|\geq d\\) for every edge \\((u,v)$; otherwise, we can contract edge \\((u,v)\\).
@@ -69,17 +69,17 @@ Proof: Let \\(K\\) be a *minimal* minor of \\(G\\) such that \\(\varepsilon(K)\g
 
 Then \\(H = K[N_K(x)]\\) satisfying the lemma.
 
----
+***
 
 Next, we show that \\(H\\) has a highly connected subgraph.
 
----
+***
 **Lemma 2:** Let \\(H\\) be such that \\(\delta(H)\geq d \geq |V(H)|/2\\). Then \\(H\\) has a subgraph \\(K\\) that has (i)  \\(|V(K)|\leq 2d\\) and (ii) \\(K\\) is \\(d/3\\)-vertex connected.
 
----
+***
 Proof: If \\(H\\) is \\(d/3\\)-vertex connected, then \\(K  = H\\). Otherwise, there is a set \\(S\subseteq V(H)\\) of size at most \\(d/3\\) such that \\(H\setminus S\\) has at least two connected components. Let \\(K\\) be the smallest connected component of \\(H\\). Then \\(|V(K)| \leq |V(H)|/2\leq d\\) and \\(\delta(K)\geq \delta(H) - |S| \geq 2d/3\\).  Thus, for every \\(u\not= v\in K\\), \\(u\\) and \\(v\\) must share at least \\(|N_K(u)| + |N_K(v)| - |V(K)| \geq d/3\\) neighbors in \\(K\\). That is, \\(K\\) is \\(d/3\\)-vertex connected.
 
----
+***
 
 **A detour: diameter of highly connected graphs.** Graph \\(K\\) in Lemma 2 has another nice property: its diameter is at most \\(7\\).  To see this, suppose that there is a shortest path  \\(\{v_0,v_1,\ldots,v_8, \ldots\}\\) of length at least \\(8\\). Consider three vertices \\(v_1,v_4, v_7\\). Then \\(N_{K}(v_1),N_{K}(v_4), N_{K}(v_7)\\) are pairwise disjoint. As \\(K\\) is \\(d/3\\)-connected, \\(\delta(K)\geq 3\\). Thus, \\(|N_{K}(v_1)\cup N_{K}(v_4) \cup N_{K}(v_7)|\geq 3(d/3+1) > d\geq V(K)\\), a contradiction. We will use the same kind of arguments in several proofs below.
 
@@ -87,10 +87,10 @@ Proof: If \\(H\\) is \\(d/3\\)-vertex connected, then \\(K  = H\\). Otherwise, t
 
 We now construct a minor of size \\(\Theta(\sqrt{d})\\) for graph \\(K\\) in Lemma 2. We do so by showing that for any given \\(p \leq d/40\\) distinct pairs of vertices \\(\{(s_1,t_1, \ldots, (s_p,t_p)\}\\) in \\(K\\) (two pairs might share the same vertex), then there are \\(p\\) internally vertex-disjoint paths connecting them (Lemma 3). (Two paths are internally vertex-disjoint if they can only share endpoints.)  Then one can construct a minor of size \\(\sqrt{d/40}\\) by picking an arbitrary set \\(R\\) of \\(\sqrt{d/40}\\) vertices, and connect all pairs of vertices in \\(R\\) using disjoint paths in Lemma 3, which implies Theorem 3.
 
----
+***
 **Lemma 3:** Let \\(\mathcal{T} = \{(s_1,t_1, \ldots, (s_p,t_p)\}\\) be any \\(p \leq d/40\\) distinct pairs of vertices in \\(K\\) (in Lemma 2). Then there are \\(p\\) internally vertex-disjoint paths connecting the all pairs in \\(\mathcal{T}\\).
 
----
+***
 Proof: Let \\(\mathcal{P}\\) be a set of internally vertex-disjoint paths, each of of length at most \\(10\\), that connects a maximal number of pairs in \\(\mathcal{T}\\). Subject to the pairs connected by \\(\mathcal{P}\\), we choose \\(\mathcal{P}\\) such that the total number of edges of paths in \\(\mathcal{P}\\) is minimal. If \\(\mathcal{P}\\) connects every pair, we are done. Otherwise, w.l.o.g, we assume that \\(s_1\\) and \\(t_1\\) are not connected by \\(\mathcal{P}\\).  
 
 Let \\(K^-\\) be obtained from \\(K\\) be removing all vertices in \\(\mathcal{P}\\), except \\(s_1\\) and \\(t_1\\), from \\(K\\).  Observe that the total number of vertices in \\(\mathcal{P}\\) is at most \\(11\cdot p = 11d/40 < d/3\\). Since \\(K\\) is \\(d/3\\)-vertex-connected, \\(K^-\\) is connected.
@@ -105,7 +105,7 @@ Suppose the claim is not true, then we can shortcut \\(P\\) via \\(v\\) to get a
 Note that \\(\delta(K)\geq d/3\\) as it is \\(d/3\\)-connected. By Claim 2, \\(\delta(K^-)\geq \delta(K) -3\cdot p \geq d/3 - 3d/30 \geq d/4\\). The same argument in the detour above implies that \\(K^-\\) has diameter at most \\(10\\). Thus, there is a path of length at most \\(10\\) from \\(s_1\\) to \\(t_1\\) in \\(K^-\\), contradicting the maximality of \\(\mathcal{P}\\).
 
 
----
+***
 
 
 
@@ -139,29 +139,29 @@ Notation: for a given set \\(S\subseteq V\\) in a graph \\(G = (V,E)\\), denoted
 
 We construct a set of subgraphs \\(C_1,C_2,\ldots, C_h\\) realizing a \\(K_h\\)-minor of \\(K\\), for \\(h = d/(c_1 \sqrt{\log d})\\), in \\(h\\) iterations as follows.
 
----
+***
  Initially, \\(H_0 = K, B_0 = \emptyset\\). 
 
 > In \\(i\\)-th iteration, \\(i\geq 1\\), we find a set \\(S_i\\) of at most \\(c_0\sqrt{\log d}\\) vertices s.t (a) \\(|B_{H_{i-1}}(S_i)| \leq 2de^{-c_0\sqrt{\log d}/8}\\) and (b) \\(S_i\\) avoids all the bad sets \\(B_0,B_1,\ldots, B_{i-1}\\). Next, let \\(C_i\\) be obtained by adding shortest paths from an arbitrary vertex \\(v\in S_i\\) to every other vertex in \\(S_i\setminus \{v\}\\), and \\(B_i= B_{H_{i-1}}(S_i)\\). Then, we define \\(H_i = H_{i-1}\setminus V(C_i)\\) for the next iteration.
 
 Finally, output  \\(C_1,C_2,\ldots, C_h\\).
 
----
+***
 
  To show the correctness of the algorithm, we only have to show that the set \\(S_i\\) at iteration \\(i\\) exists, for some choices of \\(1\ll c_0 \ll c_1\\). If so, by the discussion above, \\(C_1,C_2,\ldots, C_h\\) form a \\(K_h\\)-minor of \\(K\\), and hence, of \\(G\\).
  
 First, we show that \\(H_i\\) has high connectivity and \\(C_i\\) has size \\(O(c_0\sqrt{\log d})\\).
 
 
----
+***
 **Lemma 4:** For every \\(i\geq 1\\),  \\(|V(C_i)|\leq 22 c_0\sqrt{\log d}\\) and  \\(H_i\\) is \\(d/4\\)-vertex connected when \\(c_1 = 12c_0\\).
 
----
+***
 Proof: We prove by induction. Since \\(H_{i-1}\\) is \\(d/4\\)-connected and \\(|V(H_i)|\leq 2d\\), the diameter of \\(H_{i-1}\\) is at most \\(22\\). As we add at most \\(c_0\sqrt{\log d}\\) shortest paths to \\(S_i\\), \\(|V(C_i)|\leq 22   c_0\sqrt{\log d}\\).
 
 Observe that \\(\sum_{j=1}^{i}|V(C_j)|\leq c_0\sqrt{\log d}\cdot h= c_0\sqrt{\log d} \cdot d/(c_1\sqrt{\log d}) = d/12\\). Since \\(K\\) is \\(d/3\\)-vertex connected, \\(H_i\\) is \\(d/3-d/12 = d/4\\) vertex connected.
 
----
+***
 
 Now we show the existence of \\(S_i\\). Let \\(S_i\\) be otabined by choosing each vertex of \\(H_{i-1}\\) with probability \\(c_0\sqrt{\log d}/(2d)$; the expected size of \\(S_i\\) is a most \\(c_0\sqrt{\log d}\\). By Lemma 4, every vertex \\(v\in H_{i-1}\\) has degree at least \\(d/4\\). Thus, \\(\mathrm{Pr}[v\in B_{i}]\leq (1-c_0\sqrt{\log d}/(2d))^{d/4}\sim e^{-c_0\sqrt{\log d}/8}\\). In particular, \\(|\mathbb{E}[B_i]| \leq  (2d)e^{-c_0\sqrt{\log d}/8}\\).  
 
@@ -179,10 +179,10 @@ By union bound, the probability that \\(\mathrm{Pr}[S_i\subseteq B_j]\\) for som
 In this section, we show that for any \\(n\\) and \\(r\\) such that \\(n \gg r\sqrt{\log r}\\), there exists a graph \\(G\\) with \\(n\\) vertices and \\(\Theta(n\cdot r\sqrt{\log r})\\) edges such that \\(G\\) has no \\(K_{r}\\) minor. The key idea of the construction is Theorem 4 below. 
 
 
----
+***
 **Theorem 4:** There exists a graph \\(H\\) with \\(k\\) vertices and \\(\Theta(k^2)\\) edges such that \\(H\\) has no \\(K_s\\)-minor where \\(s = ck/(\sqrt{\log k})\\) for some constant \\(c\\).
 
----
+***
 
 Theorem 4 implies a sparsity lower bound \\(\Omega(r\sqrt{\log r})\\) as follows. Let \\(G\\) be the disjoint union of \\(\Theta(n/(r\sqrt{\log r}))\\) copies of the same graph in Theorem 4 with \\(k = \Theta(r\sqrt{\log r})\\) vertices. Then \\(|E(G)| = \Theta(n/(r\sqrt{\log r}))k^2 = \Theta(n\cdot r\sqrt{\log r})\\). As \\(H\\) excludes a clique minor of size \\(ck/\sqrt{\log k} \leq r\\) (by choosing the constant in the definition of \\(k\\) appropriately), \\(G\\) excludes \\(K_r\\) as a minor.
 
@@ -221,7 +221,7 @@ By chooosing \\(s = ck/(\sqrt{\log k})\\) for some big enough constant \\(c\\), 
 
 
 
-----
+***-
 
 
 
