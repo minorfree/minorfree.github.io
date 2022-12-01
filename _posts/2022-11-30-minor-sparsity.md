@@ -9,10 +9,11 @@ Planar graphs are sparse: any planar graph with \\(n\\) vertices has at most \\(
 
 How's about the number of edges of \\(K_r\\)-minor-free graphs? This is a very challenging question. A reasonable speculation is \\(O(r)\cdot n\\): a disjoint union of \\(n/(r-1)\\) copies of \\(K_{r-1}\\) excludes a \\(K_r\\) minor and has \\(\Theta(r)\cdot n\\) edges. But this isn't the case. And surprisingly, the correct bound is \\(O(r\sqrt{\log r})n\\), which will be the topic of this post.
 
-***
+<hr \>
+
 **Theorem 1:** Any \\(K_r\\)-minor-free graphs with \\(n\\) vertices has at most \\(O(r\sqrt{\log r})\cdot n\\) edges. 
 
-***
+<hr \>
 
 The bound in Theorem 1 is tight; see a lower bound  in Section 4. The sparsity bound, which is the ratio of the number of edges to the number of vertices,  \\(O(r\sqrt{\log r})\\) was first discovered by Kostochka [4]; the proof is quite non-trivial, so as other follow-up proofs. A short proof was just found recently by Alon, Krivelevich, and Sudakov  (AKS) [1], which I will present here in Section 3. See the bibliographical notes section for a detailed discussion of other proofs.
 
@@ -22,24 +23,21 @@ The goal of this post isn't just to present the proof of Theorem 1. At various p
 
 I  learn a beatiful proof of the following theorem in the graph theory book of Reinhard Diestel (Proposition 7.2.1. [3]).
 
-***
+<hr \>
 
 **Theorem 2:** Any \\(K_r\\)-minor-free graphs with \\(n\\) vertices has at most \\(2^{r-1}\cdot n\\) edges. 
 
-***
+<hr \>
 
 Proof:  Let \\(G\\) be a \\(K_r\\)-minor-free graph with \\(n\\) vertices. The proof is by induction on \\(|V(G)| + r\\). If there is a vertex \\(v\\) of degree at most \\(2^{r-1}\\), then by removing \\(v\\) and applying the induction hypothesis, we are done. Now consider the case where every vertex has degree more than \\(2^{r-1}\\); let \\(v\\) be such a vertex. The key idea is to find an edge \\((u,v)\\) such that \\(u\\) and \\(v\\) share only a few neighbors. We then contract \\((u,v)\\) and apply induction.
 
 > Claim 1: There is a neighbor \\(u\\) of \\(v\\) such that  \\(|N_G(v)\cap N_G(u)| \leq 2^{r-1}-1\\).
 
-
-> Claim 2: There is a neighbor \\(u\\) of \\(v\\) such that  \\(|N_G(v)\cap N_G(u)| \leq 2^{r-1}-1\\).
-
 Suppose that the claim holds, then let \\(G'\\) be the graph obtained from \\(G\\) by contracting \\((u,v)\\), i.e., \\(G'= G/(u,v)\\). Then \\(|V(G')| \leq r-1\\) and \\(|E(G')| \geq |E(G)| - 2^{r-1}\\). By induction, \\(|E(G')| \leq 2^{r-1}(n-1)\\), which implies \\(|E(G)| \leq  2^{r-1}(n-1) + 2^{r-1} = 2^{r-1}\cdot n\\) as desired.
 
 We now turn to Claim 1. Let \\(H = G[N_G(v)]\\) be the sugraph induced by \\(N_G(v)\\). Then \\(H\\) is \\(K_{r-1}\\)-minor-free. By induction, \\(|E(H)| \leq 2^{r-2}\cdot |V(H)|\\).  Thus, there exists a vertex \\(u\in H\\) such that \\(d_H(u) \leq 2|E(H)|/|V(H)| \leq 2^{r-1}\\). This gives \\(|N_G(v)\cap N_G(u)| \leq d_H(u)-1 =  2^{r-1}-1\\).  
 
-
+<hr \>
 
 The exponential term \\(2^{r-1}\\) in the above theorem is due to a loss of a factor of \\(2\\) in each step of the induction by using \\(d_H(v) \leq 2(|E(H)|/|V(H)|)\\).
 
