@@ -7,7 +7,7 @@ categories: media
 
 Planar graphs are sparse: any planar graph with \\(n\\) vertices has at most \\(3n-6\\) edges. A simple corollary of this sparsity is that planar graphs are \\(6\\)-colorable. There is simple and beautiful proof based on the Euler formula, which can easily be exteded to bounded genus graphs, a more general case: any graph embedddable in orientable surfaces of genus \\(g\\) with \\(n\\) vertices has at most \\(3n + 6g-6\\) edges.
 
-How's about the number of edges of \\(K_r\\)-minor-free graphs? This is a very challenging question. A reasonable speculation is \\(O(r)\cdot n$: a disjoint union of \\(n/(r-1)\\) copies of \\(K_{r-1}\\) excludes a \\(K_r\\) minor and has \\(\Theta(r)\cdot n\\) edges. But this isn't the case. And surprisingly, the correct bound is \\(O(r\sqrt{\log r})n\\), which will be the topic of this post.
+How's about the number of edges of \\(K_r\\)-minor-free graphs? This is a very challenging question. A reasonable speculation is \\(O(r)\cdot n\\): a disjoint union of \\(n/(r-1)\\) copies of \\(K_{r-1}\\) excludes a \\(K_r\\) minor and has \\(\Theta(r)\cdot n\\) edges. But this isn't the case. And surprisingly, the correct bound is \\(O(r\sqrt{\log r})n\\), which will be the topic of this post.
 
 ---
 **Theorem 1:** Any \\(K_r\\)-minor-free graphs with \\(n\\) vertices has at most \\(O(r\sqrt{\log r})\cdot n\\) edges. 
@@ -18,7 +18,7 @@ The bound in Theorem 1 is tight; see a lower bound  in Section 4. The sparsity b
 
 The goal of this post isn't just to present the proof of Theorem 1. At various points in the past, I am interested in a  more intuitive proof that gives good enough sparsity bounds, say  \\(O(\mathrm{poly}(r))\\), or even \\(O(f(r))\\) bound for any function that depends on \\(r\\) only. This post describes different proofs, of increasing complexity (or ingenuity), giving different bounds
 
-# 1. Exponential Sparsity: \\(2^{r}$
+# 1. Exponential Sparsity: \\(2^{r}\\)
 
 I  learn a beatiful proof of the following theorem in the graph theory book of Reinhard Diestel (Proposition 7.2.1. [3]).
 
@@ -28,7 +28,7 @@ I  learn a beatiful proof of the following theorem in the graph theory book of R
 ---
 Proof:  Let \\(G\\) be a \\(K_r\\)-minor-free graph with \\(n\\) vertices. The proof is by induction on \\(|V(G)| + r\\). If there is a vertex \\(v\\) of degree at most \\(2^{r-1}\\), then by removing \\(v\\) and applying the induction hypothesis, we are done. Now consider the case where every vertex has degree more than \\(2^{r-1}$; let \\(v\\) be such a vertex. The key idea is to find an edge \\((u,v)\\) such that \\(u\\) and \\(v\\) share only a few neighbors. We then contract \\((u,v)\\) and apply induction.
 
-> Claim 1: There is a neighbor \\(u\\) of \\(v\\) such that  \\(|N_G(v)\cap N_G(u)| \leq 2^{r-1}-1\\).
+>Claim 1: There is a neighbor \\(u\\) of \\(v\\) such that  \\(|N_G(v)\cap N_G(u)| \leq 2^{r-1}-1\\).
 
 Suppose that the claim holds, then let \\(G'\\) be the graph obtained from \\(G\\) by contracting \\((u,v)\\), i.e., \\(G'= G/(u,v)\\). Then \\(|V(G')| \leq r-1\\) and \\(|E(G')| \geq |E(G)| - 2^{r-1}\\). By induction, \\(|E(G')| \leq 2^{r-1}(n-1)\\), which implies \\(|E(G)| \leq  2^{r-1}(n-1) + 2^{r-1} = 2^{r-1}\cdot n\\) as desired.
 
@@ -129,7 +129,7 @@ We will construct each \\(C_i\\) by random sampling. To gain intuition, let's lo
 1. As the graph has diameter \\(O(1)\\), \\(|V(C_1)| = O(c_0 \sqrt{\log d})\\).
 2. About \\(e^{-O(c_0)\sqrt{\log d}}\cdot d\\) vertices  are **not dominated** by \\(S_1\\). This is because each vertex has at least \\(d/3\\) neighbors (as \\(K\\) is \\(d/3\\)-connected), and hence probability that a vertex is not dominated by \\(S_1\\) is at most \\((1-d/(3\cdot 2d))^{s} = e^{-O(c_0)\sqrt{\log d}}\\). Let's call these vertices bad vertices (for a reason explained later), and denote  the set of bad vertices by \\(B_1\\). (A vertex is donimated by \\(S_1\\) if it is in \\(S_1\\) or adajcent to another vertex in \\(S_1\\).) 
 
-The second step, we sample \\(S_2\\) in exactly the same way and make \\(C_2\\) by adding paths between vertices of \\(S_2\\). The graph we construct \\(C_2\\) now is \\(H_1 = K\setminus V(C_1)\\), and as argue above, \\(H_1\\) has roughly the same properties of \\(K$: \\(d/4\\)-vertex-connected and diameter \\(O(1)\\). We want \\(S_2\\) to contain  a vertex adjacent to \\(S_1\\) (in \\(K$) because we would like \\(C_2\\) to be adjacent to \\(C_1\\).  That is, we want \\(S_2 \not\subseteq B_1$: we say that \\(S_2\\) **avoids** bad set \\(B_1\\). The reason 2 above implies that \\(\mathrm{Pr}[S_2\subseteq B_1] \leq (e^{-O(c_0)\sqrt{\log d}})^{c_0\sqrt{\log d}} \leq 1/d^2\\) for some chocie of \\(c_0\gg 1\\). Thus, w.h.p, \\(S_2\\) avoids \\(B_1\\).
+The second step, we sample \\(S_2\\) in exactly the same way and make \\(C_2\\) by adding paths between vertices of \\(S_2\\). The graph we construct \\(C_2\\) now is \\(H_1 = K\setminus V(C_1)\\), and as argue above, \\(H_1\\) has roughly the same properties of \\(K\\): \\(d/4\\)-vertex-connected and diameter \\(O(1)\\). We want \\(S_2\\) to contain  a vertex adjacent to \\(S_1\\) (in \\(K$) because we would like \\(C_2\\) to be adjacent to \\(C_1\\).  That is, we want \\(S_2 \not\subseteq B_1\\): we say that \\(S_2\\) **avoids** bad set \\(B_1\\). The reason 2 above implies that \\(\mathrm{Pr}[S_2\subseteq B_1] \leq (e^{-O(c_0)\sqrt{\log d}})^{c_0\sqrt{\log d}} \leq 1/d^2\\) for some chocie of \\(c_0\gg 1\\). Thus, w.h.p, \\(S_2\\) avoids \\(B_1\\).
 
 In general, at any step \\(i \in [1,h]\\), we already constructed a set of  \\(i-1\\) vertex-disjoint conected subgraphs \\(C_1,C_2,\ldots C_{i-1}\\), each is associated with a bad set (a set of non-neighbors). We want to construct \\(C_i\\) connected to all \\(i-1\\) subgraphs, i.e, \\(C_i\\) avoid all the \\((i-1)\\) bad sets. As \\(i\leq h\leq d\\), by the same reasoning above for \\(S_2\\) and using the union bound, the probability that \\(S_i\\) is contained in any of the bad set is at most \\(i/d^2 \leq 1/d\\). Thus, with non-zero probability, \\(S_i\\) avoids all the bad sets. THat is, \\(C_i\\) constructed from \\(S_i\\) wil be adjacent to all \\(C_{j}, 1\leq j\leq i-1\\). When \\(i = h\\), we obtain a \\(K_h\\) minor as desired.
 
@@ -165,7 +165,7 @@ Observe that \\(\sum_{j=1}^{i}|V(C_j)|\leq c_0\sqrt{\log d}\cdot h= c_0\sqrt{\lo
 
 Now we show the existence of \\(S_i\\). Let \\(S_i\\) be otabined by choosing each vertex of \\(H_{i-1}\\) with probability \\(c_0\sqrt{\log d}/(2d)$; the expected size of \\(S_i\\) is a most \\(c_0\sqrt{\log d}\\). By Lemma 4, every vertex \\(v\in H_{i-1}\\) has degree at least \\(d/4\\). Thus, \\(\mathrm{Pr}[v\in B_{i}]\leq (1-c_0\sqrt{\log d}/(2d))^{d/4}\sim e^{-c_0\sqrt{\log d}/8}\\). In particular, \\(|\mathbb{E}[B_i]| \leq  (2d)e^{-c_0\sqrt{\log d}/8}\\).  
 
-It remains to show that with non-zero probability, \\(S_i\\) avoids all \\(B_0,\ldots, B_{i-1}\\). Note that \\(|V(H_{i-1})|\geq d/4\\). For a fixed \\(j\in [0,i-1]$:
+It remains to show that with non-zero probability, \\(S_i\\) avoids all \\(B_0,\ldots, B_{i-1}\\). Note that \\(|V(H_{i-1})|\geq d/4\\). For a fixed \\(j\in [0,i-1]\\):
 
 $\mathrm{Pr}[S_i\subseteq B_j]\leq (|B_j|/|V(H_{i-1})|)^{|S_j|}\leq 8(e^{-c_0\sqrt{\log d}/8})^{c_0\sqrt{\log d}}= 8e^{-c_0^2 \log(d)/8} \leq 1/d^2$
 
