@@ -5,7 +5,7 @@ layout: post
 categories: media
 ---
 
-\\(\mathrm{Pr}[C exists]\\) vs  \\(\mathrm{Pr}[C \mbox{ exists }]\\) vs \(\mathrm{Pr}[C ~\mathrm{exists}~]\\) vs  \(\mathrm{Pr}[C \text{ exists }]\\)
+\\(\mathrm{Pr}[C exists]\\) vs  \\(\mathrm{Pr}[C \mbox{ exists }]\\) vs \\(\mathrm{Pr}[C ~\mathrm{exists}~]\\) vs  \\(\mathrm{Pr}[C \text{ exists }]\\)
 
 
 Planar graphs are sparse: any planar graph with \\(n\\) vertices has at most \\(3n-6\\) edges. A simple corollary of this sparsity is that planar graphs are \\(6\\)-colorable. There is simple and beautiful proof based on the Euler formula, which can easily be exteded to bounded genus graphs, a more general case: any graph embedddable in orientable surfaces of genus \\(g\\) with \\(n\\) vertices has at most \\(3n + 6g-6\\) edges.
