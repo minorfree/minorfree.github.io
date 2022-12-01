@@ -1,9 +1,7 @@
----
-title:  "Sparsity of minor-free graphs"
-mathjax: true
-layout: post
-categories: media
----
+
+# Sparsity of minor-free graphs
+
+
 
 
 Planar graphs are sparse: any planar graph with \\(n\\) vertices has at most \\(3n-6\\) edges. A simple corollary of this sparsity is that planar graphs are \\(6\\)-colorable. There is simple and beautiful proof based on the Euler formula, which can easily be exteded to bounded genus graphs, a more general case: any graph embedddable in orientable surfaces of genus \\(g\\) with \\(n\\) vertices has at most \\(3n + 6g-6\\) edges.
@@ -90,18 +88,21 @@ Proof: If \\(H\\) is \\(d/3\\)-vertex connected, then \\(K  = H\\). Otherwise, t
 
 We now construct a minor of size \\(\Theta(\sqrt{d})\\) for graph \\(K\\) in Lemma 2. We do so by showing that for any given \\(p \leq d/40\\) distinct pairs of vertices \\(\{(s_1,t_1, \ldots, (s_p,t_p)\}\\) in \\(K\\) (two pairs might share the same vertex), then there are \\(p\\) internally vertex-disjoint paths connecting them (Lemma 3). (Two paths are internally vertex-disjoint if they can only share endpoints.)  Then one can construct a minor of size \\(\sqrt{d/40}\\) by picking an arbitrary set \\(R\\) of \\(\sqrt{d/40}\\) vertices, and connect all pairs of vertices in \\(R\\) using disjoint paths in Lemma 3, which implies Theorem 3.
 
+![](https://i.imgur.com/0l8Erja.png)
+*Figure 1: (a) \\(\mathcal{P}\\) includes two paths of black edges. (b) deleting \\(\mathcal{P}\\) except \\(s_1,t_1\\). (c\) \\(v\\) could not have more than 3 neighbors on the path from \\(s_i\\) to \\(t_i\\)*
+
 ***
 **Lemma 3:** Let \\(\mathcal{T} = \{(s_1,t_1, \ldots, (s_p,t_p)\}\\) be any \\(p \leq d/40\\) distinct pairs of vertices in \\(K\\) (in Lemma 2). Then there are \\(p\\) internally vertex-disjoint paths connecting the all pairs in \\(\mathcal{T}\\).
 
 ***
-Proof: Let \\(\mathcal{P}\\) be a set of internally vertex-disjoint paths, each of of length at most \\(10\\), that connects a maximal number of pairs in \\(\mathcal{T}\\). Subject to the pairs connected by \\(\mathcal{P}\\), we choose \\(\mathcal{P}\\) such that the total number of edges of paths in \\(\mathcal{P}\\) is minimal. If \\(\mathcal{P}\\) connects every pair, we are done. Otherwise, w.l.o.g, we assume that \\(s_1\\) and \\(t_1\\) are not connected by \\(\mathcal{P}\\).  
+Proof: Let \\(\mathcal{P}\\) be a set of internally vertex-disjoint paths, each of of length at most \\(10\\), that connects a maximal number of pairs in \\(\mathcal{T}\\). Subject to the pairs connected by \\(\mathcal{P}\\), we choose \\(\mathcal{P}\\) such that the total number of edges of paths in \\(\mathcal{P}\\) is minimal. If \\(\mathcal{P}\\) connects every pair, we are done. Otherwise, w.l.o.g, we assume that \\(s_1\\) and \\(t_1\\) are not connected by \\(\mathcal{P}\\). See Figure 1(a).  
 
-Let \\(K^-\\) be obtained from \\(K\\) be removing all vertices in \\(\mathcal{P}\\), except \\(s_1\\) and \\(t_1\\), from \\(K\\).  Observe that the total number of vertices in \\(\mathcal{P}\\) is at most \\(11\cdot p = 11d/40 < d/3\\). Since \\(K\\) is \\(d/3\\)-vertex-connected, \\(K^-\\) is connected.
+Let \\(K^-\\) be obtained from \\(K\\) be removing all vertices in \\(\mathcal{P}\\), except \\(s_1\\) and \\(t_1\\), from \\(K\\). See Figure 1(b).  Observe that the total number of vertices in \\(\mathcal{P}\\) is at most \\(11\cdot p = 11d/40 < d/3\\). Since \\(K\\) is \\(d/3\\)-vertex-connected, \\(K^-\\) is connected.
 
 
 > Claim 2: for every \\(v\in K^-\\) and \\(P\in \mathcal{P}\\), \\( \vert N_K(v)\cap V(P) \vert \leq 3\\).
 
-Suppose the claim is not true, then we can shortcut \\(P\\) via \\(v\\) to get a shorter path connecting the endpoints of \\(P\\), contradicting the minimality of \\(\mathcal{P}\\).
+Suppose the claim is not true, then we can shortcut \\(P\\) via \\(v\\) to get a shorter path connecting the endpoints of \\(P\\), contradicting the minimality of \\(\mathcal{P}\\). See Figure 1(c\).
 
 
 
@@ -124,17 +125,17 @@ The choices of constants \\(c_0\\) and \\(c_1\\) imply that \\( \vert V(C_1)\cup
 
 
 ![](https://i.imgur.com/ssff6AZ.png)
+*Figure 2: (a) \\C_1\\) forms from \\(S_1\\), the set of black vertices, and its bad set \\(B_1\\). (b) \\(C_2\\) constructed from \\(S_2\\) (black vertices), which avoids \\(B-1\\), and its bad set \\(B_2\\). (c\) \\(S_i\\)   has an edge to all graphs \\(C_1,C_2,\ldots,C_{i-1}\\).*
 
 
-
-We will construct each \\(C_i\\) by random sampling. To gain intuition, let's look at the first step: (1) sampling a set \\(S_1\\) of \\(s = c_0\sqrt{\log n}\\) vertices and (2) making \\(S_1\\) connected by adding a shortest path from one vertex to every other vertex in \\(S_1\\). There are two good reasons for doing this:
+We will construct each \\(C_i\\) by random sampling. To gain intuition, let's look at the first step: (1) sampling a set \\(S_1\\) of \\(s = c_0\sqrt{\log n}\\) vertices and (2) making \\(S_1\\) connected by adding a shortest path from one vertex to every other vertex in \\(S_1\\). See Figure 2 (a). There are two good reasons for doing this:
 
 1. As the graph has diameter \\(O(1)\\), \\( \vert V(C_1) \vert  = O(c_0 \sqrt{\log d})\\).
 2. About \\(e^{-O(c_0)\sqrt{\log d}}\cdot d\\) vertices  are **not dominated** by \\(S_1\\). This is because each vertex has at least \\(d/3\\) neighbors (as \\(K\\) is \\(d/3\\)-connected), and hence probability that a vertex is not dominated by \\(S_1\\) is at most \\((1-d/(3\cdot 2d))^{s} = e^{-O(c_0)\sqrt{\log d}}\\). Let's call these vertices bad vertices (for a reason explained later), and denote  the set of bad vertices by \\(B_1\\). (A vertex is donimated by \\(S_1\\) if it is in \\(S_1\\) or adajcent to another vertex in \\(S_1\\).) 
 
-The second step, we sample \\(S_2\\) in exactly the same way and make \\(C_2\\) by adding paths between vertices of \\(S_2\\). The graph we construct \\(C_2\\) now is \\(H_1 = K\setminus V(C_1)\\), and as argue above, \\(H_1\\) has roughly the same properties of \\(K\\): \\(d/4\\)-vertex-connected and diameter \\(O(1)\\). We want \\(S_2\\) to contain  a vertex adjacent to \\(S_1\\) (in \\(K\\)) because we would like \\(C_2\\) to be adjacent to \\(C_1\\).  That is, we want \\(S_2 \not\subseteq B_1\\): we say that \\(S_2\\) **avoids** bad set \\(B_1\\). The reason 2 above implies that \\(\mathrm{Pr}[S_2\subseteq B_1] \leq (e^{-O(c_0)\sqrt{\log d}})^{c_0\sqrt{\log d}} \leq 1/d^2\\) for some chocie of \\(c_0\gg 1\\). Thus, w.h.p, \\(S_2\\) avoids \\(B_1\\).
+The second step, we sample \\(S_2\\) in exactly the same way and make \\(C_2\\) by adding paths between vertices of \\(S_2\\). The graph we construct \\(C_2\\) now is \\(H_1 = K\setminus V(C_1)\\), and as argue above, \\(H_1\\) has roughly the same properties of \\(K\\): \\(d/4\\)-vertex-connected and diameter \\(O(1)\\). We want \\(S_2\\) to contain  a vertex adjacent to \\(S_1\\) (in \\(K\\)) because we would like \\(C_2\\) to be adjacent to \\(C_1\\).  That is, we want \\(S_2 \not\subseteq B_1\\): we say that \\(S_2\\) **avoids** bad set \\(B_1\\). See Figure 2(b). The reason 2 above implies that \\(\mathrm{Pr}[S_2\subseteq B_1] \leq (e^{-O(c_0)\sqrt{\log d}})^{c_0\sqrt{\log d}} \leq 1/d^2\\) for some chocie of \\(c_0\gg 1\\). Thus, w.h.p, \\(S_2\\) avoids \\(B_1\\).
 
-In general, at any step \\(i \in [1,h]\\), we already constructed a set of  \\(i-1\\) vertex-disjoint conected subgraphs \\(C_1,C_2,\ldots C_{i-1}\\), each is associated with a bad set (a set of non-neighbors). We want to construct \\(C_i\\) connected to all \\(i-1\\) subgraphs, i.e, \\(C_i\\) avoid all the \\((i-1)\\) bad sets. As \\(i\leq h\leq d\\), by the same reasoning above for \\(S_2\\) and using the union bound, the probability that \\(S_i\\) is contained in any of the bad set is at most \\(i/d^2 \leq 1/d\\). Thus, with non-zero probability, \\(S_i\\) avoids all the bad sets. THat is, \\(C_i\\) constructed from \\(S_i\\) wil be adjacent to all \\(C_{j}, 1\leq j\leq i-1\\). When \\(i = h\\), we obtain a \\(K_h\\) minor as desired.
+In general, at any step \\(i \in [1,h]\\), we already constructed a set of  \\(i-1\\) vertex-disjoint conected subgraphs \\(C_1,C_2,\ldots C_{i-1}\\), each is associated with a bad set (a set of non-neighbors). See Figure 2(c\).  We want to construct \\(C_i\\)  by sampling a set \\(S_i\\) and adding paths between vertices of \\(S_i\\).  By the same reasoning above for \\(S_2\\) and using the union bound, the probability that \\(S_i\\) is connected to all \\(i-1\\) subgraphs, i.e, \\(S_i\\) avoids all the \\((i-1)\\) bad sets, is at least \\(1 - d/d^2 = 1-1/d > 0\\). When \\(i = h\\), we obtain a \\(K_h\\) minor as desired.
 
 ## 3.2. The formal proof
 
@@ -145,14 +146,15 @@ We construct a set of subgraphs \\(C_1,C_2,\ldots, C_h\\) realizing a \\(K_h\\)-
 ***
  Initially, \\(H_0 = K, B_0 = \emptyset\\). 
 
-> In \\(i\\)-th iteration, \\(i\geq 1\\), we find a set \\(S_i\\) of at most \\(c_0\sqrt{\log d}\\) vertices s.t (a) \\( \vert B_{H_{i-1}}(S_i) \vert  \leq 2de^{-c_0\sqrt{\log d}/8}\\) and (b) \\(S_i\\) avoids all the bad sets \\(B_0,B_1,\ldots, B_{i-1}\\). Next, let \\(C_i\\) be obtained by adding shortest paths from an arbitrary vertex \\(v\in S_i\\) to every other vertex in \\(S_i\setminus \{v\}\\), and \\(B_i= B_{H_{i-1}}(S_i)\\). Then, we define \\(H_i = H_{i-1}\setminus V(C_i)\\) for the next iteration.
+> In \\(i\\)-th iteration, \\(i\geq 1\\), we find a set \\(S_i\\) of at most \\(c_0\sqrt{\log d}\\) vertices s.t (a) \\( \vert B_{H_{i-1}}(S_i) \vert  \leq 2de^{-c_0\sqrt{\log d}/8}\\) and (b) \\(S_i\\) is connected to each of \\(C_1,C_2,\ldots,C_{i-1}\\) by an edge. Next, let \\(C_i\\) be obtained by adding shortest paths from an arbitrary vertex \\(v\in S_i\\) to every other vertex in \\(S_i\setminus \{v\}\\), and \\(B_i= B_{H_{i-1}}(S_i)\\). Then, we define \\(H_i = H_{i-1}\setminus V(C_i)\\) for the next iteration.
 
 Finally, output  \\(C_1,C_2,\ldots, C_h\\).
 
 ***
 
  To show the correctness of the algorithm, we only have to show that the set \\(S_i\\) at iteration \\(i\\) exists, for some choices of \\(1\ll c_0 \ll c_1\\). If so, by the discussion above, \\(C_1,C_2,\ldots, C_h\\) form a \\(K_h\\)-minor of \\(K\\), and hence, of \\(G\\).
- 
+
+
 First, we show that \\(H_i\\) has high connectivity and \\(C_i\\) has size \\(O(c_0\sqrt{\log d})\\).
 
 
@@ -166,7 +168,7 @@ Observe that \\(\sum_{j=1}^{i} \vert V(C_j) \vert \leq c_0\sqrt{\log d}\cdot h= 
 
 ***
 
-Now we show the existence of \\(S_i\\). Let \\(S_i\\) be otabined by choosing each vertex of \\(H_{i-1}\\) with probability \\(c_0\sqrt{\log d}/(2d)\\); the expected size of \\(S_i\\) is a most \\(c_0\sqrt{\log d}\\). By Lemma 4, every vertex \\(v\in H_{i-1}\\) has degree at least \\(d/4\\). Thus, \\(\mathrm{Pr}[v\in B_{i}]\leq (1-c_0\sqrt{\log d}/(2d))^{d/4}\sim e^{-c_0\sqrt{\log d}/8}\\). In particular, \\( \vert \mathbb{E}[B_i] \vert  \leq  (2d)e^{-c_0\sqrt{\log d}/8}\\).  
+Now we show the existence of \\(S_i\\). Note that condition (b) is equivalent to that \\(S_i\\) avoids all the bad sets \\(B_0,B_1,\ldots, B_{i-1}\\). Let \\(S_i\\) be otabined by choosing each vertex of \\(H_{i-1}\\) with probability \\(c_0\sqrt{\log d}/(2d)\\); the expected size of \\(S_i\\) is a most \\(c_0\sqrt{\log d}\\). By Lemma 4, every vertex \\(v\in H_{i-1}\\) has degree at least \\(d/4\\). Thus, \\(\mathrm{Pr}[v\in B_{i}]\leq (1-c_0\sqrt{\log d}/(2d))^{d/4}\sim e^{-c_0\sqrt{\log d}/8}\\). In particular, \\( \vert \mathbb{E}[B_i] \vert  \leq  (2d)e^{-c_0\sqrt{\log d}/8}\\).  
 
 It remains to show that with non-zero probability, \\(S_i\\) avoids all \\(B_0,\ldots, B_{i-1}\\). Note that \\( \vert V(H_{i-1}) \vert \geq d/4\\). For a fixed \\(j\in [0,i-1]\\):
 
@@ -252,6 +254,3 @@ The lower bound in Section 4 is due to Bollobás, Catlin, and Erdös [2].
 [6] Thomason, A. (1984). *An extremal function for contractions of graphs*. In Mathematical Proceedings of the Cambridge Philosophical Society (Vol. 95, No. 2, pp. 261-265). Cambridge University Press.
 
 [7] Thomason, A. (2001). *The extremal function for complete minors*. Journal of Combinatorial Theory, Series B, 81(2), 318-338.
-
-
-
