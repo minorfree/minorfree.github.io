@@ -5,7 +5,7 @@ layout: post
 categories: media
 ---
 
-\\(\mathrm{Pr}[C exists]\\) vs  \\(\mathrm{Pr}[C \mbox{ exists }]\\) 
+\\(\mathrm{Pr}[C exists]\\) vs  \\(\mathrm{Pr}[C \mbox{ exists }]\\) vs \(\mathrm{Pr}[C ~\mathrm{exists}~]\\) vs  \(\mathrm{Pr}[C \text{ exists }]\\)
 
 
 Planar graphs are sparse: any planar graph with \\(n\\) vertices has at most \\(3n-6\\) edges. A simple corollary of this sparsity is that planar graphs are \\(6\\)-colorable. There is simple and beautiful proof based on the Euler formula, which can easily be exteded to bounded genus graphs, a more general case: any graph embedddable in orientable surfaces of genus \\(g\\) with \\(n\\) vertices has at most \\(3n + 6g-6\\) edges.
@@ -39,7 +39,7 @@ Suppose that the claim holds, then let \\(G'\\) be the graph obtained from \\(G\
 
 We now turn to Claim 1. Let \\(H = G[N_G(v)]\\) be the sugraph induced by \\(N_G(v)\\). Then \\(H\\) is \\(K_{r-1}\\)-minor-free. By induction, \\( \vert E(H) \vert  \leq 2^{r-2}\cdot  \vert V(H) \vert \\).  Thus, there exists a vertex \\(u\in H\\) such that \\(d_H(u) \leq 2 \vert E(H) \vert / \vert V(H) \vert  \leq 2^{r-1}\\). This gives \\( \vert N_G(v)\cap N_G(u) \vert  \leq d_H(u)-1 =  2^{r-1}-1\\).  
 
-<hr \>
+***
 
 The exponential term \\(2^{r-1}\\) in the above theorem is due to a loss of a factor of \\(2\\) in each step of the induction by using \\(d_H(v) \leq 2( \vert E(H) \vert / \vert V(H) \vert )\\).
 
