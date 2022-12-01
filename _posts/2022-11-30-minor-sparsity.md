@@ -89,7 +89,8 @@ Proof: If \\(H\\) is \\(d/3\\)-vertex connected, then \\(K  = H\\). Otherwise, t
 We now construct a minor of size \\(\Theta(\sqrt{d})\\) for graph \\(K\\) in Lemma 2. We do so by showing that for any given \\(p \leq d/40\\) distinct pairs of vertices \\(\{(s_1,t_1, \ldots, (s_p,t_p)\}\\) in \\(K\\) (two pairs might share the same vertex), then there are \\(p\\) internally vertex-disjoint paths connecting them (Lemma 3). (Two paths are internally vertex-disjoint if they can only share endpoints.)  Then one can construct a minor of size \\(\sqrt{d/40}\\) by picking an arbitrary set \\(R\\) of \\(\sqrt{d/40}\\) vertices, and connect all pairs of vertices in \\(R\\) using disjoint paths in Lemma 3, which implies Theorem 3.
 
 ![](https://i.imgur.com/0l8Erja.png)
-*Figure 1: (a) \\(\mathcal{P}\\) includes two paths of black edges. (b) deleting \\(\mathcal{P}\\) except \\(s_1,t_1\\). (c\) \\(v\\) could not have more than 3 neighbors on the path from \\(s_i\\) to \\(t_i\\)*
+
+Figure 1: (a) \\(\mathcal{P}\\) includes two paths of black edges. (b) deleting \\(\mathcal{P}\\) except \\(s_1,t_1\\). (c\) \\(v\\) could not have more than 3 neighbors on the path from \\(s_i\\) to \\(t_i\\)
 
 ***
 **Lemma 3:** Let \\(\mathcal{T} = \{(s_1,t_1, \ldots, (s_p,t_p)\}\\) be any \\(p \leq d/40\\) distinct pairs of vertices in \\(K\\) (in Lemma 2). Then there are \\(p\\) internally vertex-disjoint paths connecting the all pairs in \\(\mathcal{T}\\).
@@ -125,7 +126,8 @@ The choices of constants \\(c_0\\) and \\(c_1\\) imply that \\( \vert V(C_1)\cup
 
 
 ![](https://i.imgur.com/ssff6AZ.png)
-*Figure 2: (a) \\C_1\\) forms from \\(S_1\\), the set of black vertices, and its bad set \\(B_1\\). (b) \\(C_2\\) constructed from \\(S_2\\) (black vertices), which avoids \\(B-1\\), and its bad set \\(B_2\\). (c\) \\(S_i\\)   has an edge to all graphs \\(C_1,C_2,\ldots,C_{i-1}\\).*
+
+Figure 2: (a) \\C_1\\) forms from \\(S_1\\), the set of black vertices, and its bad set \\(B_1\\). (b) \\(C_2\\) constructed from \\(S_2\\) (black vertices), which avoids \\(B-1\\), and its bad set \\(B_2\\). (c\) \\(S_i\\)   has an edge to all graphs \\(C_1,C_2,\ldots,C_{i-1}\\).
 
 
 We will construct each \\(C_i\\) by random sampling. To gain intuition, let's look at the first step: (1) sampling a set \\(S_1\\) of \\(s = c_0\sqrt{\log n}\\) vertices and (2) making \\(S_1\\) connected by adding a shortest path from one vertex to every other vertex in \\(S_1\\). See Figure 2 (a). There are two good reasons for doing this:
