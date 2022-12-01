@@ -1,7 +1,9 @@
-
-# Sparsity of minor-free graphs
-
-
+---
+title:  "Sparsity of minor-free graphs"
+mathjax: true
+layout: post
+categories: media
+---
 
 
 Planar graphs are sparse: any planar graph with \\(n\\) vertices has at most \\(3n-6\\) edges. A simple corollary of this sparsity is that planar graphs are \\(6\\)-colorable. There is simple and beautiful proof based on the Euler formula, which can easily be exteded to bounded genus graphs, a more general case: any graph embedddable in orientable surfaces of genus \\(g\\) with \\(n\\) vertices has at most \\(3n + 6g-6\\) edges.
@@ -90,7 +92,7 @@ We now construct a minor of size \\(\Theta(\sqrt{d})\\) for graph \\(K\\) in Lem
 
 ![](https://i.imgur.com/0l8Erja.png)
 
-Figure 1: (a) \\(\mathcal{P}\\) includes two paths of black edges. (b) deleting \\(\mathcal{P}\\) except \\(s_1,t_1\\). (c\) \\(v\\) could not have more than 3 neighbors on the path from \\(s_i\\) to \\(t_i\\)
+*Figure 1: (a) \\(\mathcal{P}\\) includes two paths of black edges. (b) deleting \\(\mathcal{P}\\) except \\(s_1,t_1\\). (c\) \\(v\\) could not have more than 3 neighbors on the path from \\(s_i\\) to \\(t_i\\)*
 
 ***
 **Lemma 3:** Let \\(\mathcal{T} = \{(s_1,t_1, \ldots, (s_p,t_p)\}\\) be any \\(p \leq d/40\\) distinct pairs of vertices in \\(K\\) (in Lemma 2). Then there are \\(p\\) internally vertex-disjoint paths connecting the all pairs in \\(\mathcal{T}\\).
@@ -127,7 +129,7 @@ The choices of constants \\(c_0\\) and \\(c_1\\) imply that \\( \vert V(C_1)\cup
 
 ![](https://i.imgur.com/ssff6AZ.png)
 
-Figure 2: (a) \\C_1\\) forms from \\(S_1\\), the set of black vertices, and its bad set \\(B_1\\). (b) \\(C_2\\) constructed from \\(S_2\\) (black vertices), which avoids \\(B-1\\), and its bad set \\(B_2\\). (c\) \\(S_i\\)   has an edge to all graphs \\(C_1,C_2,\ldots,C_{i-1}\\).
+*Figure 2: (a) \\C_1\\) forms from \\(S_1\\), the set of black vertices, and its bad set \\(B_1\\). (b) \\(C_2\\) constructed from \\(S_2\\) (black vertices), which avoids \\(B-1\\), and its bad set \\(B_2\\). (c\) \\(S_i\\)   has an edge to all graphs \\(C_1,C_2,\ldots,C_{i-1}\\).*
 
 
 We will construct each \\(C_i\\) by random sampling. To gain intuition, let's look at the first step: (1) sampling a set \\(S_1\\) of \\(s = c_0\sqrt{\log n}\\) vertices and (2) making \\(S_1\\) connected by adding a shortest path from one vertex to every other vertex in \\(S_1\\). See Figure 2 (a). There are two good reasons for doing this:
@@ -256,3 +258,4 @@ The lower bound in Section 4 is due to Bollobás, Catlin, and Erdös [2].
 [6] Thomason, A. (1984). *An extremal function for contractions of graphs*. In Mathematical Proceedings of the Cambridge Philosophical Society (Vol. 95, No. 2, pp. 261-265). Cambridge University Press.
 
 [7] Thomason, A. (2001). *The extremal function for complete minors*. Journal of Combinatorial Theory, Series B, 81(2), 318-338.
+
