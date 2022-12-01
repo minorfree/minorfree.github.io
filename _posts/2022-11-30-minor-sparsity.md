@@ -95,7 +95,7 @@ We now construct a minor of size \\(\Theta(\sqrt{d})\\) for graph \\(K\\) in Lem
 *Figure 1: (a) \\(\mathcal{P}\\) includes two paths of black edges. (b) deleting \\(\mathcal{P}\\) except \\(s_1,t_1\\). (c\) \\(v\\) could not have more than 3 neighbors on the path from \\(s_i\\) to \\(t_i\\)*
 
 ***
-**Lemma 3:** Let \\(\mathcal{T} = \{(s_1,t_1, \ldots, (s_p,t_p)\}\\) be any \\(p \leq d/40\\) distinct pairs of vertices in \\(K\\) (in Lemma 2). Then there are \\(p\\) internally vertex-disjoint paths connecting the all pairs in \\(\mathcal{T}\\).
+**Lemma 3:** Let \\(\mathcal{T} = \{(s_1,t_1), \ldots, (s_p,t_p)\}\\) be any \\(p \leq d/40\\) distinct pairs of vertices in \\(K\\) (in Lemma 2). Then there are \\(p\\) internally vertex-disjoint paths connecting the all pairs in \\(\mathcal{T}\\).
 
 ***
 Proof: Let \\(\mathcal{P}\\) be a set of internally vertex-disjoint paths, each of of length at most \\(10\\), that connects a maximal number of pairs in \\(\mathcal{T}\\). Subject to the pairs connected by \\(\mathcal{P}\\), we choose \\(\mathcal{P}\\) such that the total number of edges of paths in \\(\mathcal{P}\\) is minimal. If \\(\mathcal{P}\\) connects every pair, we are done. Otherwise, w.l.o.g, we assume that \\(s_1\\) and \\(t_1\\) are not connected by \\(\mathcal{P}\\). See Figure 1(a).  
@@ -129,7 +129,7 @@ The choices of constants \\(c_0\\) and \\(c_1\\) imply that \\( \vert V(C_1)\cup
 
 ![](https://i.imgur.com/ssff6AZ.png)
 
-*Figure 2: (a) \\C_1\\) forms from \\(S_1\\), the set of black vertices, and its bad set \\(B_1\\). (b) \\(C_2\\) constructed from \\(S_2\\) (black vertices), which avoids \\(B-1\\), and its bad set \\(B_2\\). (c\) \\(S_i\\)   has an edge to all graphs \\(C_1,C_2,\ldots,C_{i-1}\\).*
+*Figure 2: (a) \\(C_1\\) forms from \\(S_1\\), the set of black vertices, and its bad set \\(B_1\\). (b) \\(C_2\\) is constructed from \\(S_2\\) (black vertices), which avoids \\(B-1\\), and its bad set \\(B_2\\). (c\) \\(S_i\\)   has  edges to all graphs \\(C_1,C_2,\ldots,C_{i-1}\\).*
 
 
 We will construct each \\(C_i\\) by random sampling. To gain intuition, let's look at the first step: (1) sampling a set \\(S_1\\) of \\(s = c_0\sqrt{\log n}\\) vertices and (2) making \\(S_1\\) connected by adding a shortest path from one vertex to every other vertex in \\(S_1\\). See Figure 2 (a). There are two good reasons for doing this:
@@ -156,7 +156,7 @@ Finally, output  \\(C_1,C_2,\ldots, C_h\\).
 
 ***
 
- To show the correctness of the algorithm, we only have to show that the set \\(S_i\\) at iteration \\(i\\) exists, for some choices of \\(1\ll c_0 \ll c_1\\). If so, by the discussion above, \\(C_1,C_2,\ldots, C_h\\) form a \\(K_h\\)-minor of \\(K\\), and hence, of \\(G\\).
+ To show the correctness of the algorithm, we only have to show that the set \\(S_i\\) at iteration \\(i\\) exists, for some choices of \\(1\ll c_0 \ll c_1\\). If so, \\(C_1,C_2,\ldots, C_h\\) form a \\(K_h\\)-minor of \\(K\\), and hence, of \\(G\\).
 
 
 First, we show that \\(H_i\\) has high connectivity and \\(C_i\\) has size \\(O(c_0\sqrt{\log d})\\).
