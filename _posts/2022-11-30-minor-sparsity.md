@@ -15,9 +15,11 @@ How's about the number of edges of $$K_r$$-minor-free graphs? This is a very cha
 ---
 This is strange, and I don't know why. 
 
-$$ x+3+4 $$ 
+ $$ x+3+4 $$ 
 
 I need to have a line in between:
 $$ x+3+4 $$ 
 
+
+$$\begin{aligned} 2x - 4 &= 6 \\ 2x &= 10 \\ x &= 5 \end{aligned}$$
 
