@@ -5,7 +5,6 @@ layout: post
 categories: media
 ---
 
-
 Planar graphs are sparse: any planar graph with \\(n\\) vertices has at most \\(3n-6\\) edges. A simple corollary of this sparsity is that planar graphs are \\(6\\)-colorable. There is simple and beautiful proof based on the Euler formula, which can easily be exteded to bounded genus graphs, a more general case: any graph embedddable in orientable surfaces of genus \\(g\\) with \\(n\\) vertices has at most \\(3n + 6g-6\\) edges.
 
 How's about the number of edges of \\(K_r\\)-minor-free graphs? This is a very challenging question. A reasonable speculation is \\(O(r)\cdot n\\): a disjoint union of \\(n/(r-1)\\) copies of \\(K_{r-1}\\) excludes a \\(K_r\\) minor and has \\(\Theta(r)\cdot n\\) edges. But this isn't the case. And surprisingly, the correct bound is \\(O(r\sqrt{\log r})n\\), which will be the topic of this post.
@@ -18,7 +17,8 @@ How's about the number of edges of \\(K_r\\)-minor-free graphs? This is a very c
 
 The bound in Theorem 1 is tight; see a lower bound  in Section 4. The sparsity bound, which is the ratio of the number of edges to the number of vertices,  \\(O(r\sqrt{\log r})\\) was first discovered by Kostochka [4]; the proof is quite non-trivial, so as other follow-up proofs. A short proof was just found recently by Alon, Krivelevich, and Sudakov  (AKS) [1], which I will present here in Section 3. See the bibliographical notes section for a detailed discussion of other proofs.
 
-The goal of this post isn't just to present the proof of Theorem 1. At various points in the past, I am interested in a  more intuitive proof that gives good enough sparsity bounds, say  \\(O(\mathrm{poly}(r))\\), or even \\(O(f(r))\\) bound for any function that depends on \\(r\\) only. This post describes different proofs, of increasing complexity (or ingenuity), giving different bounds
+The goal of this post isn't just to present the proof of Theorem 1. At various points in the past, I am interested in a  more intuitive proof that gives good enough sparsity bounds, say  \\(O(\mathrm{poly}(r))\\), or even \\(O(f(r))\\) bound for any function that depends on \\(r\\) only. This post describes different proofs, of increasing complexity (or ingenuity), giving different bounds. In particular, sparsity bound $2^{r}$ follows by a simple induction. Sparsity bound \\(O(r^2)\\) relies crucially on the fact that a graph of sparsity \\(d\\) has a highly connected minor of small size; the high connectivity allows us to show that for any vertex subset of size \\(k \approx \sqrt{d}\\) has \\({k \choose 2}\\) internally vertex-disjoint paths connecting these vertices, thereby giving us a \\(K_{\sqrt{d}}\\) minor. The optimlal bound \\(O(r\sqrt{r})\\) also relies on a highly connected minor of small size, but employs a clever probabilistic argument to construct a \\(K_{r}\\) minor.
+
 
 # 1. Exponential Sparsity: \\(2^{r}\\)
 
@@ -189,13 +189,21 @@ In this section, we show that for any \\(n\\) and \\(r\\) such that \\(n \gg r\s
 
 
 ***
-**Theorem 4:** There exists a graph \\(H\\) with \\(k\\) vertices and \\(\Theta(k^2)\\) edges such that \\(H\\) has no \\(K_s\\)-minor where \\(s = ck/(\sqrt{\log k})\\) for some constant \\(c\\).
+**Theorem 4:** There exists a graph \\(H\\) with \\(k\\) vertices and \\(\Theta(k^2)\\) edges such that \\(H\\) has no \\(K_s\\)-minor where \\(s = k/(\epsilon\sqrt{\log k})\\) for some constant \\(\epsilon\in (0,1)\\).
 
 ***
 
-Theorem 4 implies a sparsity lower bound \\(\Omega(r\sqrt{\log r})\\) as follows. Let \\(G\\) be the disjoint union of \\(\Theta(n/(r\sqrt{\log r}))\\) copies of the same graph in Theorem 4 with \\(k = \Theta(r\sqrt{\log r})\\) vertices. Then \\( \vert E(G) \vert  = \Theta(n/(r\sqrt{\log r}))k^2 = \Theta(n\cdot r\sqrt{\log r})\\). As \\(H\\) excludes a clique minor of size \\(ck/\sqrt{\log k} \leq r\\) (by choosing the constant in the definition of \\(k\\) appropriately), \\(G\\) excludes \\(K_r\\) as a minor.
+Theorem 4 implies a sparsity lower bound \\(\Omega(r\sqrt{\log r})\\) as follows. Let \\(G\\) be the disjoint union of \\(\Theta(n/(r\sqrt{\log r}))\\) copies of the same graph in Theorem 4 with \\(k = \Theta(r\sqrt{\log r})\\) vertices. Then \\( \vert E(G) \vert  = \Theta(n/(r\sqrt{\log r}))k^2 = \Theta(n\cdot r\sqrt{\log r})\\). As \\(H\\) excludes a clique minor of size \\(k/(\epsilon\sqrt{\log k}) \leq r\\) (by choosing the constant in the definition of \\(k\\) appropriately), \\(G\\) excludes \\(K_r\\) as a minor.
 
-Theorem 4 can be proven by the probabilistic method.
+Theorem 4 can be proven by the probabilistic method. To gain some intuition of the proof, consider any fixed partition of \\(V(H)\\) into vertex-disjont subsets \\(\{V_1,V_2,\ldots, V_{s}\}\\) of size \\(\epsilon \sqrt{\log k}\\) each. For this partition to realize a \\(K_s\\) minor, there must be an edge between every two vertex sets \\(V_i,V_j\\) for \\(i\not=j\\). The probability of this is:
+
+$$ (1-2^{-|V_i||V_j|})^{{s \choose 2}} = (1-2^{-\epsilon ^2 \log(k)})^{{s \choose 2}}  \approx e^{-k^{2 - \epsilon^2}/\log(k)} $$ 
+
+By the union bound over at most \\(k^k\\) such partitions, the probability of having a  \\(K_s\\) minor is at most  \\(k^k e^{-k^{2 - \epsilon^2}/\log(k)} \rightarrow 0 \\) when \\(k \rightarrow +\infty\\). In other words, the probability of not having a \\(K_{s}\\) minor is close to \\(1\\).
+
+In the formal proof, one has to work with the fact that the subsets in the partition might not have the same size; this can be resolved by simple algebraic manipulation.
+
+
 
 
 **Proof of Theorem 4.**  Let \\(H = G(k,1/2)\\) where \\(G(k,1/2)\\) is the Erdős–Rényi random graph with probability \\(p = 1/2\\). We now show that the probability that \\(H\\) contains a \\(K_s\\) minor tends to \\(0\\) when \\(k\rightarrow \infty\\). 
