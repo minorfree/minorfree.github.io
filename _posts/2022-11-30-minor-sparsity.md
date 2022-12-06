@@ -90,15 +90,7 @@ Proof: If \\(H\\) is \\(d/3\\)-vertex connected, then \\(K  = H\\). Otherwise, t
 
 We now construct a minor of size \\(\Theta(\sqrt{d})\\) for graph \\(K\\) in Lemma 2. We do so by showing that for any given \\(p \leq d/40\\) distinct pairs of vertices \\(\{(s_1,t_1, \ldots, (s_p,t_p)\}\\) in \\(K\\) (two pairs might share the same vertex), then there are \\(p\\) internally vertex-disjoint paths connecting them (Lemma 3). (Two paths are internally vertex-disjoint if they can only share endpoints.)  Then one can construct a minor of size \\(\sqrt{d/40}\\) by picking an arbitrary set \\(R\\) of \\(\sqrt{d/40}\\) vertices, and connect all pairs of vertices in \\(R\\) using disjoint paths in Lemma 3, which implies Theorem 3.
 
-![](https://i.imgur.com/0l8Erja.png)
-
-try this 
-
 ![](/assets/figs/paths-large.png)
-
-try that
-
-![](assets/figs/paths-large.png)
 
 *Figure 1: (a) \\(\mathcal{P}\\) includes two paths of black edges. (b) deleting \\(\mathcal{P}\\) except \\(s_1,t_1\\). (c\) \\(v\\) could not have more than 3 neighbors on the path from \\(s_i\\) to \\(t_i\\)*
 
@@ -135,7 +127,7 @@ By Lemma 2, it suffices to construct a clique minor of size \\(\Omega(d/\sqrt{\l
 The choices of constants \\(c_0\\) and \\(c_1\\) imply that \\( \vert V(C_1)\cup \ldots \cup V(C_h) \vert  \leq d/12\\). Thus, if we let \\(H_i = K\setminus (C_1\cup \ldots \cup C_i)\\) for any \\(i\leq h\\), then \\(H_i\\) is \\(d/3 - d/12 = d/4\\) vertex-connected. This in particular, implies that \\(H_i\\) has diameter at most \\(22 = O(1)\\).  
 
 
-![](https://i.imgur.com/ssff6AZ.png)
+![](/assets/figs/minor-large.png)
 
 *Figure 2: (a) \\(C_1\\) forms from \\(S_1\\), the set of black vertices, and its bad set \\(B_1\\). (b) \\(C_2\\) is constructed from \\(S_2\\) (black vertices), which avoids \\(B-1\\), and its bad set \\(B_2\\). (c\) \\(S_i\\)   has  edges to all graphs \\(C_1,C_2,\ldots,C_{i-1}\\).*
 
