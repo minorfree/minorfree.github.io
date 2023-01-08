@@ -92,6 +92,13 @@ We now construct a minor of size \\(\Theta(\sqrt{d})\\) for graph \\(K\\) in Lem
 
 ![](/assets/figs/paths-large.png)
 
+
+![](/assets/figs/paths-large.svg)
+
+
+<img src = "/assets/figs/paths-large.svg" alt="Shortcut Path"/>
+
+
 *Figure 1: (a) \\(\mathcal{P}\\) includes two paths of black edges. (b) deleting \\(\mathcal{P}\\) except \\(s_1,t_1\\). (c\) \\(v\\) could not have more than 3 neighbors on the path from \\(s_i\\) to \\(t_i\\)*
 
 ***
