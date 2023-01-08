@@ -65,8 +65,8 @@ The top level recursion serves two purposes: (i) creating a low hop emulator  fo
 
 > \\(2.\\) \\(P_{\sqrt{n}} \leftarrow\\) unweighted path graph with vertex set \\(B\\).
 
-> \\(3.\\) \\((K_B,\mathcal{T}_B) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{\sqrt{n}})\\). </br>
-> \\(4.\\) \\(K\leftarrow K_B,\quad \mathcal{T}\leftarrow \mathcal{T}_B\\)</br>
+> \\(3.\\) \\((K_B,\mathcal{T}_B) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{\sqrt{n}})\\). <br>
+> \\(4.\\) \\(K\leftarrow K_B,\quad \mathcal{T}\leftarrow \mathcal{T}_B\\)<br>
 > \\(5.\\) for \\(i\leftarrow 0\\) to \\(\sqrt{n}-1\\)
 > > \\(6.\\) \\((K_i,\mathcal{T}_i) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{n}[b_i, b_{i+1}])\\)
 > > \\(7.\\)  for each \\(v\in P_{n}[b_i, b_{i+1}]\\)
