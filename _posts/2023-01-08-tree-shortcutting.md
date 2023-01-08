@@ -29,7 +29,7 @@ For readers who are not familar with treeewidth, see  [here](https://en.wikipedi
 
 A version of a tree shortcutting problem where one seeks to minimize *the number of edges of \\(K\\)*, given a hop bound \\(k\\), was studied extensively (see [1](http://www.math.tau.ac.il/~haimk/adv-ds-2008/Alon-Schieber.ps),[2](https://dl.acm.org/doi/abs/10.5555/640186.640193),[3](https://arxiv.org/abs/1005.4155),[4](https://dl.acm.org/doi/10.1145/800070.802185), including my own work [with](https://arxiv.org/abs/2107.14221) [others](https://arxiv.org/abs/2112.09124)), arising in the context of spanners and minimum spanning tree problem. What is interesting there IMO is that we see all kinds of crazy slowly growing functions in computer science: for \\(k = 2\\), the number of edges of \\(K\\) is \\(\Theta(n \log n)\\);  for \\(k = 3\\), the number of edges of \\(K\\) is \\(\Theta(n \log\log n)\\); for \\(k = 4\\), the number of edges is \\(\Theta(n \log^* n)\\); \\(\ldots\\) [too difficult to describe]; and for \\(k = \alpha(n)\\), the number of edges is   \\(\Theta(n)\\). Here, as you might guess, \\(\alpha(\cdot)\\) is the notorious (one parameter) inverse Ackermann function. (The \\(\Theta\\) notation in the number of edges means there exist matching lower bounds.) I hope to cover this problem in a future blog post.
 
-Now back to our tree shortcutting problem. Let \\(n = |V(T)|\\). There are two extreme regimes that I am aware of:
+Now back to our tree shortcutting problem. Let \\(n = \lvert V(T) \rvert\\). There are two extreme regimes that I am aware of:
 
 1. Hop bound \\(k=2\\) and treewidth \\(\mathrm{tw}(K) = O(\log n)\\). This is a relatively simple exercise. 
 2. Hop bound \\(k=O(\log n)\\) and treewidth \\(\mathrm{tw}(K) = O(1)\\). This regime is harder to prove; trying to show this for a path graph will be an insightful exercise. It follows from a well-known fact [1] that any tree decomposition of width \\(t\\) can be turned into a tree decomposition of width \\(O(t)\\) and depth \\(O(\log n)\\). 
@@ -62,7 +62,9 @@ The top level recursion serves two purposes: (i) creating a low hop emulator  fo
 ***
  <span style="font-variant: small-caps">PathShortcutting</span>\\((P_n)\\)
 > \\(1.\\) \\(B \leftarrow \{0,\sqrt{n}, 2\sqrt{n}, \ldots, n\}\\) and \\(b_i \leftarrow i\sqrt{n}\\) for every \\(0\leq i \leq \sqrt{n}\\).
+
 > \\(2.\\) \\(P_{\sqrt{n}} \leftarrow\\) unweighted path graph with vertex set \\(B\\).
+
 > \\(3.\\) \\((K_B,\mathcal{T}_B) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{\sqrt{n}})\\).
 > \\(4.\\) \\(K\leftarrow K_B,\quad \mathcal{T}\leftarrow \mathcal{T}_B\\)
 > \\(5.\\) for \\(i\leftarrow 0\\) to \\(\sqrt{n}-1\\)
