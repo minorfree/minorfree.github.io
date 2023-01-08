@@ -52,7 +52,7 @@ The (unweighted )path graph \\(P_n\\) is a path of \\(n\\) vertices. To simplify
 ![](/assets/figs/recursion.svg)
 
 
-*Figure 2: (a) The recursive construction applied to the path \\(P_n\\). (b) Gluing \\(\mathcal{T}_B\\) and all \\({\mathcal{T}_i}\\) to obtain a tree decomposition \\(\mathcal{T}\\) of \\(K\\).*
+*Figure 2: (a) The recursive construction applied to the path \\(P_n\\). (b) Gluing \\(\mathcal{T}_B\\) and all \\(\\{\mathcal{T}_i\\}\\) to obtain a tree decomposition \\(\mathcal{T}\\) of \\(K\\).*
 
 The subpath recursion is natural: recursively shortcut each subpath \\(P[b_i,b_{i+1}]\\) (line 6). The subpath recursion returns the shortcut graph \\(K_i\\) and its tree decomposition \\(\mathcal{T}_i\\).  Next, we add edges from each boundary vertex \\(b_i\\) and \\(b_{i+1}\\) of the subpath to all other vertices on the subpath (lines 7 and 8). This step guarantees that each vertex of the subpath can "jump" to the boundary vertices using only **one edge**. In terms of tree decomposition, it means that we add both \\(b_i\\) and \\(b_{i+1}\\) to every bag of \\(\mathcal{T_i}\\) (line 9).
 
