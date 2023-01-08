@@ -85,18 +85,18 @@ The top level recursion serves two purposes: (i) creating a low hop emulator  fo
  <span style="font-variant: small-caps">PathShortcutting</span>\\((P_n)\\)
 > \\(1.\\) \\(B \leftarrow \{0,\sqrt{n}, 2\sqrt{n}, \ldots, n\}\\) and \\(b_i \leftarrow i\sqrt{n}\\) for every \\(0\leq i \leq \sqrt{n}\\)<br>
 > \\(2.\\) \\(P_{\sqrt{n}} \leftarrow\\) unweighted path graph with vertex set \\(B\\).<br>
-> \\(3.\\) \\((K_B,\mathcal{T}_B) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{\sqrt{n}})\\)<br>
-> \\(4.\\) \\(K\leftarrow K_B,\quad \mathcal{T}\leftarrow \mathcal{T}_B\\)<br>
+> \\(3.\\) \\((K_B,\mathcal T_B) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{\sqrt{n}})\\)<br>
+> \\(4.\\) \\(K\leftarrow K_B,\quad \mathcal{T}\leftarrow \mathcal T_B\\)<br>
 > \\(5.\\) for \\(i\leftarrow 0\\) to \\(\sqrt{n}-1\\)<br>
-> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;\\((K_i,\mathcal{T}_i) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{n}[b_i, b_{i+1}])\\)<br>
+> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;\\((K_i,\mathcal T_i) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{n}[b_i, b_{i+1}])\\)<br>
 > \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp; for each \\(v\in P_{n}[b_i, b_{i+1}]\\)<br>
 > \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; \\(E(K_i)\leftarrow \{(v,b_i), (v,b_{i+1})\}\\) <br>
-> \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  add both \\(\{v_i,v_{i+1}\}\\) to every bag of \\(\mathcal{T}_i\\)<br>
+> \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  add both \\(\{v_i,v_{i+1}\}\\) to every bag of \\(\mathcal T_i\\)<br>
 > \\(10.\\) &nbsp;&nbsp;&nbsp; \\(K\leftarrow K \cup K_i\\) <br>
 > \\(11.\\) &nbsp;&nbsp;&nbsp; Let \\(X\\) be a bag in \\(\mathcal{T}\\) containing both \\(b_i,b_{i+1}\\)<br>
-> \\(12.\\) &nbsp;&nbsp;&nbsp; Add \\(\mathcal{T}_i\\) to \\(\mathcal{T}\\) by connecting \\(X\\) to an arbitrary bag of \\(\mathcal{T}_i\\) <br>
+> \\(12.\\) &nbsp;&nbsp;&nbsp; Add \\(\mathcal T_i\\) to \\(\mathcal{T}\\) by connecting \\(X\\) to an arbitrary bag of \\(\mathcal T_i\\) <br>
 > \\(13.\\) return \\((K,\mathcal{T})\\)
-> 
+
 ***
 
 
