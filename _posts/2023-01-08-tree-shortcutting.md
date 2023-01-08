@@ -65,8 +65,8 @@ The top level recursion serves two purposes: (i) creating a low hop emulator  fo
 
 > \\(2.\\) \\(P_{\sqrt{n}} \leftarrow\\) unweighted path graph with vertex set \\(B\\).
 
-> \\(3.\\) \\((K_B,\mathcal{T}_B) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{\sqrt{n}})\\).
-> \\(4.\\) \\(K\leftarrow K_B,\quad \mathcal{T}\leftarrow \mathcal{T}_B\\)
+> \\(3.\\) \\((K_B,\mathcal{T}_B) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{\sqrt{n}})\\). </br>
+> \\(4.\\) \\(K\leftarrow K_B,\quad \mathcal{T}\leftarrow \mathcal{T}_B\\)</br>
 > \\(5.\\) for \\(i\leftarrow 0\\) to \\(\sqrt{n}-1\\)
 > > \\(6.\\) \\((K_i,\mathcal{T}_i) \leftarrow\\)<span style="font-variant: small-caps">PathShortcutting</span>\\((P_{n}[b_i, b_{i+1}])\\)
 > > \\(7.\\)  for each \\(v\in P_{n}[b_i, b_{i+1}]\\)
@@ -121,7 +121,7 @@ Then how abound guaranteeing that each subtree has \\(O(1)\\) vertices, say 3 ve
 
 
 ***
-**Lemma 1:** Let \\(T\\) be any tree of \\(n\\) vertices, one can decompose \\(T\\) into a collection \\(\mathcal{D}\\) of \\(O(\sqrt{n})\\) subtrees such that every tree \\(T'\in \mathcal{D}\\) has \\(|V(T')| \leq \sqrt{n}\\) and at most 2 boundary vertices.
+**Lemma 1:** Let \\(T\\) be any tree of \\(n\\) vertices, one can decompose \\(T\\) into a collection \\(\mathcal{D}\\) of \\(O(\sqrt{n})\\) subtrees such that every tree \\(T'\in \mathcal{D}\\) has \\(\lvert V(T')\rvert \leq \sqrt{n}\\) and at most 2 boundary vertices.
 
 ***
 
@@ -131,9 +131,9 @@ Lemma 1 is all we need to prove Theorem 1, following exactly the same constructi
 
 **Proof of Lemma 1:** First, decompose \\(T\\) into a collection \\(\mathcal{D}'\\) of \\(O(\sqrt{n})\\) subtrees such that each tree in \\(\mathcal{D}'\\) has size at most \\(\sqrt{n}\\) and that the total number of boundary vertices is \\(O(\sqrt{n})\\). As mentioned above, this decomposition is well known; see Claim 1 in our paper [2] for a proof.  
 
-Let \\(A_1\\) be the set of boundary vertices; \\(|A_1| = O(\sqrt{n})\\). Root \\(T\\) at an arbitrary vertex. Let \\(A_2\\) be the set containing the ancestor of every pair of vertices in \\(A_1\\). Let \\(B = A_1\cup A_2\\).
+Let \\(A_1\\) be the set of boundary vertices; \\(\lvert A_1\rvert = O(\sqrt{n})\\). Root \\(T\\) at an arbitrary vertex. Let \\(A_2\\) be the set containing the ancestor of every pair of vertices in \\(A_1\\). Let \\(B = A_1\cup A_2\\).
 
-It is not hard to see that \\(|A_2|  \leq |A_1| - 1  = O(\sqrt{n})\\). Thus, \\(|B| = O(\sqrt{n})\\). Furthermore, every connected component of \\(T\setminus B\\) has at most \\(\sqrt{n}\\) vertices and has edges to at most 2 vertices in \\(B\\). The set \\(B\\) induces a decomposition \\(\mathcal{D}\\) of \\(T\\) claimed in Lemma 1.
+It is not hard to see that \\(\lvert A_2\rvert  \leq \lvert A_1\rvert - 1  = O(\sqrt{n})\\). Thus, \\(\lvert B\rvert = O(\sqrt{n})\\). Furthermore, every connected component of \\(T\setminus B\\) has at most \\(\sqrt{n}\\) vertices and has edges to at most 2 vertices in \\(B\\). The set \\(B\\) induces a decomposition \\(\mathcal{D}\\) of \\(T\\) claimed in Lemma 1.
  
 
 # 3. Conclusion
