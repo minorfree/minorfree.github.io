@@ -90,13 +90,8 @@ Proof: If \\(H\\) is \\(d/3\\)-vertex connected, then \\(K  = H\\). Otherwise, t
 
 We now construct a minor of size \\(\Theta(\sqrt{d})\\) for graph \\(K\\) in Lemma 2. We do so by showing that for any given \\(p \leq d/40\\) distinct pairs of vertices \\(\{(s_1,t_1, \ldots, (s_p,t_p)\}\\) in \\(K\\) (two pairs might share the same vertex), then there are \\(p\\) internally vertex-disjoint paths connecting them (Lemma 3). (Two paths are internally vertex-disjoint if they can only share endpoints.)  Then one can construct a minor of size \\(\sqrt{d/40}\\) by picking an arbitrary set \\(R\\) of \\(\sqrt{d/40}\\) vertices, and connect all pairs of vertices in \\(R\\) using disjoint paths in Lemma 3, which implies Theorem 3.
 
-![](/assets/figs/paths-large.png)
-
 
 ![](/assets/figs/paths-large.svg)
-
-
-<img src = "/assets/figs/paths-large.svg" alt="Shortcut Path"/>
 
 
 *Figure 1: (a) \\(\mathcal{P}\\) includes two paths of black edges. (b) deleting \\(\mathcal{P}\\) except \\(s_1,t_1\\). (c\) \\(v\\) could not have more than 3 neighbors on the path from \\(s_i\\) to \\(t_i\\)*
