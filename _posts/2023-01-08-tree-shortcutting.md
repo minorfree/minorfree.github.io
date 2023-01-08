@@ -54,7 +54,7 @@ The (unweighted )path graph \\(P_n\\) is a path of \\(n\\) vertices. To simplify
 
 *Figure 2: (a) The recursive construction applied to the path \\(P_n\\). (b) Gluing \\(\mathcal{T}_B\\) and all \\(\{\mathcal{T}_i\}\\) to obtain a tree decomposition \\(\mathcal{T}\\) of \\(K\\).*
 
-The subpath recursion is natural: recursively shortcut each subpath \\(P[b_i,b_{i+1}]\\) (line 6). The subpath recursion returns the shortcut graph \\(K_i\\) and its tree decomposition \\(\mathcal{T}_i\\) \\(\mathcal{T}_i\\).  Next, we add edges from each boundary vertex \\(b_i,b_{i+1}\\) of the subpath to all other vertices on the subpath (lines 7 and 8). This step guarantees that each vertex of the subpath can "jump" to the boundary vertices using only **one edge**. In terms of tree decomposition, it means that we add both \\(b_i\\) and \\(b_{i+1}\\) to every bag of \\(\mathcal{T_i}\\) (line 9).
+The subpath recursion is natural: recursively shortcut each subpath \\(P[b_i,b_{i+1}]\\) (line 6). The subpath recursion returns the shortcut graph \\(K_i\\) and its tree decomposition \\(\mathcal{T}_i\\).  Next, we add edges from each boundary vertex \\(b_i\\) and \\(b_{i+1}\\) of the subpath to all other vertices on the subpath (lines 7 and 8). This step guarantees that each vertex of the subpath can "jump" to the boundary vertices using only **one edge**. In terms of tree decomposition, it means that we add both \\(b_i\\) and \\(b_{i+1}\\) to every bag of \\(\mathcal{T_i}\\) (line 9).
 
 The top level recursion serves two purposes: (i) creating a low hop emulator  for boundary vertices (recall that each vertex can jump to a boundary vertex in the same subpath using one edge) and  (ii) gluing \\(\{\mathcal{T}_i\}\\) together. More precisely, let \\(P_{\sqrt{n}}\\) be a path of boundary vertices, i.e., \\(b_i\\) is adjacent to \\(b_{i+1}\\) in  \\(P_{\sqrt{n}}\\). We shortcut \\(P_{\sqrt{n}}\\) recursively, getting the shortcut graph \\(K_B\\) and its tree decomposition \\(\mathcal{T}_B\\) (line 3). Since \\((b_i,b_{i+1})\\) is an edge in \\(P_{\sqrt{n}}\\), there must be a bag in \\(\mathcal{T}_B\\) containing both \\(b_i,b_{i+1}\\); that is, the bag \\(X\\) in line 11 exists. See Figure 2(b). Recall that in line 9, every bag in \\(\mathcal{T}_i\\) contains both \\(b_i,b_{i+1}\\), and that \\(K_B\\) and \\(K_i\\) only share two boundary vertices \\(b_i,b_{i+1}\\). Thus, we can connect \\(X\\) to an arbitrary bag of \\(\mathcal{T}_i\\) as done in line 12. This completes the shortcutting algorithm.
 
@@ -74,7 +74,6 @@ The top level recursion serves two purposes: (i) creating a low hop emulator  fo
 > > \\(10.\\) \\(K\leftarrow K \cup K_i\\) <br>
 > > \\(11.\\) Let \\(X\\) be a bag in \\(\mathcal{T}\\) containing both \\(b_i,b_{i+1}\\)<br>
 > > \\(12.\\) Add \\(\mathcal{T}_i\\) to \\(\mathcal{T}\\) by connecting \\(X\\) to an arbitrary bag of \\(\mathcal{T}_i\\) 
-
 > \\(13.\\) return \\((K,\mathcal{T})\\)
 ***
 
