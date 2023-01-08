@@ -70,13 +70,15 @@ The top level recursion serves two purposes: (i) creating a low hop emulator  fo
 > > \\(7.\\)  for each \\(v\in P_{n}[b_i, b_{i+1}]\\)<br>
 > > > \\(8.\\)  \\(E(K_i)\leftarrow \{(v,b_i), (v,b_{i+1})\}\\) <br>
 > > > \\(9.\\) add both \\(\{v_i,v_{i+1}\}\\) to every bag of \\(\mathcal{T}_i\\)<br>
-
+> >
+> >
 > > \\(10.\\) \\(K\leftarrow K \cup K_i\\) <br>
 > > \\(11.\\) Let \\(X\\) be a bag in \\(\mathcal{T}\\) containing both \\(b_i,b_{i+1}\\)<br>
 > > \\(12.\\) Add \\(\mathcal{T}_i\\) to \\(\mathcal{T}\\) by connecting \\(X\\) to an arbitrary bag of \\(\mathcal{T}_i\\) 
 >
 >
 > \\(13.\\) return \\((K,\mathcal{T})\\)
+
 ***
 
 It is not difficult to show that \\(\mathcal{T}\\) indeed is a tree decomposition of \\(K\\). Thus, we focus on analyzing the hop bound and the treewidth.
