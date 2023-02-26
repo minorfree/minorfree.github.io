@@ -14,6 +14,7 @@ First, let's define spanners. Graphs in this post are connected.
 ***
 **\\(t\\)-Spanner**: Given a graph \\(G\\), a \\(t\\)-spanner is a subgraph of \\(G\\), denoted by \\(H\\),  such that for every two vertices \\(u,v\in V(G)\\):
 $$ d_H(u,v)\leq t\cdot d_G(u,v)$$
+
 ***
 
 Here \\(d_H\\) and \\(d_G\\) denote the graph distances in \\(H\\) and in \\(G\\), respectively. Graph \\(G\\) could be weighted or unweighted; we only consider unweighted graphs in this post. The distance constraint on \\(H\\) implies that \\(H\\) is connected and spanning. 
@@ -23,6 +24,7 @@ Parameter \\(t\\) is called the *stretch* of the spanner. We often construct a s
 
 ***
 **Theorem** (Halperin-Zwick): Let \\(G\\) be an unweighted graph with \\(n\\) vertices and \\(m\\) edges. Let \\(k\geq 1\\) be any given integer. There is an algorithm that runs in time \\(O(m)\\) and constructs a \\((2k+1)\\)-spanner of \\(G\\) with \\(O(n^{1+1/k})\\) edges.
+
 ***
 
 It is often instructive to think about \\(k=1\\), i.e, constructing a \\(3\\)-spanner. And this is where we start. 
@@ -35,36 +37,39 @@ The cluster can be constructed greedily; the pseudocode of the algorithm is give
 
 ***
  <span style="font-variant: small-caps">Clustering</span>\\((G)\\)
-> \\(1.\\) \\({\mathcal C} \leftarrow \emptyset, \quad G_1\leftarrow G\\)
-> \\(2.\\) while \\(G_i \not= \emptyset\\)
-> \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(x\leftarrow\\) an arbitrary vertex in \\(G_i\\)
-> \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(C_x\leftarrow \{x\}\\)
-> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; if \\(\lvert N_{G_i}(x)\rvert  \geq \sqrt{n}\\)
-> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  \\(C_v\leftarrow C_v\cup N_{G_i}(x)\\)
-> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal C} \leftarrow {\mathcal C}\cup \{C_x\}\\) 
-> \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp;  \\(G_{i+1}\leftarrow G_i\setminus C_v, \quad i\leftarrow i+1\\)
+> \\(1.\\) \\({\mathcal C} \leftarrow \emptyset, \quad G_1\leftarrow G\\)<br>
+> \\(2.\\) while \\(G_i \not= \emptyset\\)<br>
+> \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(x\leftarrow\\) an arbitrary vertex in \\(G_i\\)<br>
+> \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(C_x\leftarrow \{x\}\\)<br>
+> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; if \\(\lvert N_{G_i}(x)\rvert  \geq \sqrt{n}\\)<br>
+> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  \\(C_v\leftarrow C_v\cup N_{G_i}(x)\\)<br>
+> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal C} \leftarrow {\mathcal C}\cup \{C_x\}\\) <br>
+> \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp;  \\(G_{i+1}\leftarrow G_i\setminus C_v, \quad i\leftarrow i+1\\)<br>
 > \\(9.\\) return \\({\mathcal C}\\)
 
+***
 We call the vertex \\(v\\) in the cluster \\(C_v\\) in line 4 the *center* of the cluster. We use \\(E(C_v)\\) to the edges of \\(G\\) connecting \\(v\\) to other vertices in \\(C_v\\).
 
 Observe  that every cluster \\(C\in {\mathcal C}\\) has radius at most \\(1\\) and it has either at least \\(\sqrt{n}\\) vertices or  exactly one vertex. We call \\(C\\) a *heavy cluster* if \\(\lvert C \rvert\geq \sqrt{n}\\), and a *light cluster* otherwise.  
 
 ***
 **Observation 1**: The number of heavy clusters in \\({\mathcal C}\\) is at most \\(\sqrt{n}\\).
+
 ***
 
 To get a 3-spanner of \\(G\\), we simply add an edge from every vertex to each heavy cluster of \\({\mathcal C}\\), and an edge between every pair of light clusters. (Light clusters are singletons.) 
 ***
  <span style="font-variant: small-caps">3Spanner</span>\\((G)\\)
-> \\(1.\\) \\({\mathcal C} \leftarrow\\)<span style="font-variant: small-caps">Clustering</span>\\((G)\\)
-> \\(2.\\) \\(H\leftarrow (V,\emptyset)\\)
-> \\(3.\\) for each heavy cluster \\(C\in {\mathcal C}\\)
-> \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; add \\(E(C)\\) to \\(H\\)
-> \\(5\\). &nbsp;&nbsp;&nbsp;&nbsp; for each vertex \\(v \in N_G(C)\\)
-> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; \\((v,u)\leftarrow\\) an arbitrary edge from \\(v\\) to \\(C\\)
-> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; add \\((u,v)\\) to \\(H\\)
-> \\(8.\\) add to \\(H\\) all edges between light clusters
+> \\(1.\\) \\({\mathcal C} \leftarrow\\)<span style="font-variant: small-caps">Clustering</span>\\((G)\\)<br>
+> \\(2.\\) \\(H\leftarrow (V,\emptyset)\\)<br>
+> \\(3.\\) for each heavy cluster \\(C\in {\mathcal C}\\)<br>
+> \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; add \\(E(C)\\) to \\(H\\)<br>
+> \\(5\\). &nbsp;&nbsp;&nbsp;&nbsp; for each vertex \\(v \in N_G(C)\\)<br>
+> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; \\((v,u)\leftarrow\\) an arbitrary edge from \\(v\\) to \\(C\\)<br>
+> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; add \\((u,v)\\) to \\(H\\)<br>
+> \\(8.\\) add to \\(H\\) all edges between light clusters<br>
 > \\(9.\\) return \\(H\\)
+
 ***
 
 In line 5, we use \\(N_G(C)\\) to denote the set of neighbors of \\(C\\), which are vertices are not in \\(C\\) and having at least one edge to \\(C\\).  The running time is clearly \\(O(m)\\).
@@ -93,29 +98,32 @@ The pseudocode of the algorithm is given below. The set \\(A\\) holds the edges 
 
 ***
  <span style="font-variant: small-caps">Clustering</span>\\((G,k)\\)
-> \\(1.\\) \\({\mathcal C} \leftarrow \emptyset, \quad A\leftarrow \emptyset, \quad G_1\leftarrow G\\)
-> \\(2.\\) while \\(G_i \not= \emptyset\\)
-> \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(x\leftarrow\\) an arbitrary vertex in \\(G_i\\)
-> \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(C_x\leftarrow \{x\}\\)
-> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; while \\(\lvert N_{G_i}(C_x)\rvert \geq n^{1/k} \lvert C_{x} \rvert\\)
-> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  \\(C_v\leftarrow C_x\cup N_{G_i}(C_x)\\)
-> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp; for each \\(v \in N_{G_i}(C_x)\\)
-> \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; \\((v,u)\leftarrow\\) an arbitrary edge from \\(v\\) to \\(C\\)
-> \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; add \\((v,u)\\) to \\(A\\)
-> \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal C} \leftarrow {\mathcal C}\cup \{C_v\}\\) 
-> \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;  \\(G_{i+1}\leftarrow G_i\setminus C_v, \quad i\leftarrow i+1\\)
+> \\(1.\\) \\({\mathcal C} \leftarrow \emptyset, \quad A\leftarrow \emptyset, \quad G_1\leftarrow G\\)<br>
+> \\(2.\\) while \\(G_i \not= \emptyset\\)<br>
+> \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(x\leftarrow\\) an arbitrary vertex in \\(G_i\\)<br>
+> \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(C_x\leftarrow \{x\}\\)<br>
+> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; while \\(\lvert N_{G_i}(C_x)\rvert \geq n^{1/k} \lvert C_{x} \rvert\\)<br>
+> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  \\(C_v\leftarrow C_x\cup N_{G_i}(C_x)\\)<br>
+> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp; for each \\(v \in N_{G_i}(C_x)\\)<br>
+> \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; \\((v,u)\leftarrow\\) an arbitrary edge from \\(v\\) to \\(C\\)<br>
+> \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; add \\((v,u)\\) to \\(A\\)<br>
+> \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal C} \leftarrow {\mathcal C}\cup \{C_v\}\\) <br>
+> \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;  \\(G_{i+1}\leftarrow G_i\setminus C_v, \quad i\leftarrow i+1\\)<br>
 > \\(12.\\) return \\(({\mathcal C},A)\\)
+
+***
 
 Once we perform clustering, we only need to add the set \\(A\\) and the edges inside each cluster to the spanner.
 
 ***
  <span style="font-variant: small-caps">Spanner</span>\\((G,k)\\)
-> \\(1.\\) \\(H\leftarrow (V,\emptyset)\\)
+> \\(1.\\) \\(H\leftarrow (V,\emptyset)\\)<br>
 > \\(2.\\) \\(({\mathcal C},A) \leftarrow\\)<span style="font-variant: small-caps">Clustering</span>\\((G,k)\\)
-> \\(3.\\) add \\(A\\) to \\(H\\)
-> \\(4.\\) for each cluster \\(C\in {\mathcal C}\\)
-> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; add \\(E(C)\\) to \\(H\\).
+> \\(3.\\) add \\(A\\) to \\(H\\)<br>
+> \\(4.\\) for each cluster \\(C\in {\mathcal C}\\)<br>
+> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; add \\(E(C)\\) to \\(H\\)<br>
 > \\(6.\\) return \\(H\\)
+
 ***
 
 **Sparsity analysis.** The number of edges added in the loop in line 4 is at most \\(n-1\\). Observe that for each cluster \\(C_x\\) added to \\({\mathcal C}\\) in line 6 of <span style="font-variant: small-caps">Clustering</span>, the number of edges added to \\(A\\) in the loop in line 7 is at most \\(n^{1/k}\lvert C_{x} \rvert\\). Thus, \\(\lvert A \rvert\leq n^{1/k}\sum_{C}\lvert C \rvert \leq n^{1+1/k}\\). This implies that \\(\lvert E(H) \rvert = O(n^{1+1/k})\\).
@@ -123,8 +131,10 @@ Once we perform clustering, we only need to add the set \\(A\\) and the edges in
 **Stretch analysis.** Let \\((u,v)\\) be any edge of \\(G\\) such that \\((u,v)\not\in H\\). We need to show that \\(d_H(u,v)\leq 2k+1\\). Observe that:
 ***
 **Observation 2**: Every cluster \\(C_x\in {\mathcal C}\\) has radius at most \\(k\\)
+
 ***
 Proof: Every time the radius of \\(C_x\\) increases by \\(1\\), the size of \\(C_x\\) increases by a factor of \\(n^{1/k}\\) by the construction. Thus, after \\(t\\) rounds, \\(n\geq \lvert C_{x} \rvert\geq n^{t/k}\\), which gives \\(t\leq k\\).
+
 ***
 
 Let \\(C_x\\) be the cluster containing \\(v\\). If \\(u\in C_x\\), then \\(d_G(u,v)\leq 2\cdot k\\). Otherwise, suppose w.l.o.g, that \\(v\\) is clustered before \\(u\\). Observe that \\(u\in N_{G_{i}}(C_x)\\) and hence an edge \\((u,w)\\) is added to \\(A\\), which is eventually added to \\(H\\). See Figure 1(b). Thus, the path consisting of an edge \\((u,w)\\), the shortest path from \\(w\\) to \\(x\\), and the shortest path from \\(x\\) to \\(v\\), is a path of length at most \\(2k+1\\) between \\(u\\) and \\(v\\) in \\(H\\), as desired.
@@ -138,12 +148,14 @@ Spanners have a tight connection to the girth of graphs; a graph has girth \\(g\
 
 ***
 **Observation 3**: Let \\(H\\) be a graph of girth \\(2k+3\\). Then any \\((2k+1)\\)-spanner of \\(H\\) must contain every edge of \\(H\\).
+
 ***
 
 Observation 3 essentially says that any \\((2k+1)\\)-spanner of \\(H\\) must be itself. Thus, the question of the optimality of spanners reduces to: is there any graph with \\(o(n^{1+1/k})\\) edges and girth \\((2k+3)\\)? The Erdős' Girth Conjecture implies that the answer is no.
 
 ***
 **Erdős' Girth Conjecture [5]**: For any \\(n \geq 1\\) and \\(k\geq 1\\), there exists a graph with \\(n\\) vertices of girth \\((2k+3)\\) that has \\(\Omega(n^{1+1/k})\\) edges.
+
 ***
 
 Erdős stated a lower bound \\(c_k\cdot n^{1+1/k}\\) on the number of edges in the conjecture [5]; that is, the constant is allowed to degrade as \\(k\\) increases.  The spanner literature often cites the stronger version above, where the constant remains the same for every \\(k\\). The Erdős' Girth Conjecture is known to hold for a few small values of \\(k\\). 
@@ -156,6 +168,7 @@ The major downsize of the greedy algorithm is its running time: the current best
 
 ***
 **Open Problem**: Construct a \\((2k+1)\\)-spanner of girth at least \\((2k+3)\\) in nearly linear time. 
+
 ***
 
 
