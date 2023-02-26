@@ -81,7 +81,7 @@ To bound the number of edges added in line 8, observe that, if we order light cl
 
 **Stretch analysis.** We show that \\(d_G(u,v)\leq 3 d_H(u,v)\\). By the triangle inequality, it suffices to show the inequality for every edge \\((u,v)\\) of \\(G\\). This means we have to show that \\(d_H(u,v)\leq 3\\).  This inequality holds if \\((u,v)\in E(H)\\), and hence we only need to consider the case where at least one of \\(u\\) and \\(v\\) is in a heavy cluster.
 
-![](https://i.imgur.com/LOLVLd2.png)
+![](/assets/figs/clusters.svg)
 
 *Figure 1: (a) stretch-3 path for edge \\((u,v)\\) and (b) stretch-\\((2k+1)\\) path for edge \\((u,v)\\)*
 
