@@ -13,6 +13,7 @@ First, let's define spanners. Graphs in this post are connected.
 
 ***
 **\\(t\\)-Spanner**: Given a graph \\(G\\), a \\(t\\)-spanner is a subgraph of \\(G\\), denoted by \\(H\\),  such that for every two vertices \\(u,v\in V(G)\\):
+
 $$ d_H(u,v)\leq t\cdot d_G(u,v)$$
 
 ***
@@ -118,7 +119,7 @@ Once we perform clustering, we only need to add the set \\(A\\) and the edges in
 ***
  <span style="font-variant: small-caps">Spanner</span>\\((G,k)\\)
 > \\(1.\\) \\(H\leftarrow (V,\emptyset)\\)<br>
-> \\(2.\\) \\(({\mathcal C},A) \leftarrow\\)<span style="font-variant: small-caps">Clustering</span>\\((G,k)\\)
+> \\(2.\\) \\(({\mathcal C},A) \leftarrow\\)<span style="font-variant: small-caps">Clustering</span>\\((G,k)\\)<br>
 > \\(3.\\) add \\(A\\) to \\(H\\)<br>
 > \\(4.\\) for each cluster \\(C\in {\mathcal C}\\)<br>
 > \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; add \\(E(C)\\) to \\(H\\)<br>
@@ -129,6 +130,7 @@ Once we perform clustering, we only need to add the set \\(A\\) and the edges in
 **Sparsity analysis.** The number of edges added in the loop in line 4 is at most \\(n-1\\). Observe that for each cluster \\(C_x\\) added to \\({\mathcal C}\\) in line 6 of <span style="font-variant: small-caps">Clustering</span>, the number of edges added to \\(A\\) in the loop in line 7 is at most \\(n^{1/k}\lvert C_{x} \rvert\\). Thus, \\(\lvert A \rvert\leq n^{1/k}\sum_{C}\lvert C \rvert \leq n^{1+1/k}\\). This implies that \\(\lvert E(H) \rvert = O(n^{1+1/k})\\).
 
 **Stretch analysis.** Let \\((u,v)\\) be any edge of \\(G\\) such that \\((u,v)\not\in H\\). We need to show that \\(d_H(u,v)\leq 2k+1\\). Observe that:
+
 ***
 **Observation 2**: Every cluster \\(C_x\in {\mathcal C}\\) has radius at most \\(k\\)
 
