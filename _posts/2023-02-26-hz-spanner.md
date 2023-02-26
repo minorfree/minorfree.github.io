@@ -132,7 +132,7 @@ Once we perform clustering, we only need to add the set \\(A\\) and the edges in
 **Stretch analysis.** Let \\((u,v)\\) be any edge of \\(G\\) such that \\((u,v)\not\in H\\). We need to show that \\(d_H(u,v)\leq 2k+1\\). Observe that:
 
 ***
-**Observation 2**: Every cluster \\(C_x\in {\mathcal C}\\) has radius at most \\(k\\)
+**Observation 2**: Every cluster \\(C_x\in {\mathcal C}\\) has radius at most \\(k\\).
 
 ***
 Proof: Every time the radius of \\(C_x\\) increases by \\(1\\), the size of \\(C_x\\) increases by a factor of \\(n^{1/k}\\) by the construction. Thus, after \\(t\\) rounds, \\(n\geq \lvert C_{x} \rvert\geq n^{t/k}\\), which gives \\(t\leq k\\).
