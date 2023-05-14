@@ -23,6 +23,7 @@ For the shortcut set problem, a folklore sampling gives \\(d = O(\sqrt{n})\\): s
 
 ***
 **Question 1**: Is diameter bound \\(\sqrt{n}\\) optimal for shortcut sets of nearly linear size?
+
 ***
 
 The answer is no due to the [recent breakthrough](https://arxiv.org/pdf/2111.13240.pdf) by Kogan and Parter: using  \\(\tilde{O}(n)\\) shorcuts, they reduced the diameter down to \\(n^{1/3}\\). Their result deservingly won the best paper award at SODA 22. A key conceptual contribution of their work is a shift in perspective: shortcutting by connecting vertices to paths of length roughly \\(n^{1/3}\\), instead of only making vertex-to-vertex connections as the folklore sampling. Find this intriguing? Read [the paper](https://arxiv.org/pdf/2111.13240.pdf) or watch [Merav's talk](https://www.youtube.com/watch?v=qaY14SnLdMM) or both. The paper has a bunch of other interesting results.
@@ -31,6 +32,7 @@ At this point, you might wonder: how far could one go about reducing the diamete
 
 ***
 **Open Problem**: Closing the gap \\(O(n^{1/3})\\) vs. \\(\Omega(n^{1/4})\\) on the diameter for shortcut sets of nearly linear size.  
+
 ***
 
 
