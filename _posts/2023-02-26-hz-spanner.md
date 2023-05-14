@@ -59,6 +59,7 @@ Observe  that every cluster \\(C\in {\mathcal C}\\) has radius at most \\(1\\) a
 ***
 
 To get a 3-spanner of \\(G\\), we simply add an edge from every vertex to each heavy cluster of \\({\mathcal C}\\), and an edge between every pair of light clusters. (Light clusters are singletons.) 
+
 ***
  <span style="font-variant: small-caps">3Spanner</span>\\((G)\\)
 > \\(1.\\) \\({\mathcal C} \leftarrow\\)<span style="font-variant: small-caps">Clustering</span>\\((G)\\)<br>
