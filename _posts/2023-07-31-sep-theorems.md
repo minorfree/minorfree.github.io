@@ -11,6 +11,7 @@ To be more precise, I look for a proof that only requires the input graph exclud
 
 ***
 **\\(K_h\\)-minor model**: a *\\(K_h\\)-minor model* of a graph \\(G\\) is a collection of \\(h\\) *vertex-disjoint connected* subgraphs \\({\mathcal K} = \\{C_1,C_2,\ldots, C_h\\}\\) of \\(G\\) such that there is an edge between any two subgraphs. Parameter \\(h\\) is called the model size.
+
 ***
 
 ![](/assets/figs/K5Model.svg)
@@ -218,7 +219,7 @@ Finally, we recurse on the largest component \\(\kappa_H(B)\\) in line 12 where 
 > \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\leftarrow C\cup B\\)<br>
 > \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(B)\\)<br>
 > \\(13.\\)  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\)<br>
-> \\(14.\\) \\(S\leftarrow \bigcup_{C \in {\cal K}} \arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert)\\)<br>
+> \\(14.\\) \\(S\leftarrow \bigcup_{C \in {\cal K}} \min(V(C), N_H(C))\\)<br>
 > \\(15.\\) return \\(S\\) 
 
 ***
