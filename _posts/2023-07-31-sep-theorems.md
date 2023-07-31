@@ -266,7 +266,11 @@ We now return to the proof of Lemma 2.
 
 If \\(d_{\widehat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\widehat{P}\\) of length at most \\(k\cdot \ell\\) from a vertex \\(x\in R\\) to a vertex \\(y\in S\\) in \\(\widehat{G}\\). Let \\(P\\) be a *projection* of \\(\widehat{P}\\) in \\(G\\), which is defined as follows: if \\((\widehat{u},\widehat{v})\in \widehat{P}\\) where \\(\widehat{u}\\) and \\(\widehat{v}\\) are copies of two vertices \\(u,v\\) in \\(G\\), respectively, then we add \\((u,v)\\) to \\(P\\) (if \\(\widehat{u}\\) and \\(\widehat{v}\\) are copies of the same vertex, we do nothing.). Clearly \\(P\\) is a connected subgraph of \\(G\\) containing at most \\(k\ell\\) edges and such that \\(P\cap A_i\not=\emptyset\\). Then any spanning tree \\(T\\) of \\(P\\) will satisfy the lemma.
 
-Otherwise, let $$\widehat{L}_{t} = \\{\widehat{v}\in \widehat{G}: d_{\widehat{G}}(R,\widehat{v})\\} = t$$  for every \\(1\leq t\leq k\ell\\). We refer to each \\(\widehat{L}_{t}\\) as a level.  Observe that removing any \\(\widehat{L}_{t}\\) from \\({\widehat G}\\) will disconnect \\(R\\) from \\(S\\).  Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\widehat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert \widehat{L}_{t}\lvert\\). 
+Otherwise, let:
+
+ $$\widehat{L}_{t} = \{\widehat{v}\in \widehat{G}: d_{\widehat{G}}(R,\widehat{v})\} = t$$
+ 
+ for every \\(1\leq t\leq k\ell\\). We refer to each \\(\widehat{L}_{t}\\) as a level.  Observe that removing any \\(\widehat{L}_{t}\\) from \\({\widehat G}\\) will disconnect \\(R\\) from \\(S\\).  Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\widehat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert \widehat{L}_{t}\lvert\\). 
 
 Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\widehat{L}_{t^{\ast}}\\). Then:
 
