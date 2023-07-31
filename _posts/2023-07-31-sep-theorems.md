@@ -262,7 +262,7 @@ We now return to the proof of Lemma 2.
 
 If \\(d_{\hat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\hat{P}\\) of length at most \\(k\cdot \ell\\) from a vertex \\(x\in R\\) to a vertex \\(y\in S\\) in \\(\hat{G}\\). Let \\(P\\) be a *projection* of \\(\hat{P}\\) in \\(G\\), which is defined as follows: if \\((\hat{u},\hat{v})\in \hat{P}\\) where \\(\hat{u}\\) and \\(\hat{v}\\) are copies of two vertices \\(u,v\\) in \\(G\\), respectively, then we add \\((u,v)\\) to \\(P\\) (if \\(\hat{u}\\) and \\(\hat{v}\\) are copies of the same vertex, we do nothing.). Clearly \\(P\\) is a connected subgraph of \\(G\\) containing at most \\(k\ell\\) edges and such that \\(P\cap A_i\not=\emptyset\\). Then any spanning tree \\(T\\) of \\(P\\) will satisfy the lemma.
 
-Otherwise, let \\(\hat{L}_t = \{\hat{v}\in \hat{G}: d_\hat{G}(R,\hat{v})\} = t \\) 
+Otherwise, let \\({\hat L}_t = \{{\hat v}\in {\hat G}: d_{\hat G}(R,{\hat v})\} = t\\) 
 
 for every \\(1\leq t\leq k\ell\\). We refer to each \\(\hat{L}_t\\) as a level. Observe that removing any \\(\hat{L}_t\\) from  \\(\hat{G}\\) will disconnect \\(R\\) from \\(S\\). Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\hat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert \hat{L}_t\lvert\\). Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\hat{L}_{t^{\ast}}\\). Then:
 
