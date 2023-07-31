@@ -45,27 +45,25 @@ Lines 10-14 implement the second case: find a separator \\(X\\) of \\(H\\) of sm
 When we recurse on the largest component \\(H\\) in line 13, we only keep subgraphs in \\({\mathcal K}\\) that have edges to vertices \\(H\\); those that do not have edges in \\(H\\) should be removed from \\({\mathcal K}\\). The prodedure <span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\) does exactly that: remove subgraphs from \\({\mathcal K}\\) not having edges to \\(H\\).
 
 
-
-
-
 ***
  <span style="font-variant: small-caps">ShallowSeparator</span>\\((G,\ell)\\)
-> \\(1.\\) \\({\mathcal K}\leftarrow \emptyset\\), \\(S\leftarrow \emptyset\\), and \\(H\leftarrow G\\)
-> \\(2.\\) while \\(V(H)\geq 2n/3\\) 
-> \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(v\leftarrow\\) arbitrary vertex in \\(V(H)\\)
-> \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(T_{v}\leftarrow\\)<span style="font-variant: small-caps">BFSTree</span>\\((v,H)\\)
-> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; if \\(\mathrm{depth}(T_v) \leq 2\ell \ln(n)\\)
-> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C_v\leftarrow\\) minimal subtree of \\(T_v\\) s.t \\(C_v\cap N_H(C)\not=\emptyset \quad\forall C\in {\mathcal K}\\)
+> \\(1.\\) \\({\mathcal K}\leftarrow \emptyset\\), \\(S\leftarrow \emptyset\\), and \\(H\leftarrow G\\)<br>
+> \\(2.\\) while \\(V(H)\geq 2n/3\\) <br>
+> \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(v\leftarrow\\) arbitrary vertex in \\(V(H)\\)<br>
+> \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(T_{v}\leftarrow\\)<span style="font-variant: small-caps">BFSTree</span>\\((v,H)\\)<br>
+> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; if \\(\mathrm{depth}(T_v) \leq 2\ell \ln(n)\\)<br>
+> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C_v\leftarrow\\) minimal subtree of \\(T_v\\) s.t \\(C_v\cap N_H(C)\not=\emptyset \quad\forall C\in {\mathcal K}\\)<br>
 > \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \{C_v\}\\) 
-> \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  return \\({\mathcal K}\\) if \\(\lvert{\mathcal K}\rvert = h\\) 
-> \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(V(C_X))\\)
-> \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp; else
-> \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; Find \\(X\\) s.t \\(0 < |X| \leq \frac{\lvert V(H)\rvert - |\kappa_H(X)\rvert} {\ell}\\)
-> \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(S\leftarrow S\cup X\\)
-> \\(13.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(X)\\)
-> \\(14.\\)  &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\) \\(\qquad \ll \text{remove subgraphs not adjaent to }H \gg\\) 
-> \\(15.\\) \\(S\leftarrow S\cup (\cup_{C\in {\mathcal K}} V(C))\\)
+> \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  return \\({\mathcal K}\\) if \\(\lvert{\mathcal K}\rvert = h\\)<br> 
+> \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(V(C_X))\\)<br>
+> \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp; else<br>
+> \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; Find \\(X\\) s.t \\(0 < \lvert X\rvert \leq \frac{\lvert V(H)\rvert - \lvert\kappa_H(X)\rvert} {\ell}\\)<br>
+> \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(S\leftarrow S\cup X\\)<br>
+> \\(13.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(X)\\)<br>
+> \\(14.\\)  &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\) \\(\qquad \ll \text{remove subgraphs not adjaent to }H \gg\\) <br>
+> \\(15.\\) \\(S\leftarrow S\cup (\cup_{C\in {\mathcal K}} V(C))\\)<br>
 > \\(16.\\) return \\(S\\) 
+
 ***
 
 Observe that, as long as the algorithm can find \\(X\\) in line 11, it eventually will terminate since in every step, the size of \\(H\\) is reduced by at least \\(1\\).
@@ -77,6 +75,7 @@ It is not clear why \\(X\\) exists in the above algorithm; we will return to thi
 
 ***
 **Lemma 1**: In every iteration of the while loop: (1) no subgraph in \\({\mathcal K}\\) shares a vertex with \\(H\\), (2) every subgraph in \\({\mathcal K}\\) has an edge to \\(H\\), and (3) every two graphs in \\({\mathcal K}\\) are vertex-disjoint and have an edge in \\(G\\) connecting them.
+
 ***
 
 Proof:  We prove all four claims by induction; initially, \\({\mathcal K} = \emptyset\\) and hence the lemma trivially holds. There are two places where \\({\mathcal K}\\) and \\(H\\) potentially change in each iteration: lines 7,9,13 and 14. 
@@ -85,13 +84,16 @@ In line 7, we add \\(C_v\\) to \\({\mathcal K}\\). Line 6 and the induction hypo
 
 In lines 9 and 13, \\(H\\) is updated, and in both cases, \\(H\\) is vertex-disjoint from \\({\mathcal K}\\), and hence (1) holds in the next iteration. 
 
-Finally, in line 14, the <span style="font-variant: small-caps">Trim</span> procedure guarantees (2). 
+Finally, in line 14, the <span style="font-variant: small-caps">Trim</span> procedure guarantees (2).
+ 
 ***
 
 We now bound the size of the separator. 
+
 ***
 **Theorem 1**: For any integer \\(\ell\geq 1\\), <span style="font-variant: small-caps">ShallowSeparator</span>\\((G,\ell)\\) either returns a \\(K_h\\)-minor model of \\(G\\) where every subgraph in the model has diameter at most \\(O(\ell \log n)\\) or a *balanced* separator \\(S\\) such that:
 $$\lvert S\rvert = O\left(\frac{n}{\ell} + h^2\ell\log(n)\right)$$
+
 ***
 
 Proof: Observe that if the algorithm returns  \\({\mathcal K}\\) in line 8, claim (3) in Lemma 1 implies that \\({\mathcal K}\\) is a \\(K_h\\)-minor-model. Furthermore, every subgraph in \\({\mathcal K}\\) has diameter \\(O(\ell \log n)\\), as the depth of \\(C_v\\) in line 6 is \\(O(\ell \log n)\\). Henceforth, we assume that the algorithm does return a separator \\(S\\) in line 16; this means \\(\lvert{\mathcal K}\rvert\leq h-1\\) at every iteration.
@@ -108,7 +110,8 @@ Finally, we show that \\(S\\) is balanced: every connected component of \\(G[V\s
 
 Let \\(S_0\\) be \\(S\\) in the last iteration and before the update in line 12. The final separator will be \\(S = V({\mathcal K})\cup S_0 \cup X\\). 
 
-Let \\(Z\\) be any connected component of \\(G[V\setminus S]\\). If \\(V(Z)\cap V(H_0) = \emptyset\\), then \\(\lvert V(Z)\rvert\leq n/3\\) as \\(\lvert V(H_0)|\geq 2n/3\\). If not, then by Claim 1, \\(Z\\) is a connected component of \\(H_0\setminus X\\). Since \\(H\\) is the largest component of \\(H_0\setminus X\\) and it has size at most \\(2n/3\\), \\(\lvert V(Z)\rvert\leq 2n/3\\) as desired.   
+Let \\(Z\\) be any connected component of \\(G[V\setminus S]\\). If \\(V(Z)\cap V(H_0) = \emptyset\\), then \\(\lvert V(Z)\rvert\leq n/3\\) as \\(\lvert V(H_0)\rvert\geq 2n/3\\). If not, then by Claim 1, \\(Z\\) is a connected component of \\(H_0\setminus X\\). Since \\(H\\) is the largest component of \\(H_0\setminus X\\) and it has size at most \\(2n/3\\), \\(\lvert V(Z)\rvert\leq 2n/3\\) as desired.   
+
 ***
 
 
@@ -134,17 +137,18 @@ If there is no such \\(j^*\\), then this means every time we visit a layer \\(j\
 which gives \\(\mathrm{depth}(T_v)\leq \ell\ln(n)\\).
 
 
-We could set \\(X = Y_{j^*}\\). If the largest component \\(\kappa(X)\\) belongs to levels larger than \\(j^*\\), that is \\(\kappa(X)\subseteq (\cup_{j\geq j^*+1}Y_j)\\), then we are done since \\(\sum_{j \leq j^*-1}\lvert Y_{j}\rvert\leq |V(H)|- |\kappa(X)\lvert\\). However, this might not be the case.  A simple fix is to find a layer \\(j^*\\) such that:
+We could set \\(X = Y_{j^*}\\). If the largest component \\(\kappa(X)\\) belongs to levels larger than \\(j^*\\), that is \\(\kappa(X)\subseteq (\cup_{j\geq j^*+1}Y_j)\\), then we are done since \\(\sum_{j \leq j^*-1}\lvert Y_{j}\rvert\leq \lvert V(H)\rvert- \lvert\kappa(X)\rvert\\). However, this might not be the case.  A simple fix is to find a layer \\(j^*\\) such that:
 
 $$\lvert Y_{j^*}\rvert  \leq \frac{1}{\ell}\sum_{j \leq j^*-1}\lvert Y_{j}\rvert \qquad \& \qquad 
     \lvert Y_{j^*}\rvert  \leq \frac{1}{\ell}\sum_{j \geq j^*+1}\lvert Y_{j}\rvert \qquad (2)$$
 
-Thus, regarless of whether the largest component \\(\kappa(X)\\) belongs to levels larger or smaller than \\(j^*\\), we always have \\(\lvert X\rvert =\lvert Y_{j^*}\rvert\leq (|V(H)|- |\kappa(X)\rvert)/\ell\\). 
+Thus, regarless of whether the largest component \\(\kappa(X)\\) belongs to levels larger or smaller than \\(j^*\\), we always have \\(\lvert X\rvert =\lvert Y_{j^*}\rvert\leq (\lvert V(H)\rvert- \lvert\kappa(X)\rvert)/\ell\\). 
 
 To find \\(j^*\\) satisfying Equation (2), we simply check each layer of \\(T_v\\). We show that if we could not find such a layer \\(j^*\\), then the depth of \\(T_v\\) is small.
 
 ***
 **Lemma 2**: If \\(\mathrm{depth}(T_v)> 2\ell\ln(n)\\), then there exists a layer \\(j^*\\) of \\(T_v\\) satisfying Equation (2).
+
 ***
 
 Proof: We visit \\(T_v\\) layer by layer, starting from layer \\(0\\) (the root). We mark a layer \\(j\\) *red* if \\(\lvert Y_{j}\rvert  \geq \frac{1}{\ell}\sum_{t \leq j-1}\lvert Y_{t}\lvert\\) and *blue* if \\(\lvert Y_{j}\rvert  \geq \frac{1}{\ell}\sum_{t \geq j+1}\lvert Y_{j}\lvert\\). (If a layer could be marked both red or blue, we mark it red only.) Intuitively, whenever we encounter a red layer, then the set of vertices seen so far grows by a factor of \\((1+1/\ell)\\). In contrast, whenever we encounter a blue layer, the set of the vertices we **have not** seen so far reduces by a factor of \\((1+1/\ell)\\). 
@@ -159,6 +163,7 @@ $$Z_{b} \geq (1+1/\ell)\frac{1}{\ell}\sum_{t \leq b}\lvert Y_{t}\rvert \geq (1+1
 That is, every time we see a red layer, the size of all the layers up to the red layer increases by a factor of \\((1+1/\ell)\\), which implies that the number of red layers is at most \\(\ell\ln(n)\\).
 
 By the same argument, one could show that the number of blue layers is at most  \\(\ell\ln(n)\\): every time we see a blue layer, the number of vertices in the blue and higher layers is reduced by a factor of \\((1-1/\ell)\\). Thus, the number of blue layers is at most \\(\ell\ln(n)\\), implying the bound on the depth.
+
 ***
 
 
@@ -178,6 +183,7 @@ The following lemma is the key to the algorithm whose proof we will delay. It is
 **Lemma 2**: Let \\(\ell \leq 1\\) be any parameter. Let \\(A_1,A_,2\ldots, A_k\\) be \\(k\\) subsets of vertices in \\(V\\). There exists either:
 - (i) a tree \\(T\\) of \\(G\\) of size at most \\(\ell k\\) such that \\(V(T)\cap A_i \not= 0\\) for every \\(i\in [1,k]\\) 
 - or (ii) a set \\(X\\) of size at most \\(n/\ell\\) such that for every connected component \\(C\in G\setminus X\\), \\(X\cap A_i=\emptyset\\) for some \\(i\in [k]\\).
+
 ***
 
 Intuitively, Lemma 2 means that either we find a tree of small size that connects every set \\(A_i\\) or we find a small separator that separates at least two sets among \\(\{A_i\}_i\\) into two different connected components.  We note that \\(\{A_i\}_i\\) might not be vertex-disjoint.
@@ -194,7 +200,7 @@ We need more notation to describe the algorithm formally. For a subset of vertic
 
 *Figure 3: (a) Found small separator \\(X\\), then (b) find a subgraph \\(B\\) in line 10 by extending the neighbor set of a subgraph \\(C\in {\mathcal K}\\), \(c\) extend \\(C\\) to include \\(B\\) and recurse on \\(\kappa_H(B)\\).*
 
-At every iteration, the algorithm applies Lemma 2 to the sets of neighbors \\(N_H(C)\\) of subgraphs \\(C\\) in the model \\({\mathcal K}\\); this is procedure <span style="font-variant: small-caps">TreeeOrSep</span>\\((H, \{N_H(C)\}_{C\in {\mathcal K}})\\) in line 3. It will return a tree \\(T\\) of small size intersecting all these sets or a small separator \\(X\\) that separates at least two sets into two different components. In the former case, the algorithm will add \\(T\\) to the current model \\({\mathcal K}\\) and hence increase the size of  \\({\mathcal K}\\) by \\(1\\). In the latter case, there will be a subgraph \\(C\\) such that its neighbor set \\(N_H(C)\\) is disjoint from the largest component \\(\kappa_H(X)\\). (Recall that \\(\kappa_H(X)\\) is the largest component of \\(H\\) after removing \\(X\\) from  \\(H\\).) We then extend \\(C\\) in lines 10-11; the idea here is that after extending \\(C\\), \\(N_H(C)\\) will be a subset of \\(X\\) and hence \\(\lvert N_H(C)\rvert\leq |X\rvert \leq n/\ell\\). See Figure 3. 
+At every iteration, the algorithm applies Lemma 2 to the sets of neighbors \\(N_H(C)\\) of subgraphs \\(C\\) in the model \\({\mathcal K}\\); this is procedure <span style="font-variant: small-caps">TreeeOrSep</span>\\((H, \{N_H(C)\}_{C\in {\mathcal K}})\\) in line 3. It will return a tree \\(T\\) of small size intersecting all these sets or a small separator \\(X\\) that separates at least two sets into two different components. In the former case, the algorithm will add \\(T\\) to the current model \\({\mathcal K}\\) and hence increase the size of  \\({\mathcal K}\\) by \\(1\\). In the latter case, there will be a subgraph \\(C\\) such that its neighbor set \\(N_H(C)\\) is disjoint from the largest component \\(\kappa_H(X)\\). (Recall that \\(\kappa_H(X)\\) is the largest component of \\(H\\) after removing \\(X\\) from  \\(H\\).) We then extend \\(C\\) in lines 10-11; the idea here is that after extending \\(C\\), \\(N_H(C)\\) will be a subset of \\(X\\) and hence \\(\lvert N_H(C)\rvert\leq \lvert X\rvert \leq n/\ell\\). See Figure 3. 
 
 Finally, we recurse on the largest component \\(\kappa_H(B)\\) in line 12 where \\(B\\) is the set of vertices we added to \\(C\\). (We do not recurse on \\(\kappa_H(X)\\) since we do not add \\(X\\) to the separator.) As discussed above, the algorithm either returns \\(C\\) if it has small size or its neighbors in the current largest component. Note that some subgraphs in \\({\mathcal K}\\) might not be adjacent to \\(\kappa_H(B)\\), and hence we remove these subgraphs (line 13). 
 
@@ -214,7 +220,7 @@ Finally, we recurse on the largest component \\(\kappa_H(B)\\) in line 12 where 
 > \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\leftarrow C\cup B\\)
 > \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(B)\\)
 > \\(13.\\)  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\)
-> \\(14.\\) return \\(\cup_{C\in {\mathcal K}}\arg\min(|V(C)|, \lvert N_H(C)\rvert)\\) 
+> \\(14.\\) return \\(\cup_{C\in {\mathcal K}}\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert)\\) 
 ***
 
 We now show that ATS algorithm returns a small separator, or correctly certifies that \\(G\\) contains a \\(K_h\\)-minor. 
@@ -229,11 +235,11 @@ We show by induction that the model \\({\mathcal K}\\) and the graph \\(H\\) sat
 
 > **Invariant:** For every \\(C\in {\mathcal K}\\), either \\(\lvert V(C)\rvert\leq (h-1)\ell\\) or \\(\lvert N_H(C)\rvert\leq n/\ell\\).
 
-The invariant clearly holds at the beginning since \\({\mathcal K} = \emptyset\\). Suppose that it holds at a current iteration in the while loop in line 2. In the next iteration, if we add a new subgraph \\(T\\) to \\({\mathcal K}\\), then \\(T\\) has size at most \\(\lvert{\mathcal K}|\ell \leq (h-1)\ell\\). Otherwise, we extend a component \\(C\\) of \\({\mathcal K}\\), and we need to show that \\(\lvert N_H(C)\rvert\leq n/\ell\\) for the graph \\(H\\) in the next iteration.
+The invariant clearly holds at the beginning since \\({\mathcal K} = \emptyset\\). Suppose that it holds at a current iteration in the while loop in line 2. In the next iteration, if we add a new subgraph \\(T\\) to \\({\mathcal K}\\), then \\(T\\) has size at most \\(\lvert{\mathcal K}\rvert\ell \leq (h-1)\ell\\). Otherwise, we extend a component \\(C\\) of \\({\mathcal K}\\), and we need to show that \\(\lvert N_H(C)\rvert\leq n/\ell\\) for the graph \\(H\\) in the next iteration.
 
-Let \\(Z = H\setminus \{\kappa(H\setminus X)\cup X\}\\) be the subgraph of \\(H\\) obtained by removing \\(X\\) and the largest components \\(\kappa_H(X)\\); \\(Z\\) might be disconnected. Consider set \\(B\\) in line 10; see Figure 3. Observe that for every component \\(Y\\) of \\(Z\\) such that \\(Y\cap N_H(C)\not= \emptyset\\), every vertex of \\(Y\\) is in \\(B\\).  Thus, \\(N_H(B)\subseteq X\\) and hence \\(N_H(B\cup C)\subseteq X\\); note that this remains true even when \\(B = \emptyset\\) since in this case \\(N_H(C)\subseteq X\\).  Therefore, \\(\lvert N_H(B\cup C)\rvert\leq |X\rvert\leq n/\ell\\)  by Lemma 2, implying the invariant. 
+Let \\(Z = H\setminus \{\kappa(H\setminus X)\cup X\}\\) be the subgraph of \\(H\\) obtained by removing \\(X\\) and the largest components \\(\kappa_H(X)\\); \\(Z\\) might be disconnected. Consider set \\(B\\) in line 10; see Figure 3. Observe that for every component \\(Y\\) of \\(Z\\) such that \\(Y\cap N_H(C)\not= \emptyset\\), every vertex of \\(Y\\) is in \\(B\\).  Thus, \\(N_H(B)\subseteq X\\) and hence \\(N_H(B\cup C)\subseteq X\\); note that this remains true even when \\(B = \emptyset\\) since in this case \\(N_H(C)\subseteq X\\).  Therefore, \\(\lvert N_H(B\cup C)\rvert\leq \rvert X\rvert\leq n/\ell\\)  by Lemma 2, implying the invariant. 
 
-We now go back to bounding the size of the separator. The invariant means that \\(\arg\min(|V(C)|, |N_H(C)\rvert) \leq (h-1)\ell + n/\ell\\). Since  \\(\lvert{\mathcal K}\rvert\leq h-1\\), the separator has size at most \\((h-1)((h-1)\ell + n/\ell) \leq h^2\ell + hn/\ell\\) as claimed. 
+We now go back to bounding the size of the separator. The invariant means that \\(\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert) \leq (h-1)\ell + n/\ell\\). Since  \\(\lvert{\mathcal K}\rvert\leq h-1\\), the separator has size at most \\((h-1)((h-1)\ell + n/\ell) \leq h^2\ell + hn/\ell\\) as claimed. 
 
 ***
 
@@ -255,9 +261,9 @@ We now return to the proof of Lemma 2.
 
 If \\(d_{\hat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\hat{P}\\) of length at most \\(k\cdot \ell\\) from a vertex \\(x\in R\\) to a vertex \\(y\in S\\) in \\(\hat{G}\\). Let \\(P\\) be a *projection* of \\(\hat{P}\\) in \\(G\\), which is defined as follows: if \\((\hat{u},\hat{v})\in \hat{P}\\) where \\(\hat{u}\\) and \\(\hat{v}\\) are copies of two vertices \\(u,v\\) in \\(G\\), respectively, then we add \\((u,v)\\) to \\(P\\) (if \\(\hat{u}\\) and \\(\hat{v}\\) are copies of the same vertex, we do nothing.). Clearly \\(P\\) is a connected subgraph of \\(G\\) containing at most \\(k\ell\\) edges and such that \\(P\cap A_i\not=\emptyset\\). Then any spanning tree \\(T\\) of \\(P\\) will satisfy the lemma.
 
-Otherwise, let \\(\hat{L}_t = \{\hat{v}\in \hat{G}: d_\hat{G}(R,\hat{v})\} = t\\) for every \\(1\leq t\leq k\ell\\). We refer to each \\(\hat{L}_t\\) as a level. Observe that removing any \\(\hat{L}_t\\) from  \\(\hat{G}\\) will disconnect \\(R\\) from \\(S\\). Let \\(t^*\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\hat{L}_{t^*}|= \min_{1\leq t\leq k\ell}|\hat{L}_t\lvert\\). Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\hat{L}_{t^*}\\). Then:
+Otherwise, let \\(\hat{L}_t = \{\hat{v}\in \hat{G}: d_\hat{G}(R,\hat{v})\} = t\\) for every \\(1\leq t\leq k\ell\\). We refer to each \\(\hat{L}_t\\) as a level. Observe that removing any \\(\hat{L}_t\\) from  \\(\hat{G}\\) will disconnect \\(R\\) from \\(S\\). Let \\(t^*\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\hat{L}_{t^*}\rvert= \min_{1\leq t\leq k\ell}\lvert \hat{L}_t\lvert\\). Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\hat{L}_{t^*}\\). Then:
 
-$$\lvert X\rvert \leq |\hat{L}_{t^*}\rvert \leq \frac{\lvert V(\hat{G})\rvert} {k\ell} = \frac{n}{\ell}$$
+$$\lvert X\rvert \leq \lvert \hat{L}_{t^*}\rvert \leq \frac{\lvert V(\hat{G})\rvert} {k\ell} = \frac{n}{\ell}$$
 
 We claim that no connected component \\(C\subseteq G\setminus X\\) intersects all \\(A_i\\). Suppose otherwise, then we form a path \\(Q\\) composing of \\(k\\) paths \\(Q_1,Q_2,\ldots, Q_{k-1}\\) as follows: \\(Q_1\\) is a path in \\(C\\) from  an arbitrary vertex \\(v\in A_1\\) to another (arbitrary) vertex in \\(A_2\\), and for every other \\(i\in [2,k-1]\\),  \\(Q_i\\) is a path in \\(C\\) from  the endpoint of \\(Q_{i-1}\\) to an (arbitrary) vertex \\(u \in A_{i+1}\\). We then can map \\(Q\\) back to a path \\(\hat{Q}\\) from a vertex in \\(R\\) to a vertex in \\(S\\) in \\(\hat{G}\\) in a natural way. Moreover, \\(Q\\) does not contain any vertex of \\(\hat{L}_{t^*}\\), contradicting that removing \\(\hat{L}_{t^*}\\) from \\(\hat{G}\\) disconnects \\(R\\) and \\(S\\).
 ***
