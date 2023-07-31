@@ -10,7 +10,7 @@ The separator theorem for planar graphs  [Lipton and Tarjan](https://epubs.siam.
 To be more precise, I look for a proof that only requires the input graph excluding a fixed minor, \\(K_5\\) for example in the case of planar graphs. There are two proofs that I particularly like: one by Plotkin, Rao, and Smith [2] and another by Alon, Seymour, and Thomas [1], which work for any graph excluding a fixed minor. I will present both. The central concept is a \\(K_h\\)-minor model.
 
 ***
-**\\(K_h\\)-minor model**: a *\\(K_h\\)-minor model* of a graph \\(G\\) is a collection of \\(h\\) *vertex-disjoint connected* subgraphs \\({\mathcal K} = \{C_1,C_2,\ldots, C_h\}\\) of \\(G\\) such that there is an edge between any two subgraphs. Parameter \\(h\\) is called the model size.
+**\\(K_h\\)-minor model**: a *\\(K_h\\)-minor model* of a graph \\(G\\) is a collection of \\(h\\) *vertex-disjoint connected* subgraphs \\({\mathcal K} = \\{C_1,C_2,\ldots, C_h\\}\\) of \\(G\\) such that there is an edge between any two subgraphs. Parameter \\(h\\) is called the model size.
 ***
 
 ![](/assets/figs/K5Model.svg)
@@ -53,7 +53,7 @@ When we recurse on the largest component \\(H\\) in line 13, we only keep subgra
 > \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(T_{v}\leftarrow\\)<span style="font-variant: small-caps">BFSTree</span>\\((v,H)\\)<br>
 > \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; if \\(\mathrm{depth}(T_v) \leq 2\ell \ln(n)\\)<br>
 > \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C_v\leftarrow\\) minimal subtree of \\(T_v\\) s.t \\(C_v\cap N_H(C)\not=\emptyset \quad\forall C\in {\mathcal K}\\)<br>
-> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \{C_v\}\\) 
+> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \\{C_v\\}\\) 
 > \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  return \\({\mathcal K}\\) if \\(\lvert{\mathcal K}\rvert = h\\)<br> 
 > \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(V(C_X))\\)<br>
 > \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp; else<br>
@@ -184,7 +184,7 @@ The following lemma is the key to the algorithm whose proof we will delay. It is
 
 ***
 
-Intuitively, Lemma 2 means that either we find a tree of small size that connects every set \\(A_i\\) or we find a small separator that separates at least two sets among \\(\{A_i\}_i\\) into two different connected components.  We note that \\(\{A_i\}_i\\) might not be vertex-disjoint.
+Intuitively, Lemma 2 means that either we find a tree of small size that connects every set \\(A_i\\) or we find a small separator that separates at least two sets among \\(\\{A_i\\}_i\\) into two different connected components.  We note that \\(\\{A_i\\}_i\\) might not be vertex-disjoint.
 
 > **Remark 1:** A special case that helps understand Lemma 2 is when each \\(A_i\\) is a single vertex. In this case, we could simply find a BFS tree starting from a vertex \\(v = A_1\\). If \\(d_G(A_i,v)\leq \ell\\), then we simply truncate the tree at level \\(\ell\\) to get item (i). Otherwise, the separator is the level of smallest size among \\(\ell\\) lelvels from \\(1\\) to \\(\ell\\), which has size at most \\(n/\ell\\).
 
@@ -209,12 +209,12 @@ Finally, we recurse on the largest component \\(\kappa_H(B)\\) in line 12 where 
 > \\(2.\\) while \\(V(H)\geq 2n/3\\)<br> 
 > \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\((T,X)\leftarrow\\)<span style="font-variant: small-caps">TreeeOrSep</span> \\((H, \\{N_H(C)\\}_{C \in {\mathcal K}})\\) <br>
 > \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; if \\(\lvert V(T)\rvert \leq \ell k\\)<br>
-> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \{T\}\\) <br>
+> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \\{T\\}\\) <br>
 > \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  return \\({\mathcal K}\\) if \\(\lvert{\mathcal K}\rvert = h\\) <br>
 > \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow H \setminus V(T)\\)<br>
 > \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp; else<br>
 > \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\in {\mathcal K}\\) be such that \\(N_H(C)\cap \kappa_H(X) =\emptyset\\) <br>
-> \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(B\leftarrow \mathrm{Reach}(N_C(H),H\setminus \{\kappa_H(X)\cup X\})\\)<br>
+> \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(B\leftarrow \mathrm{Reach}(N_C(H),H\setminus \\{\kappa_H(X)\cup X\\})\\)<br>
 > \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\leftarrow C\cup B\\)<br>
 > \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(B)\\)<br>
 > \\(13.\\)  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\)<br>
