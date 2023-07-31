@@ -218,7 +218,7 @@ Finally, we recurse on the largest component \\(\kappa_H(B)\\) in line 12 where 
 > \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\leftarrow C\cup B\\)<br>
 > \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(B)\\)<br>
 > \\(13.\\)  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\)<br>
-> \\(14.\\) return \\(\cup\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert)\\) 
+> \\(14.\\) return \\(\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert)\\) 
 
 ***
 
@@ -248,27 +248,6 @@ By choosing \\(\ell = \sqrt{n/h}\\), we obtain the following corollary:
 
 ***
 **Corollary 2**: Any \\(K_h\\)-minor-free graph of \\(n\\) vertices admits a balanced separator of size \\(O(h^{3/2}\sqrt{n})\\).
-
-***
-
-We now return to the proof of Lemma 2. 
-
-**Proof of Lemma 2:** Construct \\(k\\) copies of \\(G\\), denoted by \\(G_1,G_2,\ldots, G_k\\). For each \\(i\in [1,k-1]\\), and each \\(v\in A_i\\), we connect \\(v\\)'s copy in \\(G_{i}\\) to its copy in \\(G_{i+1}\\). Let the resulting graph be \\(\hat{G}\\). Let \\(R\\) be the copy of \\(A_1\\) in \\(G_1\\) and \\(S\\) be the copy of \\(A_k\\) in \\(G_{k}\\). See Figure 4.
-
-![](/assets/figs/ASTTreeSep.svg)
-
-*Figure 4: (a) Graph \\(G\\) with three sets \\(A_1,A_2,A_3\\), (b) graph \\(\hat{G}\\), the path \\(\hat{P}\\) and its projectin in \(c\).*
-
-
-If \\(d_{\hat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\hat{P}\\) of length at most \\(k\cdot \ell\\) from a vertex \\(x\in R\\) to a vertex \\(y\in S\\) in \\(\hat{G}\\). Let \\(P\\) be a *projection* of \\(\hat{P}\\) in \\(G\\), which is defined as follows: if \\((\hat{u},\hat{v})\in \hat{P}\\) where \\(\hat{u}\\) and \\(\hat{v}\\) are copies of two vertices \\(u,v\\) in \\(G\\), respectively, then we add \\((u,v)\\) to \\(P\\) (if \\(\hat{u}\\) and \\(\hat{v}\\) are copies of the same vertex, we do nothing.). Clearly \\(P\\) is a connected subgraph of \\(G\\) containing at most \\(k\ell\\) edges and such that \\(P\cap A_i\not=\emptyset\\). Then any spanning tree \\(T\\) of \\(P\\) will satisfy the lemma.
-
-Otherwise, let \\({\hat L}_t = \{{\hat v}\in {\hat G}: d_{\hat G}(R,{\hat v})\} = t\\) 
-
-for every \\(1\leq t\leq k\ell\\). We refer to each \\(\hat{L}_t\\) as a level. Observe that removing any \\(\hat{L}_t\\) from  \\({\hat G}\\) will disconnect \\(R\\) from \\(S\\). Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\hat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert \hat{L}_t\lvert\\). Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\hat{L}_{t^{\ast}}\\). Then:
-
-$$\lvert X\rvert \leq \lvert \hat{L}_{t^{\ast}}\rvert \leq \frac{\lvert V(\hat{G})\rvert} {k\ell} = \frac{n}{\ell}$$
-
-We claim that no connected component \\(C\subseteq G\setminus X\\) intersects all \\(A_i\\). Suppose otherwise, then we form a path \\(Q\\) composing of \\(k\\) paths \\(Q_1,Q_2,\ldots, Q_{k-1}\\) as follows: \\(Q_1\\) is a path in \\(C\\) from  an arbitrary vertex \\(v\in A_1\\) to another (arbitrary) vertex in \\(A_2\\), and for every other \\(i\in [2,k-1]\\),  \\(Q_i\\) is a path in \\(C\\) from  the endpoint of \\(Q_{i-1}\\) to an (arbitrary) vertex \\(u \in A_{i+1}\\). We then can map \\(Q\\) back to a path \\(\hat{Q}\\) from a vertex in \\(R\\) to a vertex in \\(S\\) in \\(\hat{G}\\) in a natural way. Moreover, \\(Q\\) does not contain any vertex of \\(\hat{L}_{t^{\ast}}\\), contradicting that removing \\(\hat{L}_{t^{\ast}}\\) from \\(\hat{G}\\) disconnects \\(R\\) and \\(S\\).
 
 ***
 
