@@ -254,19 +254,25 @@ By choosing \\(\ell = \sqrt{n/h}\\), we obtain the following corollary:
 ***
 
 
+
 We now return to the proof of Lemma 2. 
 
 
-**Proof of Lemma 2:** Construct \\(k\\) copies of \\(G\\), denoted by \\(G_1,G_2,\ldots, G_k\\). For each \\(i\in [1,k-1]\\), and each \\(v\in A_i\\), we connect \\(v\\)'s copy in \\(G_{i}\\) to its copy in \\(G_{i+1}\\). Let the resulting graph be \\(\hat{G}\\). Let \\(R\\) be the copy of \\(A_1\\) in \\(G_1\\) and \\(S\\) be the copy of \\(A_k\\) in \\(G_{k}\\). See Figure 4.
+**Proof of Lemma 2:** Construct \\(k\\) copies of \\(G\\), denoted by \\(G_1,G_2,\ldots, G_k\\). For each \\(i\in [1,k-1]\\), and each \\(v\in A_i\\), we connect \\(v\\)'s copy in \\(G_{i}\\) to its copy in \\(G_{i+1}\\). Let the resulting graph be \\(\widehat{G}\\). Let \\(R\\) be the copy of \\(A_1\\) in \\(G_1\\) and \\(S\\) be the copy of \\(A_k\\) in \\(G_{k}\\). See Figure 4.
 
 ![](/assets/figs/ASTTreeSep.svg)
 
-*Figure 4: (a) Graph \\(G\\) with three sets \\(A_1,A_2,A_3\\), (b) graph \\(\hat{G}\\), the path \\(\hat{P}\\) and its projection in \(c\).*
+*Figure 4: (a) Graph \\(G\\) with three sets \\(A_1,A_2,A_3\\), (b) graph \\(\widehat{G}\\), the path \\(\widehat{P}\\) and its projectin in \(c\).*
 
-If \\(d_{\hat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\hat{P}\\) of length at most \\(k\cdot \ell\\) from a vertex \\(x\in R\\) to a vertex \\(y\in S\\) in \\(\hat{G}\\). Let \\(P\\) be a *projection* of \\(\hat{P}\\) in \\(G\\), which is defined as follows: if \\((\hat{u},\hat{v})\in \hat{P}\\) where \\(\hat{u}\\) and \\(\hat{v}\\) are copies of two vertices \\(u,v\\) in \\(G\\), respectively, then we add \\((u,v)\\) to \\(P\\) (if \\(\hat{u}\\) and \\(\hat{v}\\) are copies of the same vertex, we do nothing.). Clearly \\(P\\) is a connected subgraph of \\(G\\) containing at most \\(k\ell\\) edges and such that \\(P\cap A_i\not=\emptyset\\). Then any spanning tree \\(T\\) of \\(P\\) will satisfy the lemma.
+If \\(d_{\widehat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\widehat{P}\\) of length at most \\(k\cdot \ell\\) from a vertex \\(x\in R\\) to a vertex \\(y\in S\\) in \\(\widehat{G}\\). Let \\(P\\) be a *projection* of \\(\widehat{P}\\) in \\(G\\), which is defined as follows: if \\((\widehat{u},\widehat{v})\in \widehat{P}\\) where \\(\widehat{u}\\) and \\(\widehat{v}\\) are copies of two vertices \\(u,v\\) in \\(G\\), respectively, then we add \\((u,v)\\) to \\(P\\) (if \\(\widehat{u}\\) and \\(\widehat{v}\\) are copies of the same vertex, we do nothing.). Clearly \\(P\\) is a connected subgraph of \\(G\\) containing at most \\(k\ell\\) edges and such that \\(P\cap A_i\not=\emptyset\\). Then any spanning tree \\(T\\) of \\(P\\) will satisfy the lemma.
 
+Otherwise, let \\(\widehat{L}_t = \{\widehat{v}\in \widehat{G}: d_\widehat{G}(R,\widehat{v})\} = t\\) for every $1\leq t\leq k\ell$. We refer to each $\widehat{L}_t$ as a level. Observe that removing any \\(\widehat{L}_t\\) from \\({\widehat G}\\) will disconnect \\(R\\) from \\(S\\). Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\widehat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert \widehat{L}_t\lvert\\). Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\widehat{L}_{t^{\ast}}\\). Then:
 
-Otherwise, let \\({\hat L}_t = \{{\hat v}\in {\hat G}: d_{\hat G}(R,{\hat v})\} = t\\) 
+$$\lvert X\rvert \leq \lvert \widehat{L}_{t^{\ast}}\rvert \leq \frac{\lvert V(\widehat{G})\rvert} {k\ell} = \frac{n}{\ell}$$
+
+We claim that no connected component \\(C\subseteq G\setminus X\\) intersects all \\(A_i\\). Suppose otherwise, then we form a path \\(Q\\) composing of \\(k\\) paths \\(Q_1,Q_2,\ldots, Q_{k-1}\\) as follows: \\(Q_1\\) is a path in \\(C\\) from  an arbitrary vertex \\(v\in A_1\\) to another (arbitrary) vertex in \\(A_2\\), and for every other \\(i\in [2,k-1]\\),  \\(Q_i\\) is a path in \\(C\\) from  the endpoint of \\(Q_{i-1}\\) to an (arbitrary) vertex \\(u \in A_{i+1}\\). We then can map \\(Q\\) back to a path \\(\widehat{Q}\\) from a vertex in \\(R\\) to a vertex in \\(S\\) in \\(\widehat{G}\\) in a natural way. Moreover, \\(Q\\) does not contain any vertex of \\(\widehat{L}_{t^{\ast}}\\), contradicting that removing \\(\widehat{L}_{t^{\ast}}\\) from \\(\widehat{G}\\) disconnects \\(R\\) and \\(S\\).
+
+***
 
 # Referrences
 
