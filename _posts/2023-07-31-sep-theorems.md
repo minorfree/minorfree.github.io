@@ -218,7 +218,7 @@ Finally, we recurse on the largest component \\(\kappa_H(B)\\) in line 12 where 
 > \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\leftarrow C\cup B\\)<br>
 > \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(B)\\)<br>
 > \\(13.\\)  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\)<br>
-> \\(14.\\) return \\(\cup_{C\in K}\arg\min(|V(C)|, \lvert N_H(C)\rvert)\\) 
+> \\(14.\\) return \\(\cup\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert)\\) 
 
 ***
 
