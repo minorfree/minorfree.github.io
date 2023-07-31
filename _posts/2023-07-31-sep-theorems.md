@@ -264,7 +264,7 @@ If \\(d_{\hat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\hat{P}\\) of
 
 Otherwise, let \\({\hat L}_t = \{{\hat v}\in {\hat G}: d_{\hat G}(R,{\hat v})\} = t\\) 
 
-for every \\(1\leq t\leq k\ell\\). We refer to each \\(\hat{L}_t\\) as a level. Observe that removing any \\(\hat{L}_t\\) from  \\(\hat{G}\\) will disconnect \\(R\\) from \\(S\\). Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\hat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert \hat{L}_t\lvert\\). Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\hat{L}_{t^{\ast}}\\). Then:
+for every \\(1\leq t\leq k\ell\\). We refer to each \\(\hat{L}_t\\) as a level. Observe that removing any \\(\hat{L}_t\\) from  \\({\hat G}\\) will disconnect \\(R\\) from \\(S\\). Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\hat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert \hat{L}_t\lvert\\). Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\hat{L}_{t^{\ast}}\\). Then:
 
 $$\lvert X\rvert \leq \lvert \hat{L}_{t^{\ast}}\rvert \leq \frac{\lvert V(\hat{G})\rvert} {k\ell} = \frac{n}{\ell}$$
 
