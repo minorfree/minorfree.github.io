@@ -123,35 +123,35 @@ By choosing \\(\ell = \sqrt{n \log(n)}/h\\), we obtain the following corollary:
 
 Note that the proof of Theorem 1 implicitly assumes that \\(X\\) in line 11 always exists, which we now show.
 
-To get some intuition, consider the following simple algorithm: visit \\(T_v\\) layer by layer, starting from the root \\(v\\) (at layer \\(0\\)), and stop whenever we encounter a layer of small size: its size is at most \\(1/\ell\\) fraction of all previous layers. More formally, let \\(Y_{j}\\) be the set of all vertices at layer \\(j\\). Then we will stop at layer \\(j^{*}\\) where: 
+To get some intuition, consider the following simple algorithm: visit \\(T_v\\) layer by layer, starting from the root \\(v\\) (at layer \\(0\\)), and stop whenever we encounter a layer of small size: its size is at most \\(1/\ell\\) fraction of all previous layers. More formally, let \\(Y_{j}\\) be the set of all vertices at layer \\(j\\). Then we will stop at layer \\(j^{\ast}\\) where: 
 
-$$\lvert Y_{j^{*}}\rvert \leq \frac{1}{\ell}\sum_{j \leq j^{*}-1}\lvert Y_{j}\rvert \qquad (1)$$  
+$$\lvert Y_{j^{\ast}}\rvert \leq \frac{1}{\ell}\sum_{j \leq j^{\ast}-1}\lvert Y_{j}\rvert \qquad (1)$$  
 
-If there is no such \\(j^{*}\\), then this means every time we visit a layer \\(j\\), the total size of all layers from \\(0\\) to \\(j\\)  grows by a factor of \\((1+ \frac{1}{\ell})\\) compared to the total size of all layers from \\(0\\) to \\(j-1\\). Thus, we have:
+If there is no such \\(j^{\ast}\\), then this means every time we visit a layer \\(j\\), the total size of all layers from \\(0\\) to \\(j\\)  grows by a factor of \\((1+ \frac{1}{\ell})\\) compared to the total size of all layers from \\(0\\) to \\(j-1\\). Thus, we have:
 
 $$n \geq \sum_{j \leq \mathrm{depth}(T_v)}\lvert Y_{j}\rvert \geq \left(1+ \frac{1}{\ell}\right)^{\mathrm{depth}(T_v)}$$
 
 which gives \\(\mathrm{depth}(T_v)\leq \ell\ln(n)\\).
 
 
-We could set \\(X = Y_{j^{*}}\\). If the largest component \\(\kappa(X)\\) belongs to levels larger than \\(j^{*}\\), that is \\(\kappa(X)\subseteq (\cup_{j\geq j^{*}+1}Y_j)\\), then we are done since \\(\sum_{j \leq j^{*}-1}\lvert Y_{j}\rvert\leq \lvert V(H)\rvert- \lvert\kappa(X)\rvert\\). However, this might not be the case.  A simple fix is to find a layer \\(j^{*}\\) such that:
+We could set \\(X = Y_{j^{\ast}}\\). If the largest component \\(\kappa(X)\\) belongs to levels larger than \\(j^{\ast}\\), that is \\(\kappa(X)\subseteq (\cup_{j\geq j^{\ast}+1}Y_j)\\), then we are done since \\(\sum_{j \leq j^{\ast}-1}\lvert Y_{j}\rvert\leq \lvert V(H)\rvert- \lvert\kappa(X)\rvert\\). However, this might not be the case.  A simple fix is to find a layer \\(j^{\ast}\\) such that:
 
-$$\lvert Y_{j^{*}}\rvert  \leq \frac{1}{\ell}\sum_{j \leq j^{*}-1}\lvert Y_{j}\rvert \qquad \& \qquad 
-    \lvert Y_{j^{*}}\rvert  \leq \frac{1}{\ell}\sum_{j \geq j^{*}+1}\lvert Y_{j}\rvert \qquad (2)$$
+$$\lvert Y_{j^{\ast}}\rvert  \leq \frac{1}{\ell}\sum_{j \leq j^{\ast}-1}\lvert Y_{j}\rvert \qquad \& \qquad 
+    \lvert Y_{j^{\ast}}\rvert  \leq \frac{1}{\ell}\sum_{j \geq j^{\ast}+1}\lvert Y_{j}\rvert \qquad (2)$$
 
-Thus, regarless of whether the largest component \\(\kappa(X)\\) belongs to levels larger or smaller than \\(j^{*}\\), we always have \\(\lvert X\rvert =\lvert Y_{j^{*}}\rvert\leq (\lvert V(H)\rvert- \lvert\kappa(X)\rvert)/\ell\\). 
+Thus, regarless of whether the largest component \\(\kappa(X)\\) belongs to levels larger or smaller than \\(j^{\ast}\\), we always have \\(\lvert X\rvert =\lvert Y_{j^{\ast}}\rvert\leq (\lvert V(H)\rvert- \lvert\kappa(X)\rvert)/\ell\\). 
 
-To find \\(j^{*}\\) satisfying Equation (2), we simply check each layer of \\(T_v\\). We show that if we could not find such a layer \\(j^{*}\\), then the depth of \\(T_v\\) is small.
+To find \\(j^{\ast}\\) satisfying Equation (2), we simply check each layer of \\(T_v\\). We show that if we could not find such a layer \\(j^{\ast}\\), then the depth of \\(T_v\\) is small.
 
 ***
-**Lemma 2**: If \\(\mathrm{depth}(T_v)> 2\ell\ln(n)\\), then there exists a layer \\(j^{*}\\) of \\(T_v\\) satisfying Equation (2).
+**Lemma 2**: If \\(\mathrm{depth}(T_v)> 2\ell\ln(n)\\), then there exists a layer \\(j^{\ast}\\) of \\(T_v\\) satisfying Equation (2).
 
 ***
 
 Proof: We visit \\(T_v\\) layer by layer, starting from layer \\(0\\) (the root). We mark a layer \\(j\\) *red* if \\(\lvert Y_{j}\rvert  \geq \frac{1}{\ell}\sum_{t \leq j-1}\lvert Y_{t}\lvert\\) and *blue* if \\(\lvert Y_{j}\rvert  \geq \frac{1}{\ell}\sum_{t \geq j+1}\lvert Y_{j}\lvert\\). (If a layer could be marked both red or blue, we mark it red only.) Intuitively, whenever we encounter a red layer, then the set of vertices seen so far grows by a factor of \\((1+1/\ell)\\). In contrast, whenever we encounter a blue layer, the set of the vertices we **have not** seen so far reduces by a factor of \\((1+1/\ell)\\). 
 
 
-If there is an uncolored layer, then we found \\(j^{*}\\) satisfying Equation (2). Thus, we assume that every layer is colored. Our goal is to show that \\(\mathrm{depth}(T_v)\geq 2\ell\ln(n)\\).
+If there is an uncolored layer, then we found \\(j^{\ast}\\) satisfying Equation (2). Thus, we assume that every layer is colored. Our goal is to show that \\(\mathrm{depth}(T_v)\geq 2\ell\ln(n)\\).
 
 First, we claim that there are at most \\(\ln(n)/\ell\\) red layers. Let \\(Z_{j} = \sum_{t \leq j}\lvert Y_{t}\lvert\\). For every two consecutive red layer \\(a\\) and \\(b\\) where \\(b \geq a+1\\), then 
 
@@ -261,11 +261,12 @@ We now return to the proof of Lemma 2.
 
 If \\(d_{\hat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\hat{P}\\) of length at most \\(k\cdot \ell\\) from a vertex \\(x\in R\\) to a vertex \\(y\in S\\) in \\(\hat{G}\\). Let \\(P\\) be a *projection* of \\(\hat{P}\\) in \\(G\\), which is defined as follows: if \\((\hat{u},\hat{v})\in \hat{P}\\) where \\(\hat{u}\\) and \\(\hat{v}\\) are copies of two vertices \\(u,v\\) in \\(G\\), respectively, then we add \\((u,v)\\) to \\(P\\) (if \\(\hat{u}\\) and \\(\hat{v}\\) are copies of the same vertex, we do nothing.). Clearly \\(P\\) is a connected subgraph of \\(G\\) containing at most \\(k\ell\\) edges and such that \\(P\cap A_i\not=\emptyset\\). Then any spanning tree \\(T\\) of \\(P\\) will satisfy the lemma.
 
-Otherwise, let \\(\hat{L}_t = \{\hat{v}\in \hat{G}: d_\hat{G}(R,\hat{v})\} = t \\) for every \\(1\leq t\leq k\ell\\). We refer to each \\(\hat{L}_t\\) as a level. Observe that removing any \\(\hat{L}_t\\) from  \\(\hat{G}\\) will disconnect \\(R\\) from \\(S\\). Let \\(t^{*}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\hat{L}_{t^{*}}\rvert= \min_{1\leq t\leq k\ell}\lvert \hat{L}_t\lvert\\). Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\hat{L}_{t^{*}}\\). Then:
+Otherwise, let \\(\hat{L}_t = \{\hat{v}\in \hat{G}: d_\hat{G}(R,\hat{v})\} = t \\) for every \\(1\leq t\leq k\ell\\). We refer to each \\(\hat{L}_t\\) as a level. Observe that removing any \\(\hat{L}_t\\) from  \\(\hat{G}\\) will disconnect \\(R\\) from \\(S\\). Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\hat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert \hat{L}_t\lvert\\). Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\hat{L}_{t^{\ast}}\\). Then:
 
-$$\lvert X\rvert \leq \lvert \hat{L}_{t^{*}}\rvert \leq \frac{\lvert V(\hat{G})\rvert} {k\ell} = \frac{n}{\ell}$$
+$$\lvert X\rvert \leq \lvert \hat{L}_{t^{\ast}}\rvert \leq \frac{\lvert V(\hat{G})\rvert} {k\ell} = \frac{n}{\ell}$$
 
-We claim that no connected component \\(C\subseteq G\setminus X\\) intersects all \\(A_i\\). Suppose otherwise, then we form a path \\(Q\\) composing of \\(k\\) paths \\(Q_1,Q_2,\ldots, Q_{k-1}\\) as follows: \\(Q_1\\) is a path in \\(C\\) from  an arbitrary vertex \\(v\in A_1\\) to another (arbitrary) vertex in \\(A_2\\), and for every other \\(i\in [2,k-1]\\),  \\(Q_i\\) is a path in \\(C\\) from  the endpoint of \\(Q_{i-1}\\) to an (arbitrary) vertex \\(u \in A_{i+1}\\). We then can map \\(Q\\) back to a path \\(\hat{Q}\\) from a vertex in \\(R\\) to a vertex in \\(S\\) in \\(\hat{G}\\) in a natural way. Moreover, \\(Q\\) does not contain any vertex of \\(\hat{L}_{t^{*}}\\), contradicting that removing \\(\hat{L}_{t^{*}}\\) from \\(\hat{G}\\) disconnects \\(R\\) and \\(S\\).
+We claim that no connected component \\(C\subseteq G\setminus X\\) intersects all \\(A_i\\). Suppose otherwise, then we form a path \\(Q\\) composing of \\(k\\) paths \\(Q_1,Q_2,\ldots, Q_{k-1}\\) as follows: \\(Q_1\\) is a path in \\(C\\) from  an arbitrary vertex \\(v\in A_1\\) to another (arbitrary) vertex in \\(A_2\\), and for every other \\(i\in [2,k-1]\\),  \\(Q_i\\) is a path in \\(C\\) from  the endpoint of \\(Q_{i-1}\\) to an (arbitrary) vertex \\(u \in A_{i+1}\\). We then can map \\(Q\\) back to a path \\(\hat{Q}\\) from a vertex in \\(R\\) to a vertex in \\(S\\) in \\(\hat{G}\\) in a natural way. Moreover, \\(Q\\) does not contain any vertex of \\(\hat{L}_{t^{\ast}}\\), contradicting that removing \\(\hat{L}_{t^{\ast}}\\) from \\(\hat{G}\\) disconnects \\(R\\) and \\(S\\).
+
 ***
 
 
