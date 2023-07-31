@@ -13,7 +13,7 @@ To be more precise, I look for a proof that only requires the input graph exclud
 **\\(K_h\\)-minor model**: a *\\(K_h\\)-minor model* of a graph \\(G\\) is a collection of \\(h\\) *vertex-disjoint connected* subgraphs \\({\mathcal K} = \{C_1,C_2,\ldots, C_h\}\\) of \\(G\\) such that there is an edge between any two subgraphs. Parameter \\(h\\) is called the model size.
 ***
 
-![](https://hackmd.io/_uploads/HkAJeVy93.png)
+![](/assets/figs/K5Model.svg)
 
 *Figure 1: A graph (left) and its \\(K_5\\)-minor model (right).*
 
@@ -27,7 +27,7 @@ A *balanced separator* of a graph \\(G = (V,E)\\) is a subset of vertices \\(S\s
 
 In the end, we find either a \\(K_h\\)-minor model, certifying that the input graph is not \\(K_h\\)-minor-free, or a balanced separator of small size. We will also add some vertices in the current minor model to the separator and hence,  the fact that subgraphs of the minor model have a small size will help.
 
-![](https://hackmd.io/_uploads/rJdUyS1q3.png)
+![](/assets/figs/ShallowTree.svg)
 
 *Figure 2: (a) Found a tree of small depth rooted at a vertex \\(v\\), then (b) add a new subgraph to the current \\(K_3\\)-model to obtain a \\(K_4\\)-model. \(c\) The tree rooted at \\(v\\) has large depth, then (d) find a layer \\(X\\) of small size to add to the separator.*
 
@@ -129,10 +129,8 @@ $$\lvert Y_{j^*}\rvert \leq \frac{1}{\ell}\sum_{j \leq j^*-1}\lvert Y_{j}\rvert 
 
 If there is no such \\(j^*\\), then this means every time we visit a layer \\(j\\), the total size of all layers from \\(0\\) to \\(j\\)  grows by a factor of \\((1+ \frac{1}{\ell})\\) compared to the total size of all layers from \\(0\\) to \\(j-1\\). Thus, we have:
 
-\begin{align}
-    n &\geq \sum_{j \leq \mathrm{depth}(T_v)}\lvert Y_{j}\rvert \\
-    &\geq \left(1+ \frac{1}{\ell}\right)^{\mathrm{depth}(T_v)}
-\end{align}
+$$n &\geq \sum_{j \leq \mathrm{depth}(T_v)}\lvert Y_{j}\rvert \\
+    &\geq \left(1+ \frac{1}{\ell}\right)^{\mathrm{depth}(T_v)}$$
 
 which gives \\(\mathrm{depth}(T_v)\leq \ell\ln(n)\\).
 
@@ -196,7 +194,7 @@ Intuitively, Lemma 2 means that either we find a tree of small size that connect
 
 We need more notation to describe the algorithm formally. For a subset of vertices \\(A\in V(H)\\), let \\(\mathrm{Reach}(A,H)\\) be the set of all vertices that are reachable from \\(A\\) in \\(H\\); \\(H\\) might be disconnected. 
 
-![](https://hackmd.io/_uploads/S1Y-heVj2.png)
+![](/assets/figs/ASTExtend.svg)
 
 *Figure 3: (a) Found small separator \\(X\\), then (b) find a subgraph \\(B\\) in line 10 by extending the neighbor set of a subgraph \\(C\in {\mathcal K}\\), \(c\) extend \\(C\\) to include \\(B\\) and recurse on \\(\kappa_H(B)\\).*
 
@@ -207,26 +205,28 @@ Finally, we recurse on the largest component \\(\kappa_H(B)\\) in line 12 where 
 
 ***
  <span style="font-variant: small-caps">ASTSeparator</span>\\((G,\ell)\\)
-> \\(1.\\) \\({\mathcal K}\leftarrow \emptyset\\), and \\(H\leftarrow G\\)
-> \\(2.\\) while \\(V(H)\geq 2n/3\\) 
-> \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\((T,X)\leftarrow\\) <span style="font-variant: small-caps">TreeeOrSep</span>\\((H, \{N_H(C)\}_{C\in {\mathcal K}})\\)
-> \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; if \\(\lvert V(T)\rvert \leq \ell k\\)
-> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \{T\}\\) 
-> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  return \\({\mathcal K}\\) if \\(\lvert{\mathcal K}\rvert = h\\) 
-> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow H \setminus V(T)\\)
-> \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp; else
-> \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\in {\mathcal K}\\) be such that \\(N_H(C)\cap \kappa_H(X) =\emptyset\\) 
-> \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(B\leftarrow \mathrm{Reach}(N_C(H),H\setminus \{\kappa_H(X)\cup X\})\\)
-> \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\leftarrow C\cup B\\)
-> \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(B)\\)
-> \\(13.\\)  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\)
+> \\(1.\\) \\({\mathcal K}\leftarrow \emptyset\\), and \\(H\leftarrow G\\)<br>
+> \\(2.\\) while \\(V(H)\geq 2n/3\\)<br> 
+> \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\((T,X)\leftarrow\\) <span style="font-variant: small-caps">TreeeOrSep</span>\\((H, \{N_H(C)\}_{C\in {\mathcal K}})\\)<br>
+> \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; if \\(\lvert V(T)\rvert \leq \ell k\\)<br>
+> \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \{T\}\\) <br>
+> \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  return \\({\mathcal K}\\) if \\(\lvert{\mathcal K}\rvert = h\\) <br>
+> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow H \setminus V(T)\\)<br>
+> \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp; else<br>
+> \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\in {\mathcal K}\\) be such that \\(N_H(C)\cap \kappa_H(X) =\emptyset\\) <br>
+> \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(B\leftarrow \mathrm{Reach}(N_C(H),H\setminus \{\kappa_H(X)\cup X\})\\)<br>
+> \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\leftarrow C\cup B\\)<br>
+> \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(B)\\)<br>
+> \\(13.\\)  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\)<br>
 > \\(14.\\) return \\(\cup_{C\in {\mathcal K}}\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert)\\) 
+
 ***
 
 We now show that ATS algorithm returns a small separator, or correctly certifies that \\(G\\) contains a \\(K_h\\)-minor. 
 
 ***
 **Theorem 2**: For any integer \\(\ell\geq 1\\), <span style="font-variant: small-caps">ASTSeparator</span>\\((G,\ell)\\) either returns a \\(K_h\\)-minor model of \\(G\\) or a balanced separator \\(S\\) such that \\(\lvert S\rvert \leq  h^2\ell + \frac{nh}{\ell}\\).
+
 ***
 
 Proof: Let \\(S\\) be the returned separator. We focus on bounding the size of \\(\lvert S\lvert\\); the proof for its balance is similar to Theorem 1.
@@ -254,7 +254,7 @@ We now return to the proof of Lemma 2.
 
 **Proof of Lemma 2:** Construct \\(k\\) copies of \\(G\\), denoted by \\(G_1,G_2,\ldots, G_k\\). For each \\(i\in [1,k-1]\\), and each \\(v\in A_i\\), we connect \\(v\\)'s copy in \\(G_{i}\\) to its copy in \\(G_{i+1}\\). Let the resulting graph be \\(\hat{G}\\). Let \\(R\\) be the copy of \\(A_1\\) in \\(G_1\\) and \\(S\\) be the copy of \\(A_k\\) in \\(G_{k}\\). See Figure 4.
 
-![](https://hackmd.io/_uploads/rkx5jbNon.png)
+![](/assets/figs/ASTTreeSep.svg)
 
 *Figure 4: (a) Graph \\(G\\) with three sets \\(A_1,A_2,A_3\\), (b) graph \\(\hat{G}\\), the path \\(\hat{P}\\) and its projectin in \(c\).*
 
