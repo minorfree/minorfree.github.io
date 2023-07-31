@@ -268,9 +268,9 @@ If \\(d_{\widehat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\widehat{
 
 Otherwise, let:
 
- $$\widehat{L}_{t} = \{\widehat{v}\in \widehat{G}: d_{\widehat{G}}(R,\widehat{v})\} = t$$
+ $$\widehat{L}_{t} = \{\widehat{v}\in \widehat{G}: d_{\widehat{G}}(R,\widehat{v}) = t\}$$
  
- for every \\(1\leq t\leq k\ell\\). We refer to each \\(\widehat{L}_{t}\\) as a level.  Observe that removing any \\(\widehat{L}_{t}\\) from \\({\widehat G}\\) will disconnect \\(R\\) from \\(S\\).  Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\widehat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert \widehat{L}_{t}\lvert\\). 
+ for every \\(1\leq t\leq k\ell\\). We refer to each \\(\widehat{L}_{t}\\) as a level.  Observe that removing any \\(\widehat{L}_{t}\\) from \\({\widehat G}\\) will disconnect \\(R\\) from \\(S\\).  Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\widehat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert\widehat{L}_{t}\rvert\\). 
 
 Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\widehat{L}_{t^{\ast}}\\). Then:
 
