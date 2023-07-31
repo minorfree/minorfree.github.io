@@ -254,6 +254,18 @@ By choosing \\(\ell = \sqrt{n/h}\\), we obtain the following corollary:
 ***
 
 
+We now return to the proof of Lemma 2. 
+
+
+**Proof of Lemma 2:** Construct \\(k\\) copies of \\(G\\), denoted by \\(G_1,G_2,\ldots, G_k\\). For each \\(i\in [1,k-1]\\), and each \\(v\in A_i\\), we connect \\(v\\)'s copy in \\(G_{i}\\) to its copy in \\(G_{i+1}\\). Let the resulting graph be \\(\hat{G}\\). Let \\(R\\) be the copy of \\(A_1\\) in \\(G_1\\) and \\(S\\) be the copy of \\(A_k\\) in \\(G_{k}\\). See Figure 4.
+
+![](/assets/figs/ASTTreeSep.svg)
+
+*Figure 4: (a) Graph \\(G\\) with three sets \\(A_1,A_2,A_3\\), (b) graph \\(\hat{G}\\), the path \\(\hat{P}\\) and its projectin in \(c\).*
+
+If \\(d_{\hat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\hat{P}\\) of length at most \\(k\cdot \ell\\) from a vertex \\(x\in R\\) to a vertex \\(y\in S\\) in \\(\hat{G}\\). Let \\(P\\) be a *projection* of \\(\hat{P}\\) in \\(G\\), which is defined as follows: if \\((\hat{u},\hat{v})\in \hat{P}\\) where \\(\hat{u}\\) and \\(\hat{v}\\) are copies of two vertices \\(u,v\\) in \\(G\\), respectively, then we add \\((u,v)\\) to \\(P\\) (if \\(\hat{u}\\) and \\(\hat{v}\\) are copies of the same vertex, we do nothing.). Clearly \\(P\\) is a connected subgraph of \\(G\\) containing at most \\(k\ell\\) edges and such that \\(P\cap A_i\not=\emptyset\\). Then any spanning tree \\(T\\) of \\(P\\) will satisfy the lemma.
+
+
 # Referrences
 
 [1] Alon, Noga, Paul Seymour, and Robin Thomas. "A separator theorem for nonplanar graphs." Journal of the American Mathematical Society 3, no. 4 (1990): 801-808.
