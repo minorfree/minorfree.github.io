@@ -206,7 +206,7 @@ Finally, we recurse on the largest component \\(\kappa_H(B)\\) in line 12 where 
  <span style="font-variant: small-caps">ASTSeparator</span>\\((G,\ell)\\)
 > \\(1.\\) \\({\mathcal K}\leftarrow \emptyset\\), and \\(H\leftarrow G\\)<br>
 > \\(2.\\) while \\(V(H)\geq 2n/3\\)<br> 
-> \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\((T,X)\leftarrow\\) <span style="font-variant: small-caps">TreeeOrSep</span>\\((H, \{N_H(C)\}_{C\in {\mathcal K}})\\)<br>
+> \\(3.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\((T,X)\leftarrow\\) <span style="font-variant: small-caps">TreeeOrSep</span>\\((H, {N_H(C)}_{C\in {\mathcal K}})\\) \\((H, \{N_H(C)\}_{C\in {\mathcal K}})\\)<br>
 > \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; if \\(\lvert V(T)\rvert \leq \ell k\\)<br>
 > \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \{T\}\\) <br>
 > \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  return \\({\mathcal K}\\) if \\(\lvert{\mathcal K}\rvert = h\\) <br>
@@ -248,7 +248,7 @@ By choosing \\(\ell = \sqrt{n/h}\\), we obtain the following corollary:
 ***
 **Corollary 2**: Any \\(K_h\\)-minor-free graph of \\(n\\) vertices admits a balanced separator of size \\(O(h^{3/2}\sqrt{n})\\).
 
-**
+***
 
 We now return to the proof of Lemma 2. 
 
