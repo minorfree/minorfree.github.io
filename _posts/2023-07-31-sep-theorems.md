@@ -219,8 +219,7 @@ Finally, we recurse on the largest component \\(\kappa_H(B)\\) in line 12 where 
 > \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\leftarrow C\cup B\\)<br>
 > \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(B)\\)<br>
 > \\(13.\\)  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\)<br>
-> \\(14.\\) \\(S\leftarrow \cup\\{\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert): C\in {\cal K}\\}\\)<br>
-> \\(15.\\) return \\(S\\) 
+> \\(14.\\) return \\(\cup\\{\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert): C\in {\cal K}\\}\\) 
 
 ***
 
@@ -268,9 +267,9 @@ If \\(d_{\widehat{G}}(R,S)\leq k\cdot \ell\\), then there is a path \\(\widehat{
 
 Otherwise, let:
 
- $$\widehat{L}_{t} = \{\widehat{v}\in \widehat{G}: d_{\widehat{G}}(R,\widehat{v}) = t\}$$
+ $$L_{t} = \{\widehat{v}\in \widehat{G}: d_{\widehat{G}}(R,\widehat{v}) = t\}$$
  
-  for every \\(1\leq t\leq k\ell\\). We refer to each \\(\widehat{L}_{t}\\) as a level.  Observe that removing any \\(\widehat{L}_{t}\\) from \\({\widehat G}\\) will disconnect \\(R\\) from \\(S\\).  Let \\X^{\star}\\) be the level of minimum size;  that is, \\(\lvert X^{\star}\rvert= \min_{1\leq t\leq k\ell}\lvert\widehat{L}_{t}\rvert\\). 
+  for every \\(1\leq t\leq k\ell\\). We refer to each \\(L_{t}\\) as a level.  Observe that removing any \\(L_{t}\\) from \\({\widehat G}\\) will disconnect \\(R\\) from \\(S\\).  Let \\(X^{\star}\\) be the level of minimum size;  that is, \\(\lvert X^{\star}\rvert= \min_{1\leq t\leq k\ell}\lvert L_{t}\rvert\\). 
 
   
   Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\widehat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert\widehat{L}_{t}\rvert\\). 
