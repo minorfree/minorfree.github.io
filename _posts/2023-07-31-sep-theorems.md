@@ -215,11 +215,11 @@ Finally, we recurse on the largest component \\(\kappa_H(B)\\) in line 12 where 
 > \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow H \setminus V(T)\\)<br>
 > \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp; else<br>
 > \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\in {\mathcal K}\\) be such that \\(N_H(C)\cap \kappa_H(X) =\emptyset\\) <br>
-> \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(B\leftarrow \mathrm{Reach}(N_C(H),H\setminus \\{\kappa_H(X)\cup X\\})\\)<br>
-> \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C\leftarrow C\cup B\\)<br>
-> \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(B)\\)<br>
-> \\(13.\\)  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\)<br>
-> \\(14.\\) return \\(\cup_{C\in {\mathcal K}}\\) and \\(\\{\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert): C\in {\cal K}\\}\\) <br>
+> \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp; \\(B\leftarrow \mathrm{Reach}(N_C(H),H\setminus \\{\kappa_H(X)\cup X\\})\\)<br>
+> \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp; \\(C\leftarrow C\cup B\\)<br>
+> \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp; \\(H\leftarrow \kappa_H(B)\\)<br>
+> \\(13.\\)  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp; \\({\mathcal K}\leftarrow\\)<span style="font-variant: small-caps">Trim</span>\\(({\mathcal K},H)\\)<br>
+> \\(14.\\) return \\(T_{C\in {\mathcal K}}\\) and \\(\\{\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert): C\in {\cal K}\\}\\) <br>
 > \\(14.\\) return \\(\cup\\{\arg\min(\lvert V(C)\rvert, \lvert N_H(C)\rvert): C\in {\cal K}\\}\\) 
 
 ***
