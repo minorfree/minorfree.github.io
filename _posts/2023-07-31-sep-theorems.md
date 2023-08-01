@@ -270,9 +270,12 @@ Otherwise, let:
 
  $$\widehat{L}_{t} = \{\widehat{v}\in \widehat{G}: d_{\widehat{G}}(R,\widehat{v}) = t\}$$
  
+ 
+ \\(\widehat{X}_{t} = \{\widehat{v}\in \widehat{G}: d_{\widehat{G}}(R,\widehat{v}) = t\}\\)
+ 
  for every \\(1\leq t\leq k\ell\\). We refer to each \\(\widehat{L}_{t}\\) as a level.  Observe that removing any \\(\widehat{L}_{t}\\) from \\({\widehat G}\\) will disconnect \\(R\\) from \\(S\\).  Let \\(t^{\ast}\in [1,k\ell]\\) be the level of minimum size;  that is, \\(\lvert\widehat{L}_{t^{\ast}}\rvert= \min_{1\leq t\leq k\ell}\lvert\widehat{L}_{t}\rvert\\). 
 
-Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\widehat{L}_{t^{\ast}}\\). Then:
+Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(\widehat{X}_{t^{\ast}}\\). Then:
 
 $$\lvert X\rvert \leq \lvert \widehat{L}_{t^{\ast}}\rvert \leq \frac{\lvert V(\widehat{G})\rvert} {k\ell} = \frac{n}{\ell}$$
 
