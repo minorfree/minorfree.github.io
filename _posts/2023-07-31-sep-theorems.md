@@ -273,7 +273,7 @@ Otherwise, let:
 
  Let \\(X\\) be the vertices of \\(G\\) corresponding to \\(L^{\star}\\). Then:
 
-$$\lvert X\rvert \leq \lvert L^{\star}}\rvert \leq \frac{\lvert V(\widehat{G})\rvert} {k\ell} = \frac{n}{\ell}$$
+$$\lvert X \rvert \leq \lvert L^{\star}\rvert \leq \frac{\lvert V(\widehat{G})\rvert} {k\ell} = \frac{n}{\ell}$$
 
 We claim that no connected component \\(C\subseteq G\setminus X\\) intersects all \\(A_i\\). Suppose otherwise, then we form a path \\(Q\\) composing of \\(k\\) paths \\(Q_1,Q_2,\ldots, Q_{k-1}\\) as follows: \\(Q_1\\) is a path in \\(C\\) from  an arbitrary vertex \\(v\in A_1\\) to another (arbitrary) vertex in \\(A_2\\), and for every other \\(i\in [2,k-1]\\),  \\(Q_i\\) is a path in \\(C\\) from  the endpoint of \\(Q_{i-1}\\) to an (arbitrary) vertex \\(u \in A_{i+1}\\). We then can map \\(Q\\) back to a path \\(\widehat{Q}\\) from a vertex in \\(R\\) to a vertex in \\(S\\) in \\(\widehat{G}\\) in a natural way. Moreover, \\(Q\\) does not contain any vertex of \\(L^{\star}\\), contradicting that removing \\(L^{\star}\\) from \\(\widehat{G}\\) disconnects \\(R\\) and \\(S\\).
 
