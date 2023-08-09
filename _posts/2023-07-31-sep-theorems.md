@@ -56,7 +56,7 @@ When we recurse on the largest component \\(H\\) in line 13, we only keep subgra
 > \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C_v\leftarrow\\) minimal subtree of \\(T_v\\) s.t \\(C_v\cap N_H(C)\not=\emptyset \quad\forall C\in {\mathcal K}\\)<br>
 > \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \\{C_v\\}\\) 
 > \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  return \\({\mathcal K}\\) if \\(\lvert{\mathcal K}\rvert = h\\)<br> 
-> \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(V(C_X))\\)<br>
+> \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(V(C_v))\\)<br>
 > \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp; else<br>
 > \\(11.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; Find \\(X\\) s.t \\(0 < \lvert X\rvert \leq \frac{\lvert V(H)\rvert - \lvert\kappa_H(X)\rvert} {\ell}\\)<br>
 > \\(12.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(S\leftarrow S\cup X\\)<br>
