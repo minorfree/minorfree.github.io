@@ -54,7 +54,7 @@ When we recurse on the largest component \\(H\\) in line 13, we only keep subgra
 > \\(4.\\) &nbsp;&nbsp;&nbsp;&nbsp; \\(T_{v}\leftarrow\\)<span style="font-variant: small-caps">BFSTree</span>\\((v,H)\\)<br>
 > \\(5.\\) &nbsp;&nbsp;&nbsp;&nbsp; if \\(\mathrm{depth}(T_v) \leq 2\ell \ln(n)\\)<br>
 > \\(6.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(C_v\leftarrow\\) minimal subtree of \\(T_v\\) s.t \\(C_v\cap N_H(C)\not=\emptyset \quad\forall C\in {\mathcal K}\\)<br>
-> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \\{C_v\\}\\) 
+> \\(7.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\({\mathcal K}\leftarrow {\mathcal K}\cup \\{C_v\\}\\)<br> 
 > \\(8.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  return \\({\mathcal K}\\) if \\(\lvert{\mathcal K}\rvert = h\\)<br> 
 > \\(9.\\) &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; \\(H\leftarrow \kappa_H(V(C_v))\\)<br>
 > \\(10.\\) &nbsp;&nbsp;&nbsp;&nbsp; else<br>
