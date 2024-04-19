@@ -4,7 +4,6 @@ mathjax: true
 layout: post
 categories: media
 ---
-# Optimal Euclidean Tree Covers
 
 This post will discuss [our recent preprint](https://arxiv.org/abs/2403.17754) on tree cover for Euclidean metrics.  A line of research that I have been thinking a lot about recently is constructing tree covers for point sets in metric spaces. Intuitively, a tree cover of a point set is a collection of trees such that for any two points in the set, one of the trees preserves their distance up to some stretch factor. More formally, given a set of point \\(X\\) in a metric space \\((M,\delta_M)\\), a *tree cover of stretch \\(\alpha\\)* for \\(P\\) is a collection of trees \\({\mathcal T}\\) such that: 
 1. [Dominating] for every tree \\(T\in {\mathcal T}\\), \\(X\subseteq V(T)\\), and for every two points \\(x,y\in X\\), \\(\delta_M(x,y)\leq \delta_T(x,y)\\).
