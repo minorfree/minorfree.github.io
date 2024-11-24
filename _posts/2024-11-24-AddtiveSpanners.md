@@ -25,11 +25,9 @@ The parameter \\(k\\) is called the additive stretch of \\(H\\). There is a very
 
 The algorithm, due to [Aingworth, Chekuri, Indyk, and Motwani](https://epubs.siam.org/doi/abs/10.1137/S0097539796303421), is very simple and could easily be taught:
 
-<div style="padding: 10px; border: 2px solid black;">
-
 1. Add to the spanner, called \\(H\\), every edge incident to a vertex of degree at most \\(\sqrt{n}\\) (called a **low-degree** vertex).
+
 2. Sample every vertex independently with probability \\(p = \frac{10\log n}{\sqrt{n}}\\). Let \\(S\\) be the sampled set. Then build a BFS tree from every vertex in \\(S\\) and add the edges of all the BFS trees to \\(H\\).
-</div>
 
 It is not hard to see that \\(S\\) has expected size \\(O(\sqrt{n}\log n)\\) and hence the total number of edges added in step 2 (and therefore in both steps) is  \\(O(n^{3/2}\log n)\\). Showing the additive stretch 2 (with high probability) is a bit tricker. 
 
@@ -42,6 +40,7 @@ d_G(x,v) &\leq d_G(x,y) + d_G(y,v) = d_G(y,v) + 1\\
 \end{align}
 
 and therefore:
+
 \begin{align}
 d_H(u,v) &\leq d_H(x,u) + d_H(x,v)\\
     &= d_G(x,u) + d_G(x,v) \\
@@ -71,12 +70,12 @@ Let \\(P_G(u,v)\\) be a shortest path from \\(u\\) to \\(v\\) in \\(G\\). First,
 
 1. For every vertex \\(u\\), add to the spanner \\(H\\) up to  \\(n^{1/3}\\) incident edges (chosen arbitrarily). This means if \\(u\\) has a degree at most \\(n^{1/3}\\), called a **low-degree** vertex, then all of the incident edges will be added. 
 
-2. Sample every vertex with probability \\(p = \frac{10\log n}{n^{1/3}}\\) to get a set \\(S\\) of sampled vertices; \\(|S|\\) is about \\(\tilde{O}(n^{2/3})\\). For the same reason in Claim 1, \\(S\\) will hit the neighborhood of every high-degree vertex. However, we cannot add a BFS tree from every vertex of \\(S\\), since the total number of edges would be \\(\tilde{O}(n^{5/3})\\), more than our desired \\(\tilde{O}(n^{4/3})\\) bound.
+2. Sample every vertex with probability \\(p = \frac{10\log n}{n^{1/3}}\\) to get a set \\(S\\) of sampled vertices; \\(\lvert S\rvert\\) is about \\(\tilde{O}(n^{2/3})\\). For the same reason in Claim 1, \\(S\\) will hit the neighborhood of every high-degree vertex. However, we cannot add a BFS tree from every vertex of \\(S\\), since the total number of edges would be \\(\tilde{O}(n^{5/3})\\), more than our desired \\(\tilde{O}(n^{4/3})\\) bound.
 
 3. Consider the shortest path \\(P_G(u,v)\\) between \\(u\\) and \\(v\\). We can assume that \\(u\\) and \\(v\\) are high-degree vertices; otherwise, we will consider the subpath of \\(P_G(u,v)\\)  between the two high-degree vertices closest to \\(u\\) and to \\(v\\) (the rest of the path is in \\(H\\)).  By union bound, there exists \\(x,y \in S\\) that are neighbors **in \\(H\\)** of \\(u\\) and \\(v\\), respectively. Since these are neighbors in \\(H\\), \\(d_H(u,v)\leq d_H(x,y)+2\\). If we can construct \\(H\\) such that: $$d_H(x,y) \leq d_G(u,v) +4,$$ then we will have additive stretch +6. See Figure 1(b).  The key idea is to look at the number of missing edges of \\(P_G(u,v)\\). 
  
 
-4. Suppose that  \\(P_G(u,v)\\) has about \\(2^i\\) missing edges for some \\(i\\). An edge is *missing* if it is not in \\(H\\); a missing edge is incident to high-degree vertices only. If  we sample vertices with probability about \\(\frac{\log n}{n^{1/3}2^i}\\) (the set \\(D_i\\) in line 5 below) we catch at least one vertex, say \\(z\\), in the neighborhood of some high degree vertex \\(t \in P_G(u,v)\\). Note that the two paths \\(Q_1 =(z,t)\circ P_G(t,u) \circ (u,x)\\) and  \\(Q_2 = (z,t)\circ P_G(t,v)\circ (v,y)\\) miss at most \\(2^i\\) edges each, and we want to catch these paths. We do so by adding to  \\(H\\), for every vertex \\(s\in S\\), a **shortest paths missing at most \\(2^i\\)** from \\(z\\) to \\(s\\). These paths will include the two paths \\(Q_1'\\) and \\(Q_2'\\) from \\(z\\) to \\(x\\) and \\(y\\), respectively, each has at most \\(2^i\\) missing edges. The main observation is that \\(|Q_1'\rvert \leq \lvert Q_1|\\) and \\(|Q_2'\rvert \leq \lvert Q_2|\\), and therefore,  $$d_H(x,y) \leq \lvert Q_1'\rvert + \lvert Q_2'|\leq \lvert Q_1\rvert + \lvert Q_2\rvert = d_G(u,v) + 4,$$ as we want in step 3. The total number of edges added in this step will be $$\frac{n\log n}{n^{1/3}2^i}\cdot (|S\rvert \cdot 2^i) = n^{2/3}\log n\cdot \tilde{O}(n^{2/3}) = \tilde{O}(n^{4/3})$$
+4. Suppose that  \\(P_G(u,v)\\) has about \\(2^i\\) missing edges for some \\(i\\). An edge is *missing* if it is not in \\(H\\); a missing edge is incident to high-degree vertices only. If  we sample vertices with probability about \\(\frac{\log n}{n^{1/3}2^i}\\) (the set \\(D_i\\) in line 5 below) we catch at least one vertex, say \\(z\\), in the neighborhood of some high degree vertex \\(t \in P_G(u,v)\\). Note that the two paths \\(Q_1 =(z,t)\circ P_G(t,u) \circ (u,x)\\) and  \\(Q_2 = (z,t)\circ P_G(t,v)\circ (v,y)\\) miss at most \\(2^i\\) edges each, and we want to catch these paths. We do so by adding to  \\(H\\), for every vertex \\(s\in S\\), a **shortest paths missing at most \\(2^i\\)** from \\(z\\) to \\(s\\). These paths will include the two paths \\(Q_1'\\) and \\(Q_2'\\) from \\(z\\) to \\(x\\) and \\(y\\), respectively, each has at most \\(2^i\\) missing edges. The main observation is that \\(\lvert Q_1'\rvert \leq \lvert Q_1\rvert\\) and \\(\lvert Q_2'\rvert \leq \lvert Q_2\rvert\\), and therefore,  $$d_H(x,y) \leq \lvert Q_1'\rvert + \lvert Q_2'\rvert\leq \lvert Q_1\rvert + \lvert Q_2\rvert = d_G(u,v) + 4,$$ as we want in step 3. The total number of edges added in this step will be $$\frac{n\log n}{n^{1/3}2^i}\cdot (\lvert S\rvert \cdot 2^i) = n^{2/3}\log n\cdot \tilde{O}(n^{2/3}) = \tilde{O}(n^{4/3})$$
 
 
 5. The number of edges \\(\tilde{O}(n^{4/3})\\) is to cover for a specfic number of missing edges \\(2^i\\) for some \\(i\\). To cover all possible values of missing edges, we only need to consider values of \\(i\\) from \\(0\\) up to \\(\log n\\) (the loop in line 4 below). In the end, the number of edges of the spanner is blown up only by a factor of \\(O(\log n)\\).
@@ -98,9 +97,9 @@ The pseudo-code of the algorithm is described below. We say that an edge is **mi
 ***
 
 
-**Number of edges.** The number of edges added in line 2 is \\(O(n^{4/3})\\).  Observe that \\(|S|= \tilde{O}(n^{2/3})\\), and that \\(|D_i\rvert = \frac{n\log n}{n^{1/3}2^i}\\). Since the path added in line 9 only has \\(2^{i}\\) missing edges, the total number of edges added in the for loop in line 6 for every fixed \\(i\\) is:
+**Number of edges.** The number of edges added in line 2 is \\(O(n^{4/3})\\).  Observe that \\(\lvert S \rvert= \tilde{O}(n^{2/3})\\), and that \\(\lvert D_i\rvert = \frac{n\log n}{n^{1/3}2^i}\\). Since the path added in line 9 only has \\(2^{i}\\) missing edges, the total number of edges added in the for loop in line 6 for every fixed \\(i\\) is:
 
-$$\frac{n\log n}{n^{1/3}2^i}\cdot (|S\rvert \cdot 2^i) = n^{2/3}\log n\cdot \tilde{O}(n^{2/3}) = \tilde{O}(n^{4/3})$$
+$$\frac{n\log n}{n^{1/3}2^i}\cdot (\lvert S\rvert \cdot 2^i) = n^{2/3}\log n\cdot \tilde{O}(n^{2/3}) = \tilde{O}(n^{4/3})$$
 
 Thus, the total number of edges in \\(H\\) remains \\(\tilde{O}(n^{4/3})\\).
 
