@@ -34,20 +34,13 @@ It is not hard to see that \\(S\\) has expected size \\(O(\sqrt{n}\log n)\\) and
 
 Consider a shortest path \\(P\\) from a vertex \\(u\\) to a vertex \\(v\\).  If every vertex on \\(P\\) is low-degree, then every edge of \\(P\\) is in \\(H\\) by step 1, and hence the additive stretch is \\(0\\). Otherwise, at least one vertex, say \\(y\\), on \\(P\\) has a high degree, i.e., its degree is at least \\(\sqrt{n}\\). Then by the standard union  bound, it is not hard to show that \\(y\\) has a neighbor \\(x \in S\\) (see Claim 1). See Figure 1(a). By step 2, \\(d_H(x,u) = d_G(x,u)\\) and  \\(d_H(x,v) = d_G(x,v)\\). On the other hand, by the triangle inequality:
 
-\begin{align}
-d_G(x,u) &\leq d_G(x,y) + d_G(y,u) = d_G(y,u) + 1\\
-d_G(x,v) &\leq d_G(x,y) + d_G(y,v) = d_G(y,v) + 1\\
-\end{align}
+$$d_G(x,u) \leq d_G(x,y) + d_G(y,u) = d_G(y,u) + 1$$
+
+$$d_G(x,v) \leq d_G(x,y) + d_G(y,v) = d_G(y,v) + 1$$
 
 and therefore:
 
-\begin{align}
-d_H(u,v) &\leq d_H(x,u) + d_H(x,v)\\
-    &= d_G(x,u) + d_G(x,v) \\
-   &\leq d_G(y,u) + 1 + d_G(y,v) + 1 \\
-   &=  d_G(u,v) + 2\\
-\end{align}
-
+$$ d_H(u,v) \leq d_H(x,u) + d_H(x,v) = d_G(x,u) + d_G(x,v \leq  d_G(u,v) + 2$$
 as claimed.
 
 ***
@@ -107,9 +100,7 @@ Thus, the total number of edges in \\(H\\) remains \\(\tilde{O}(n^{4/3})\\).
 
 Let's focus on  \\(P_G(u,v)\\). By the same argument in Claim 1, w.h.p, there exists \\(x,y \in S\\) that are neighbors in \\(H\\) of \\(u\\) and \\(v\\), respectively. By the triangle inequality, \\(d_H(u,v) \leq d_H(x,y)+ 2\\). Next, we will show that 
 
-\begin{align}
-d_H(x,y) &\leq d_G(u,v) + 4
-\end{align}
+$$d_H(x,y) \leq d_G(u,v) + 4$$
 
 If so, then \\(d_H(u,v) \leq d_G(u,v)+ 6\\) as desired.
 
@@ -126,10 +117,9 @@ Let \\(i \in [0,\log n]\\) be such that the number of missing edges on \\(P_G(u,
 
 By Claim 2 and the fact that the endpoints of a missing edge are high-degree, the number of vertices having at least one neighbor on  \\(P_G(u,v)\\) is \\(\Omega(2^{i} n^{1/3})\\). Thus, w.h.p, \\(D_i\\) contains such a vertex \\(z\\). Let \\(t \in P_G(u,v)\\) be a neighbor of \\(z\\). Let \\(Q_1 =(z,t)\circ P_G(t,u) \circ (u,x)\\) and  \\(Q_2 = (z,t)\circ P_G(t,v)\circ (v,y)\\). Both \\(Q_1\\) and \\(Q_2\\) are paths from \\(z\\) to vertices in \\(S\\), each has at most \\(2^i\\) edges missing. Thus, by line 9 of the algorithm, we have:
 
-\begin{align}
-d_H(z,x) &\leq \lvert Q_1\rvert = d_G(u,t) + 2\\
-d_H(z,y) &\leq \lvert Q_2\rvert = d_G(t,v) + 2 
-\end{align}
+$$ d_H(z,x) \leq \lvert Q_1\rvert = d_G(u,t) + 2$$
+
+$$d_H(z,y) \leq \lvert Q_2\rvert = d_G(t,v) + 2$$ 
 
 Thus, we have \\(d_H(x,y) \leq d_G(u,v)+ 4\\) as desired. 
 
