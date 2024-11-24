@@ -41,6 +41,7 @@ $$d_G(x,v) \leq d_G(x,y) + d_G(y,v) = d_G(y,v) + 1$$
 and therefore:
 
 $$ d_H(u,v) \leq d_H(x,u) + d_H(x,v) = d_G(x,u) + d_G(x,v \leq  d_G(u,v) + 2$$
+
 as claimed.
 
 ***
@@ -87,6 +88,7 @@ The pseudo-code of the algorithm is described below. We say that an edge is **mi
 > 8. &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; \\(\mathcal{P}(x,z,2^i)\leftarrow\\) all paths from \\(z\\) to \\(x\\) in \\(G\\) missing \\(\leq 2^{i}\\) edges in \\(H\\)
 > 9. &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; add shortest path in \\(\mathcal{P}(x,z,2^i)\\) to \\(H\\)
 > 10. return \\(H\\) 
+
 ***
 
 
