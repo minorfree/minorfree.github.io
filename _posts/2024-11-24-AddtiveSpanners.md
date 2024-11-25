@@ -58,7 +58,7 @@ as claimed.
 
 # A +6-Spanner 
 
-There are several known algorithms for constructing a +6-spanner with \\(\tilde{O}(n^{4/3})\\) edges. My favorite one is the randomized algorithm by [Woodruff](https://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/w10.pdf). The key idea is to sample vertices according to the number of missing edges which I find this ideavery elegant. 
+There are several known algorithms for constructing a +6-spanner with \\(\tilde{O}(n^{4/3})\\) edges. My favorite one is the randomized algorithm by [Woodruff](https://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/w10.pdf). The key idea is to sample vertices according to the number of missing edges which I find very elegant. 
 
 Let \\(P_G(u,v)\\) be a shortest path from \\(u\\) to \\(v\\) in \\(G\\). First, we describe the high-level ideas of the algorithm which is structured differently from the pseudo-code below. 
 
@@ -138,9 +138,16 @@ The situation for \\(+4\\)-spanners is very interesting. We know that a \\(+4\\)
 
 
 ***
-**Open Problem**: Construct a \\(+4\\)-spanner with \\(O(n^{3/4})\\) edges.
+**Open Problem 1**: Construct a \\(+4\\)-spanner with \\(O(n^{3/4})\\) edges.
 
 ***
+
+Another related open problem (pointed out by Greg Bodwin) which looks somewhat more naive but implies Open Problem 1 is this:
+
+***
+**Open Problem 2**: Prove for any set $S$ of $\lvert S\rvert \geq n^{2/3}$ nodes, there is a subgraph on $O(|S|^2)$ edges that preserves all distances within $S$.
+***
+
 
 How about +8 or +10-spanners? For a while, it was believed that the number of edges of a \\(+(2k-2)\\) should be about \\(n^{1+1/k}\\) for any integer constant \\(k\\), until the stunning work of [Abboud and Bodwin](https://arxiv.org/pdf/1511.00700), showing that \\(n^{4/3}\\) is the limit. Informally,  they showed that for any constant additive stretch, the minimum number of edges is \\(\Omega(n^{4/3-\epsilon})\\). Formally:
 
