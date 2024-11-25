@@ -145,7 +145,7 @@ The situation for \\(+4\\)-spanners is very interesting. We know that a \\(+4\\)
 Another related open problem (pointed out by Greg Bodwin) which looks somewhat more naive but implies Open Problem 1 is this:
 
 ***
-**Open Problem 2**: Prove for any set $S$ of $\lvert S\rvert \geq n^{2/3}$ nodes, there is a subgraph on $O(\lvert S \rvert^2)$ edges that preserves all distances within $S$.
+**Open Problem 2**: Prove for any set \\(S\\) of \\(\lvert S\rvert \geq n^{2/3}\\) nodes, there is a subgraph on \\(O(\lvert S \rvert^2)\\) edges that preserves all distances within \\(S\\).
 
 ***
 
