@@ -138,7 +138,7 @@ The situation for \\(+4\\)-spanners is very interesting. We know that a \\(+4\\)
 
 
 ***
-**Open Problem 1**: Construct a \\(+4\\)-spanner with \\(O(n^{3/4})\\) edges.
+**Open Problem 1**: Construct a \\(+4\\)-spanner with \\(O(n^{4/3})\\) edges.
 
 ***
 
