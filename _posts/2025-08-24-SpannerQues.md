@@ -7,7 +7,7 @@ categories: media
 
 I gave a talk at the [Sublinear Graph Simplification workshop](https://simons.berkeley.edu/workshops/sublinear-graph-simplification) at the Simons Institute for Theory of Computing in July 2024. My talk titled ["Recent Progress on Euclidean Spanners"](https://www.youtube.com/watch?v=H3KWeEEVA9g), which was my original motivation. However, to fit my talk more to the theme of the workshop, I decided to  expand the scope to cover many different types and classes of graphs. Here is a [copy of my slides](/assets/figs/spanner-simons-talk.pdf).
 
-In the talk, I posed various questions, and since then, there has been progress on many of them. So I think I should post about these questions and include recent progress on each of them. I wish to see more progress in this space. Without further ado, here they are (refer to my slides for terminology).
+In the talk, I posed various questions, and since then, there has been progress on some of them. So I think I should post about these questions and include recent progress on each of them. I wish to see more progress in this space. Without further ado, here they are (refer to my slides for terminology).
 
 ---
 
