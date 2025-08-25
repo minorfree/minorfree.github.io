@@ -65,9 +65,9 @@ In the talk, I posed various questions, and since then, there has been progress 
 
 ----
 
-**Question 7**: \\(O(\log(n))\\)-approximation for \\(t\\)-spanners for point set in high dimensional \\(\mathbb{R}^d\\) (where \\(d = \Omega(\log n)\\)). 
+**Question 7**: \\(O(\log(n))\\)-approximation for \\(t\\)-spanners for point set in high dimensional \\(\mathbb{R}^d\\) (where \\(d = \Omega(\log n)\\) and \\(t\geq 3\\)). 
 
-> Comments: The best approximation ratio is the same as for general graphs. As mentioned above, a \\(polylog(n)\\)-approximation was ruled out for general graphs, but no such lower bound is known for Euclidean graphs. 
+> Comments: The best approximation ratio is the same as for general graphs. As mentioned above, a \\(polylog(n)\\)-approximation was ruled out for general graphs, but no such lower bound is known for Euclidean graphs.  When \\(t = 1+\epsilon\\), my work mentioned in Question 6 gave a bicriteria approximation for any dimension \\(d\\).
 
 > Status: Open.
 
