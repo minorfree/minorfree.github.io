@@ -33,7 +33,7 @@ In the talk, I posed various questions, and since then, there has been progress 
 **Question 3**: Light bounded degree fault-tolerant spanners in Euclidean and doubling metrics with lightness \\(O_{\epsilon,d}(f)\\)? 
 
 
-> Comments: The bounded degree faulure model was introduced by [Bodwin, Haeupler, and  Parter](https://arxiv.org/abs/2309.06696). [This paper](https://arxiv.org/abs/2405.18134) then constructed a bounded degree fault-tolerant spanner for Euclidean and doubling metrics with sparsity \\(O_{\epsilon,d}(f)\\) (in Euclidean) and \\(O_{\epsilon,d}(f^2)\\)? for doubling. There is a question of closing this gap (mentioned in my talk). However, constructing a light version seems more challenging. 
+> Comments: The bounded degree faulure model was introduced by [Bodwin, Haeupler, and  Parter](https://arxiv.org/abs/2309.06696). [This paper](https://arxiv.org/abs/2405.18134) then constructed a bounded degree fault-tolerant spanner for Euclidean and doubling metrics with sparsity \\(O_{\epsilon,d}(f)\\) (in Euclidean) and \\(O_{\epsilon,d}(f^2)\\) for doubling. There is a question of closing this gap (mentioned in my talk). However, constructing a light version seems more challenging. 
 
 > Status: Open.
 
@@ -42,7 +42,7 @@ In the talk, I posed various questions, and since then, there has been progress 
 **Question 4**: Other models of massive failure? 
 
 
-> Comments:A model for massive failure should allow up to \\(\Omega(n)\\) nodes or edges to fail, while non-trivial guarantees (sparsity/lightness) are still achievable. In the talk, I mentioned four models: [reliable spanners](https://arxiv.org/pdf/2007.08738), [dependable spanners](https://arxiv.org/abs/2407.01466), [color fault-tolerant spanners](https://arxiv.org/abs/2311.08868)), and [bounded-degree spanners](https://arxiv.org/abs/2309.06696). Any other reasonable model?
+> Comments:A model for massive failure should allow up to \\(\Omega(n)\\) nodes or edges to fail, while non-trivial guarantees (sparsity/lightness) are still achievable. In the talk, I mentioned four models: [reliable spanners](https://arxiv.org/pdf/2007.08738), [dependable spanners](https://arxiv.org/abs/2407.01466), [color fault-tolerant spanners](https://arxiv.org/abs/2311.08868), and [bounded-degree spanners](https://arxiv.org/abs/2309.06696). Any other reasonable model?
 
 > Status: Open.
 
