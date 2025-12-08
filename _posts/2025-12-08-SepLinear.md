@@ -24,15 +24,16 @@ The following algorithm finds a \\((1-\frac{1}{200h^2})\\)-balanced separator \\
 > 1. \\(w_1(v)\leftarrow 40\\) for every \\(v\in V\\)
 > 2. \\(S\leftarrow \emptyset\\)
 > 3. for \\(t\leftarrow 1\\) to \\(20h^2\\) 
-> 4. &nbsp;&nbsp;&nbsp;&nbsp; <mark>\\((C^{*}_t, S_t)\leftarrow \text{KPR}(\langle G,w_t\rangle,\lfloor\sqrt{n}/6h^2\rfloor)\\)  </mark> 
+> 4. &nbsp;&nbsp;&nbsp;&nbsp; \\((C^{*}_t, S_t)\leftarrow \text{KPR}(\langle G,w_t\rangle,\lfloor\sqrt{n}/6h^2\rfloor)\\)   
 > 5. &nbsp;&nbsp;&nbsp;&nbsp; \\(S\leftarrow S\cup S_t\\)
 > 6. &nbsp;&nbsp;&nbsp;&nbsp; if \\(\rvert C^{\ast}_t\rvert \leq (1-\frac{1}{200h^2})n\\)
 > 7. &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; return \\(S\\)  
 > 8. &nbsp;&nbsp;&nbsp;&nbsp; \\(c_t\leftarrow\\) an arbitrary vertex in \\(C^{\ast}_t\\)
-> 9. &nbsp;&nbsp;&nbsp;&nbsp; <mark>\\(T_{t}\leftarrow\text{BFS}(\langle{G,w_t}\rangle,c_t,\sqrt{n})\\)</mark> 
+> 9. &nbsp;&nbsp;&nbsp;&nbsp; \\(T_{t}\leftarrow\text{BFS}(\langle{G,w_t}\rangle,c_t,\sqrt{n})\\)
 > 10. &nbsp;&nbsp;&nbsp;&nbsp; for every \\(v\in V(T_{t})\\) 
 > 11. &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; \\(w_{t+1}(v)\leftarrow (1+ \frac{\lvert T_{t}(v)\rvert 20^3h^6}{\sqrt{n}})w_t(v)\\)
 > 12. &nbsp;&nbsp;&nbsp;&nbsp; return \\(S\\)
+
 ***
 
 In line 11, \\(T_t(v)\\) is the vertex set of the  subtree rooted at \\(v\\). Three things that I'd like to clarify:
@@ -69,6 +70,7 @@ As for the case of KPR, it is the best to present the algorithm as a randomized 
 > 9. &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  \\(i\leftarrow i+1\\)
 > 10. \\(C^{\ast}\\) largest component in \\({\mathcal C}_{h+1}\\)
 > 11. return \\((C^{\ast},S)\\)
+
 ***
 
 Basiscally, we takes all the layers of the form \\(j\Delta + \tau\Delta\\) for all integers \\(j\\). (W.l.o.g. we assume \\(\tau\Delta\\) is an integer by a simple rouding).  Line 7 requires computing a vertex-weighted BFS tree on \\(C\\) with the (integer) weights are inherited from \\(G\\). The analyis is along the line of KPR: the basic idea is that in each iteration \\(i\\), the probability that \\(v\in S\\) is exaclty \\(w(v)/\Delta\\) (due to the random choice \\(\tau\\)). Thus, the expected total size of \\(S\\) after \\(h\\) iterations is \\(hW/\Delta\\). Bounding the weak diameter of \\(C^{\ast}\\) is the same as the original KPR; see see [here](https://tcsmath.wordpress.com/2012/01/11/a-simpler-proof-of-the-kpr-theorem/) for a simple proof.
@@ -108,7 +110,11 @@ Let \\({\mathcal R}(T_t)\\)  be the distribution of rooted paths of \\(T_t\\) co
 
 ***
 
-**Proof Sketch.** Invariants 4 and 5 follow directly from the definition. Invariant 3 follows from induction and the definition of \\(w_{t}(v)\\). For invariant 1, observe that \\(\\)\mathrm{Pr}[E_{i,v}] = \frac{\lvert T_{t}(v)\rvert }{\lvert V(T_t)\rvert }  \leq  \frac{2\rvert T_{t}(v)\rvert }{n},\\)\\) as \\(V(T_t)\geq n/2\\). The definition of \\(w_{t+1}(v)\\) gives:
+**Proof Sketch.** Invariants 4 and 5 follow directly from the definition. Invariant 3 follows from induction and the definition of \\(w_{t}(v)\\). For invariant 1, observe that 
+
+$$\mathrm{Pr}[E_{i,v}] = \frac{\lvert T_{t}(v)\rvert }{\lvert V(T_t)\rvert }  \leq  \frac{2\rvert T_{t}(v)\rvert }{n},$$ 
+
+as \\(V(T_t)\geq n/2\\). The definition of \\(w_{t+1}(v)\\) gives:
 
 $$\lvert T_t(v)\rvert \leq \frac{\sqrt{n}\,w_{t+1}(v)}{k^3\,w_t(v)}$$
 
