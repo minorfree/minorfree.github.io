@@ -53,7 +53,7 @@ Let me introduce the notion of a \\( d \\)-fat clique minor. A clique minor \\( 
 There is a more complicated way to define a \\( K_h \\)-minor model of \\( G \\). Let \\( B \\) be a map that maps each vertex \\( v \\) in \\( K_h \\) to a connected subgraph \\( B_v \\) of \\( G \\) and each edge \\( e \\) in \\( K_h \\) to a connected subgraph \\( B_e \\) of \\( G \\). The map \\( B \\) realizes a \\( K_h \\)-minor model if:
 
 1. whenever \\( v \\) is an endpoint of \\( e \\), \\( B_v \\) and \\( B_e \\) share at least one vertex.
-2. otherwise, subgraphs in \\( \{B_v\}_{v \in V} \cup \{B_e\}_{e \in E} \\) are vertex disjoint.
+2. otherwise, subgraphs in \\( \\{B_v\\}_{v \in V} \cup \\{B_e\\}_{e \in E} \\) are vertex disjoint.
 
 ![K4-fatminor](/assets/figs/K4-fatminor.svg)
 
@@ -62,7 +62,7 @@ Figure 1: A \\( 2 \\)-fat minor of \\( K_4 \\) in a graph \\( G \\). Picture gen
 This somewhat complicated definition is naturally generalizable. Given an integer \\( d \ge 1 \\), a map \\( B \\) realizes a \\( d \\)-fat \\( K_h \\)-minor if:
 
 1. whenever \\( v \\) is an endpoint of \\( e \\), \\( B_v \\) and \\( B_e \\) share at least one vertex.
-2. otherwise, subgraphs in \\( \{B_v\}_{v \in V} \cup \{B_e\}_{e \in E} \\) are *distance at least* \\( d \\) in \\( G \\).
+2. otherwise, subgraphs in \\( \\{B_v\\}_{v \in V} \cup \\{B_e\\}_{e \in E} \\) are *distance at least* \\( d \\) in \\( G \\).
 
 When \\( d = 1 \\), a \\( d \\)-fat \\( K_h \\)-minor is also a \\( K_h \\)-minor. Things are interesting when \\( d \ge 2 \\). For example, a \\( 2 \\)-fat minor is closely related to an induced minor. Things are more complicated when \\( d \ge 3 \\), which is the central regime in coarse graph theory.
 
