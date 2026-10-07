@@ -23,4 +23,4 @@ I intentially do not mention other big results. What a strange time to be alive.
 Updates:
 
 
-- Dec 07: Read planar L1 Embedding manuscript of Open AI for about 6 hours, gone through the details of the first 12 pages. The proof introduces a very strange model called the **non-crossing column model** of planar graphs, that I have not seen before. I have not yet internalized the model but got a "feel" for it. The writing is so compressed and dense. The expanded version (obtained by querying ChatGPT Astra) has 90+ pages. The "length" of the manuscript released by Open AI is cheated. 
+- Oct 07: Read planar L1 Embedding manuscript of Open AI for about 6 hours, gone through the details of the first 12 pages. The proof introduces a very strange model called the **non-crossing column model** of planar graphs, that I have not seen before. I have not yet internalized the model but got a "feel" for it. The writing is so compressed and dense. The expanded version (obtained by querying ChatGPT Astra) has 90+ pages. The "length" of the manuscript released by Open AI is cheated. 
