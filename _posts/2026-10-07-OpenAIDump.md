@@ -3,6 +3,7 @@ title:  "OpenAI Math Dump Hits My Home"
 mathjax: true
 layout: post
 categories: media
+date: 2026-10-07 14:35:00 -0400
 ---
 
 Recent OpenAI [Math dump](https://github.com/openai/math/tree/main/preprints) have solutions to many long standing probems in Math and TCS. In the dump, two problems that I and my friends, notably [Arnold Filtser](https://arnold.filtser.com/), have studied for more than a decade, and published a few papers about this:
