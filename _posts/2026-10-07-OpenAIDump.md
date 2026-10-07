@@ -5,7 +5,7 @@ layout: post
 categories: media
 ---
 
-Recent OpenAI [Math dump](https://github.com/openai/math/tree/main/preprints) have solutions to many long standing probems in Math and TCS. In the dump, two problems that I and my friend, notabely [Arnold Filtser](https://arnold.filtser.com/), have studied for more than a decade, and published a few papers about this:
+Recent OpenAI [Math dump](https://github.com/openai/math/tree/main/preprints) have solutions to many long standing probems in Math and TCS. In the dump, two problems that I and my friends, notably [Arnold Filtser](https://arnold.filtser.com/), have studied for more than a decade, and published a few papers about this:
 
 1. The $\ell_1$-embedding conjecture for planar graphs. Open AI solution [here](https://github.com/openai/math/blob/main/preprints/Planar-Graph-Metrics-Embed-into-L1-with-Constant-Distortion-September-23-2026/paper.pdf).
 2. The $\ell_1$-embedding conjecture for bounded treewidth graphs.  Open AI solution [here](https://github.com/openai/math/blob/main/preprints/L1-Embeddings-of-Graphs-of-Bounded-Treewidth-September-23-2026/paper.pdf).
