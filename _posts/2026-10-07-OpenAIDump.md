@@ -22,6 +22,8 @@ I intentially do not mention other big results. What a strange time to be alive.
 
 Updates:
 
+- Oct 11: continue reading for 3 hours. I spent 2 hours reviewing Section 5 again and got a better understanding of this section: it sets the stage for the real actions, which are in Sections 6, 7, and 8. I also started reading Section 6.1 for an hour. The writing of Sections 5 and 6 is a complete joke. (Why am I even saying this? I should just assume this by default.) 
+
 - Oct 10: Continue reading for 3 hours. The interpolation of Section 4 (specifically Corollary 4.6) seems like a very nice trick. (I still don't know how it will be used yet.) So I decided to spend 2 more hours trying to understand the statement of Corollary 4.6, with all the subtleties of the randomness involved. Moving to section 5, it describes a very vague idea of the scales. Scaling is a standard trick, but it is likely that this paper uses it in a subtle way that I am not aware of. The details are not in Section 5, which is where I stop for now. 
 
 - Oct 09: Continue reading for 3.5 hours (don't have a lot of time today). I spent 2.5 hours consolidating my understanding of the chart, and I think I got a good handle on this object. The reading confirms my impression from yesterday: the objects are very abstract and hard to understand, but the lemmas in Section 3 are simply reformulations of shallow facts about these abstract objects (which make them sound deep and terrifying). I spent 1 hour reading the statement of Theorem 4.1 (and yes, another hour just to understand what it means). To keep my sanity, I will skip the proof (which is the entire Section 4), and jump to the next section (Section 5) tomorrow (if I have time to read tomorrow at all).  
