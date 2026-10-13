@@ -22,6 +22,8 @@ I intentially do not mention other big results. What a strange time to be alive.
 
 Updates:
 
+- Oct 12-13: continue reading for 6.5 hours over two days. I have not finished understanding the whole Section 6, but I now get a decent understanding of Sections 6.1 and 6.2. I noticed that some arguments in the proof of these sections are very familiar to me. But a large part of this section is new. I am still wrestling with the notation. On a positive note, after Section 5, the paper gets increasingly interesting, and I feel like I am learning something new.  Still, I have not gotten to the center of it. (No more complain about the writing from now on since it is bad by default.)
+
 - Oct 11: continue reading for 3 hours. I spent 2 hours reviewing Section 5 again and got a better understanding of this section: it sets the stage for the real actions, which are in Sections 6, 7, and 8. I also started reading Section 6.1 for an hour. The writing of Sections 5 and 6 is a complete joke. (Why am I even saying this? I should just assume this by default.) 
 
 - Oct 10: Continue reading for 3 hours. The interpolation of Section 4 (specifically Corollary 4.6) seems like a very nice trick. (I still don't know how it will be used yet.) So I decided to spend 2 more hours trying to understand the statement of Corollary 4.6, with all the subtleties of the randomness involved. Moving to section 5, it describes a very vague idea of the scales. Scaling is a standard trick, but it is likely that this paper uses it in a subtle way that I am not aware of. The details are not in Section 5, which is where I stop for now. 
