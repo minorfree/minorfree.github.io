@@ -22,6 +22,9 @@ I intentially do not mention other big results. What a strange time to be alive.
 
 Updates:
 
+- Oct 17: Read Section 7 for 4 hours and got a decent understanding of it. It introduces the concepts of an ordered field, which will be mainly used in Section 8. The big picture of how the ordered fields will be used is still unclear at this moment, but will be clear when I read Section 8 next.  All proofs in this section are relatively simple. The biggest challenge is to deal with the notation and keep all the crazy constants in my head.
+
+
 - Oct 14-16: continue reading for 5.5 hours over three (busy) days. I finished reading Section 6 and have a good understanding of it. Reading through this section makes me appreciate the column model (introduced in Section 2) much more. Using the column model, the key argument (the packing bound) is quite slick. One annoyance I have is that often in computer science, we draw tree upside down (yes, CS is weird), but in this proof, I have to picture the shortest path tree upward, which confuses me greatly when it comes to terminology likes descending path. However, the reading starts to get more interesting as now I can understand the big picture better. And I am looking forward to reading Section 7 in the next few days.
 
 - Oct 12-13: continue reading for 6.5 hours over two days. I have not finished understanding the whole Section 6, but I now get a decent understanding of Sections 6.1 and 6.2. I noticed that some arguments in the proof of these sections are very familiar to me. But a large part of this section is new. I am still wrestling with the notation. On a positive note, after Section 5, the paper gets increasingly interesting, and I feel like I am learning something new.  Still, I have not gotten to the center of it. (No more complain about the writing from now on since it is bad by default.)
