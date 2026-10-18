@@ -22,6 +22,8 @@ I intentially do not mention other big results. What a strange time to be alive.
 
 Updates:
 
+- Oct 18: Spent 5 hours today: 2 hours consolidating my understanding of Section 7 and 3 hours reading Section 8. It is strange that, to understand the text at the beginning of Section 8, I have to read Section 8. It’s like the (pointless) proof overviews of typical AI papers: to understand the overview, you have to read the actual proof. Section 8 is super dense. I managed to go through Section 8.1 only, and will read 8.2 tomorrow in more details. I got a very hazy understanding of Section 8.1.
+
 - Oct 17: Read Section 7 for 4 hours and got a decent understanding of it. It introduces the concepts of an ordered field, which will be mainly used in Section 8. The big picture of how the ordered fields will be used is still unclear at this moment, but will be clear when I read Section 8 next.  All proofs in this section are relatively simple. The biggest challenge is to deal with the notation and keep all the crazy constants in my head.
 
 
